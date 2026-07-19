@@ -1,5 +1,5 @@
 {
-  "buildCommand": "bunx convex dev --once && tsc -b && vite build",
+  "buildCommand": "tsc -b && vite build",
   "rewrites": [
     {
       "source": "/((?!assets/__viktor_meta\\.json).*)",
