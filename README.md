@@ -1,4 +1,4 @@
-# Convex + Vite + React + shadcn/ui Starter
+# Convex + Vite + React + shadcn/ui Starter 
 
 A production-ready full-stack web app template.
 
