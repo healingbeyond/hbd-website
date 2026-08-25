@@ -5,21 +5,17 @@ export function ContactPage() {
   const [email, setEmail] = useState("");
   const [message, setMessage] = useState("");
 
-  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+  const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
 
-    const cleanName = name.trim();
-    const cleanEmail = email.trim();
-    const cleanMessage = message.trim();
-
-    if (!cleanName || !cleanEmail || !cleanMessage) return;
+    if (!name.trim() || !email.trim() || !message.trim()) return;
 
     const subject = encodeURIComponent(
-      `HBDI Website Message from ${cleanName}`
+      `HBDI Website Message from ${name.trim()}`
     );
 
     const body = encodeURIComponent(
-      `Name: ${cleanName}\nEmail: ${cleanEmail}\n\nMessage:\n${cleanMessage}`
+      `Name: ${name.trim()}\nEmail: ${email.trim()}\n\nMessage:\n${message.trim()}`
     );
 
     window.location.href =
@@ -178,8 +174,8 @@ export function ContactPage() {
                 </button>
 
                 <p className="text-center text-navy/40 text-sm">
-                  Selecting Send Message will open your email app with your
-                  message ready to send.
+                  Clicking Send Message will open your email app with your
+                  message prepared.
                 </p>
 
                 <p className="text-center text-navy/40 text-sm">
