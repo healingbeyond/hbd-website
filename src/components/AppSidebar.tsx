@@ -1,18 +1,7 @@
-import { useAuthActions } from "@convex-dev/auth/react";
-import { useQuery } from "convex/react";
-import { LayoutDashboard, LogOut, Moon, Settings, Sun } from "lucide-react";
+import { LayoutDashboard, Moon, Settings, Sun } from "lucide-react";
 import { Link, useLocation } from "react-router-dom";
 import { useTheme } from "@/contexts/ThemeContext";
 import { APP_NAME } from "@/lib/constants";
-import { api } from "../../convex/_generated/api";
-import { Avatar, AvatarFallback } from "./ui/avatar";
-import {
-  DropdownMenu,
-  DropdownMenuContent,
-  DropdownMenuItem,
-  DropdownMenuSeparator,
-  DropdownMenuTrigger,
-} from "./ui/dropdown-menu";
 import {
   Sidebar,
   SidebarContent,
@@ -63,7 +52,7 @@ function SidebarNav() {
       <SidebarGroup>
         <SidebarGroupContent>
           <SidebarMenu>
-            {navItems.map(item => (
+            {navItems.map((item) => (
               <NavLink
                 key={item.href}
                 href={item.href}
@@ -79,9 +68,7 @@ function SidebarNav() {
   );
 }
 
-function SidebarUserMenu() {
-  const user = useQuery(api.auth.currentUser);
-  const { signOut } = useAuthActions();
+function SidebarFooterContent() {
   const { theme, toggleTheme, switchable } = useTheme();
   const { setOpenMobile } = useSidebar();
 
@@ -89,56 +76,28 @@ function SidebarUserMenu() {
     <SidebarFooter className="border-t border-sidebar-border">
       <SidebarMenu>
         <SidebarMenuItem>
-          <DropdownMenu>
-            <DropdownMenuTrigger asChild>
-              <SidebarMenuButton size="lg">
-                <Avatar className="size-8">
-                  <AvatarFallback className="bg-primary text-primary-foreground text-sm font-medium">
-                    {user?.name?.charAt(0).toUpperCase() || "U"}
-                  </AvatarFallback>
-                </Avatar>
-                <div className="flex flex-col items-start text-left">
-                  <span className="text-sm font-medium truncate">
-                    {user?.name || "User"}
-                  </span>
-                  <span className="text-xs text-muted-foreground truncate">
-                    {user?.email}
-                  </span>
-                </div>
-              </SidebarMenuButton>
-            </DropdownMenuTrigger>
-            <DropdownMenuContent
-              side="top"
-              align="start"
-              className="w-[--radix-dropdown-menu-trigger-width]"
-            >
-              <DropdownMenuItem asChild>
-                <Link to="/settings" onClick={() => setOpenMobile(false)}>
-                  <Settings className="size-4" />
-                  Settings
-                </Link>
-              </DropdownMenuItem>
-              {switchable && (
-                <DropdownMenuItem onClick={toggleTheme}>
-                  {theme === "light" ? (
-                    <Moon className="size-4" />
-                  ) : (
-                    <Sun className="size-4" />
-                  )}
-                  {theme === "light" ? "Dark mode" : "Light mode"}
-                </DropdownMenuItem>
-              )}
-              <DropdownMenuSeparator />
-              <DropdownMenuItem
-                onClick={() => signOut()}
-                className="text-destructive focus:text-destructive focus:bg-destructive/10"
-              >
-                <LogOut className="size-4" />
-                Sign out
-              </DropdownMenuItem>
-            </DropdownMenuContent>
-          </DropdownMenu>
+          <SidebarMenuButton asChild>
+            <Link to="/settings" onClick={() => setOpenMobile(false)}>
+              <Settings className="size-4" />
+              <span>Settings</span>
+            </Link>
+          </SidebarMenuButton>
         </SidebarMenuItem>
+
+        {switchable && (
+          <SidebarMenuItem>
+            <SidebarMenuButton onClick={toggleTheme}>
+              {theme === "light" ? (
+                <Moon className="size-4" />
+              ) : (
+                <Sun className="size-4" />
+              )}
+              <span>
+                {theme === "light" ? "Dark mode" : "Light mode"}
+              </span>
+            </SidebarMenuButton>
+          </SidebarMenuItem>
+        )}
       </SidebarMenu>
     </SidebarFooter>
   );
@@ -155,7 +114,9 @@ function SidebarHeaderContent() {
         className="flex items-center gap-2.5 px-2 py-1 font-semibold text-lg"
       >
         <div className="size-8 rounded-lg bg-primary flex items-center justify-center">
-          <span className="text-primary-foreground font-bold text-sm">M</span>
+          <span className="text-primary-foreground font-bold text-sm">
+            H
+          </span>
         </div>
         <span>{APP_NAME}</span>
       </Link>
@@ -168,7 +129,7 @@ export function AppSidebar() {
     <Sidebar>
       <SidebarHeaderContent />
       <SidebarNav />
-      <SidebarUserMenu />
+      <SidebarFooterContent />
     </Sidebar>
   );
 }
