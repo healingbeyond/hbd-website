@@ -33,10 +33,11 @@ export function Navbar() {
                 key={link.to}
                 to={link.to}
                 className={`px-3 xl:px-4 py-2 rounded-lg text-sm font-medium transition-colors ${
-                  location.pathname === link.to || (link.to === "/resources" && location.pathname.startsWith("/resources/"))
+                  location.pathname === link.to || (link.to === "/resources" && (location.pathname.startsWith("/resources/") || location.pathname.startsWith("/assessments")))
                     ? "text-teal-dark bg-teal/10"
                     : "text-navy/75 hover:text-teal-dark hover:bg-warm-gray"
                 }`}
+                aria-current={location.pathname === link.to ? "page" : undefined}
               >
                 {link.label}
               </Link>
@@ -48,6 +49,8 @@ export function Navbar() {
             onClick={() => setIsOpen(!isOpen)}
             className="lg:hidden flex flex-col gap-1.5 p-2 rounded-lg hover:bg-warm-gray transition-colors"
             aria-label="Toggle menu"
+            aria-expanded={isOpen}
+            aria-controls="mobile-navigation"
           >
             <span className={`block w-6 h-0.5 bg-navy transition-transform ${isOpen ? "rotate-45 translate-y-2" : ""}`} />
             <span className={`block w-6 h-0.5 bg-navy transition-opacity ${isOpen ? "opacity-0" : ""}`} />
@@ -57,7 +60,7 @@ export function Navbar() {
 
         {/* Mobile Menu */}
         {isOpen && (
-          <div className="lg:hidden pb-4 border-t border-navy/10 mt-1">
+          <div id="mobile-navigation" className="lg:hidden pb-4 border-t border-navy/10 mt-1">
             <div className="flex flex-col gap-1 pt-3">
               {navLinks.map((link) => (
                 <Link
@@ -65,10 +68,11 @@ export function Navbar() {
                   to={link.to}
                   onClick={() => setIsOpen(false)}
                   className={`px-4 py-3 rounded-lg text-base font-medium transition-colors ${
-                    location.pathname === link.to || (link.to === "/resources" && location.pathname.startsWith("/resources/"))
+                    location.pathname === link.to || (link.to === "/resources" && (location.pathname.startsWith("/resources/") || location.pathname.startsWith("/assessments")))
                       ? "text-teal-dark bg-teal/10"
                       : "text-navy/75 hover:text-teal-dark hover:bg-warm-gray"
                   }`}
+                  aria-current={location.pathname === link.to ? "page" : undefined}
                 >
                   {link.label}
                 </Link>

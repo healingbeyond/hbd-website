@@ -174,7 +174,7 @@ export function ToolPage() {
             <div className="mb-4 flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
               <div>
                 <h2 className="text-xl font-bold text-navy">{isBdra ? "Start BDRA" : `Open ${tool.title}`}</h2>
-                <p className="text-sm text-navy/55">The tool loads below from its external service.</p>
+                <p className="text-sm text-navy/70">The tool loads below from its external service.</p>
               </div>
               <a href={tool.iframeSrc} target="_blank" rel="noopener noreferrer" className="inline-flex items-center justify-center gap-2 rounded-lg border border-navy/15 bg-white px-4 py-2 text-sm font-semibold text-navy transition-colors hover:border-teal/40 hover:text-teal-dark">
                 Open tool
@@ -196,7 +196,7 @@ export function ToolPage() {
                   ) : (
                     <div className="flex flex-col items-center gap-3">
                       <div className="w-10 h-10 border-4 border-teal/30 border-t-teal rounded-full animate-spin" />
-                      <p className="text-navy/50 text-sm font-medium">Loading {tool.title}...</p>
+                      <p className="text-navy/70 text-sm font-medium">Loading {tool.title}...</p>
                     </div>
                   )}
                 </div>
@@ -225,7 +225,7 @@ export function ToolPage() {
         <div className="container mx-auto">
           <div className="max-w-3xl mx-auto text-center space-y-3">
             <h3 className="text-sm font-bold text-navy/70">Disclaimer</h3>
-            <p className="text-navy/40 text-xs leading-relaxed">
+            <p className="text-navy/65 text-xs leading-relaxed">
               The Healing Beyond Diagnosis Initiative provides educational,
               reflective, and recovery-focused resources. These tools are not
               intended to diagnose, treat, or replace professional medical,

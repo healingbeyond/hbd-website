@@ -121,7 +121,7 @@ export function AssessmentsPage() {
         <div className="container mx-auto">
           <div className="max-w-3xl mx-auto text-center space-y-4">
             <h3 className="text-lg font-bold text-navy">Disclaimer</h3>
-            <p className="text-navy/50 text-sm leading-relaxed">
+            <p className="text-navy/65 text-sm leading-relaxed">
               The Healing Beyond Diagnosis Initiative provides educational,
               reflective, and recovery-focused resources. These tools are not
               intended to diagnose, treat, or replace professional medical,

@@ -293,7 +293,7 @@ function ClosingSection() {
           <div className="flex items-center justify-center gap-2 text-orange">
             <span className="text-2xl">♥</span>
           </div>
-          <p className="text-navy/50 text-lg tracking-wide">
+          <p className="text-navy/65 text-lg tracking-wide">
             Support. Healing. Hope.
           </p>
           <Link

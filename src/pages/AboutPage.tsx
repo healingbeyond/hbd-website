@@ -33,7 +33,7 @@ const credentials = [
 function SectionHeading({ eyebrow, title, intro }: { eyebrow: string; title: string; intro?: string }) {
   return (
     <div className="max-w-3xl">
-      <p className="text-sm font-semibold uppercase tracking-widest text-teal-dark">{eyebrow}</p>
+      <p className="text-sm font-semibold uppercase tracking-widest text-navy/70">{eyebrow}</p>
       <h2 className="mt-3 text-3xl font-bold leading-tight text-navy md:text-4xl">{title}</h2>
       {intro ? <p className="mt-4 text-lg leading-relaxed text-navy/65">{intro}</p> : null}
     </div>
@@ -43,12 +43,12 @@ function SectionHeading({ eyebrow, title, intro }: { eyebrow: string; title: str
 export function AboutPage() {
   return (
     <div>
-      <section className="relative overflow-hidden bg-gray-100 py-16 md:py-24">
+      <section className="relative overflow-hidden bg-gray-100 py-14 md:py-20">
         <div className="absolute inset-y-0 right-0 w-1/3 bg-gradient-to-l from-teal/10 to-transparent" />
         <div className="container relative mx-auto">
           <div className="max-w-4xl">
-            <p className="text-sm font-semibold uppercase tracking-widest text-teal-dark">About HBDI</p>
-            <h1 className="mt-4 text-4xl font-bold leading-tight text-navy md:text-6xl">Recovery includes the person, not only the diagnosis.</h1>
+            <p className="text-sm font-semibold uppercase tracking-widest text-navy/70">About HBDI</p>
+            <h1 className="mt-4 text-4xl font-bold leading-tight text-navy md:text-5xl">Recovery includes the person, not only the diagnosis.</h1>
             <p className="mt-6 max-w-3xl text-xl leading-relaxed text-navy/65">Healing Beyond Diagnosis Initiative is a developing Canadian community initiative focused on the emotional side of recovery—and on the people and caregivers living through it.</p>
           </div>
         </div>
@@ -109,7 +109,7 @@ export function AboutPage() {
             </div>
           </div>
         </div>
-        <div className="container mx-auto mt-10"><p className="border-l-4 border-navy/15 pl-5 text-sm italic leading-relaxed text-navy/55">These connections are described as engagement and exploration. They do not imply endorsement, funding, affiliation or formal partnership.</p></div>
+        <div className="container mx-auto mt-10"><p className="border-l-4 border-navy/15 pl-5 text-sm italic leading-relaxed text-navy/70">These connections are described as engagement and exploration. They do not imply endorsement, funding, affiliation or formal partnership.</p></div>
       </section>
 
       <section className="bg-gray-100 py-14 md:py-20">
@@ -136,7 +136,7 @@ export function AboutPage() {
       <section className="bg-white py-14 md:py-20">
         <div className="container mx-auto grid gap-10 lg:grid-cols-[0.75fr_1.25fr] lg:items-start lg:gap-16">
           <div>
-            <p className="text-sm font-semibold uppercase tracking-widest text-teal-dark">6 · Founder and Lived Experience</p>
+            <p className="text-sm font-semibold uppercase tracking-widest text-navy/70">6 · Founder and Lived Experience</p>
             <h2 className="mt-3 text-3xl font-bold text-navy">Corey Furnival</h2>
             <p className="mt-2 font-semibold text-orange-dark">Founder, Healing Beyond Diagnosis Initiative</p>
           </div>
@@ -156,7 +156,7 @@ export function AboutPage() {
                 <CheckCircle2 className="mt-0.5 size-5 shrink-0 text-teal-dark" aria-hidden="true" />
                 <div>
                   <p className="text-sm font-semibold text-navy">{credential.title}</p>
-                  {credential.needsConfirmation ? <p className="mt-1 text-xs text-orange-dark">Exact official title and awarding body require confirmation.</p> : null}
+                  {credential.needsConfirmation ? <p className="mt-1 text-xs font-medium text-navy/70">Exact official title and awarding body require confirmation.</p> : null}
                 </div>
               </div>
             ))}
