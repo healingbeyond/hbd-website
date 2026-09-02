@@ -15,7 +15,7 @@ export function PodcastPage() {
   return (
     <div>
       {/* Hero */}
-      <section className="bg-slate-100 py-20 md:py-28">
+      <section className="bg-gray-100 py-20 md:py-28">
         <div className="container mx-auto">
           <div className="max-w-3xl mx-auto text-center space-y-6">
             <p className="text-teal text-sm font-semibold tracking-widest uppercase">Listen Now</p>
@@ -78,7 +78,7 @@ export function PodcastPage() {
       </section>
 
       {/* Topics */}
-      <section className="py-16 md:py-24 bg-slate-100">
+      <section className="py-16 md:py-24 bg-gray-100">
         <div className="container mx-auto">
           <div className="text-center space-y-6 mb-14">
             <h2 className="text-3xl md:text-4xl font-bold text-navy">

@@ -90,7 +90,7 @@ export function AssessmentsPage() {
   return (
     <div>
       {/* Hero */}
-      <section className="bg-slate-100 py-20 md:py-28">
+      <section className="bg-gray-100 py-20 md:py-28">
         <div className="container mx-auto">
           <div className="max-w-3xl mx-auto text-center space-y-6">
             <h1 className="text-4xl md:text-5xl font-bold text-navy leading-tight">

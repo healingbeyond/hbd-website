@@ -2,9 +2,9 @@ import { Link } from "react-router-dom";
 
 function HeroSection() {
   return (
-    <section className="relative bg-slate-100 min-h-[90vh] flex items-center overflow-hidden">
+    <section className="relative bg-gray-100 min-h-[90vh] flex items-center overflow-hidden">
       {/* Gradient overlay */}
-      <div className="absolute inset-0 bg-gradient-to-b from-white via-slate-100 to-slate-200" />
+      <div className="absolute inset-0 bg-gradient-to-b from-gray-50 via-gray-100 to-gray-200" />
       <div className="absolute inset-0 bg-gradient-to-r from-teal/10 via-transparent to-orange/10" />
       {/* Decorative elements */}
       <div className="absolute top-20 right-10 w-72 h-72 bg-teal/5 rounded-full blur-3xl" />
@@ -81,7 +81,7 @@ function GapSection() {
 
 function TheoryIntroSection() {
   return (
-    <section className="py-20 md:py-28 bg-slate-100">
+    <section className="py-20 md:py-28 bg-gray-100">
       <div className="container mx-auto">
         <div className="max-w-4xl mx-auto">
           <div className="text-center space-y-6 mb-12">
@@ -255,7 +255,7 @@ function FeaturesPreviewSection() {
   ];
 
   return (
-    <section className="py-20 md:py-28 bg-slate-100">
+    <section className="py-20 md:py-28 bg-gray-100">
       <div className="container mx-auto">
         <div className="text-center space-y-6 mb-16">
           <h2 className="text-3xl md:text-4xl font-bold text-navy">

@@ -67,7 +67,7 @@ export function ToolPage() {
   return (
     <div className="min-h-screen flex flex-col">
       {/* Header bar */}
-      <section className="bg-slate-100 py-8 md:py-12 border-b border-navy/10">
+      <section className="bg-gray-100 py-8 md:py-12 border-b border-navy/10">
         <div className="container mx-auto">
           <div className="max-w-4xl mx-auto">
             <Link

@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 
 function AboutHero() {
   return (
-    <section className="bg-slate-100 py-20 md:py-28">
+    <section className="bg-gray-100 py-20 md:py-28">
       <div className="container mx-auto">
         <div className="max-w-3xl mx-auto text-center space-y-6">
           <p className="text-teal text-sm font-semibold tracking-widest uppercase">About the Initiative</p>
@@ -60,7 +60,7 @@ function FounderSection() {
 
 function GapSection() {
   return (
-    <section className="py-20 md:py-28 bg-slate-100">
+    <section className="py-20 md:py-28 bg-gray-100">
       <div className="container mx-auto">
         <div className="max-w-3xl mx-auto space-y-10">
           <div className="text-center space-y-6">
@@ -204,7 +204,7 @@ function CredentialsSection() {
   ];
 
   return (
-    <section className="py-20 md:py-28 bg-slate-100">
+    <section className="py-20 md:py-28 bg-gray-100">
       <div className="container mx-auto">
         <div className="max-w-3xl mx-auto space-y-10">
           <div className="text-center space-y-6">

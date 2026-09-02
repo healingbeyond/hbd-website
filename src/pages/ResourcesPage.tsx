@@ -146,7 +146,7 @@ export function ResourcesPage() {
   return (
     <div>
       {/* Hero */}
-      <section className="bg-slate-100 py-20 md:py-28">
+      <section className="bg-gray-100 py-20 md:py-28">
         <div className="container mx-auto">
           <div className="max-w-3xl mx-auto text-center space-y-6">
             <p className="text-teal text-sm font-semibold tracking-widest uppercase">Resource Library</p>
@@ -197,7 +197,7 @@ export function ResourcesPage() {
       </section>
 
       {/* CTA */}
-      <section className="py-16 bg-slate-100">
+      <section className="py-16 bg-gray-100">
         <div className="container mx-auto">
           <div className="max-w-2xl mx-auto text-center space-y-6">
             <h2 className="text-2xl md:text-3xl font-bold text-navy">
