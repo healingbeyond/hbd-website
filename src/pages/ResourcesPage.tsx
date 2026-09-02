@@ -146,15 +146,15 @@ export function ResourcesPage() {
   return (
     <div>
       {/* Hero */}
-      <section className="bg-navy py-20 md:py-28">
+      <section className="bg-slate-100 py-20 md:py-28">
         <div className="container mx-auto">
           <div className="max-w-3xl mx-auto text-center space-y-6">
             <p className="text-teal text-sm font-semibold tracking-widest uppercase">Resource Library</p>
-            <h1 className="text-4xl md:text-5xl font-bold text-cream leading-tight">
+            <h1 className="text-4xl md:text-5xl font-bold text-navy leading-tight">
               Resources
             </h1>
             <div className="w-16 h-1 bg-orange mx-auto rounded-full" />
-            <p className="text-cream/60 text-lg leading-relaxed">
+            <p className="text-navy/60 text-lg leading-relaxed">
               Books, worksheets, guides, recovery tools, caregiver resources, and more — all grounded in Beyond Diagnosis Theory™. This library grows over time.
             </p>
           </div>
@@ -197,13 +197,13 @@ export function ResourcesPage() {
       </section>
 
       {/* CTA */}
-      <section className="py-16 bg-navy">
+      <section className="py-16 bg-slate-100">
         <div className="container mx-auto">
           <div className="max-w-2xl mx-auto text-center space-y-6">
-            <h2 className="text-2xl md:text-3xl font-bold text-cream">
+            <h2 className="text-2xl md:text-3xl font-bold text-navy">
               Looking for Something Specific?
             </h2>
-            <p className="text-cream/60 text-lg">
+            <p className="text-navy/60 text-lg">
               This library is always growing. If you're looking for a specific resource or want to suggest something, reach out.
             </p>
             <Link

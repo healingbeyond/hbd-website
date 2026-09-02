@@ -2,10 +2,10 @@ import { Link } from "react-router-dom";
 
 function HeroSection() {
   return (
-    <section className="relative bg-navy min-h-[90vh] flex items-center overflow-hidden">
+    <section className="relative bg-slate-100 min-h-[90vh] flex items-center overflow-hidden">
       {/* Gradient overlay */}
-      <div className="absolute inset-0 bg-gradient-to-b from-navy via-navy-light/80 to-navy" />
-      <div className="absolute inset-0 bg-gradient-to-r from-teal/5 via-transparent to-orange/5" />
+      <div className="absolute inset-0 bg-gradient-to-b from-white via-slate-100 to-slate-200" />
+      <div className="absolute inset-0 bg-gradient-to-r from-teal/10 via-transparent to-orange/10" />
       {/* Decorative elements */}
       <div className="absolute top-20 right-10 w-72 h-72 bg-teal/5 rounded-full blur-3xl" />
       <div className="absolute bottom-20 left-10 w-96 h-96 bg-orange/5 rounded-full blur-3xl" />
@@ -15,19 +15,19 @@ function HeroSection() {
           <div className="flex justify-center mb-6">
             <img src="/logo.png" alt="Healing Beyond Diagnosis Initiative" className="h-28 w-28 md:h-36 md:w-36 rounded-full shadow-2xl" />
           </div>
-          <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-cream leading-tight tracking-tight">
+          <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-navy leading-tight tracking-tight">
             Healing Beyond Diagnosis
             <span className="block text-teal mt-2">Initiative</span>
           </h1>
           <div className="space-y-3">
-            <p className="text-xl md:text-2xl lg:text-3xl text-cream/90 font-light leading-relaxed italic">
+            <p className="text-xl md:text-2xl lg:text-3xl text-navy/85 font-light leading-relaxed italic">
               Recovery isn't about returning to who you were.
             </p>
             <p className="text-xl md:text-2xl lg:text-3xl text-orange font-light leading-relaxed italic">
               It's about discovering who you're becoming.
             </p>
           </div>
-          <p className="text-cream/60 text-base md:text-lg max-w-2xl mx-auto leading-relaxed">
+          <p className="text-navy/65 text-base md:text-lg max-w-2xl mx-auto leading-relaxed">
             Supporting emotional recovery after brain injury, chronic illness, disability, trauma, and life-changing diagnoses. Because when clinical treatment ends, emotional recovery often begins.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center pt-4">
@@ -39,7 +39,7 @@ function HeroSection() {
             </Link>
             <Link
               to="/about"
-              className="inline-flex items-center justify-center px-8 py-4 border-2 border-cream/30 text-cream font-semibold rounded-xl text-lg hover:bg-white/10 transition-all"
+              className="inline-flex items-center justify-center px-8 py-4 border-2 border-navy/20 text-navy font-semibold rounded-xl text-lg hover:bg-white transition-all"
             >
               Learn More
             </Link>
@@ -81,12 +81,12 @@ function GapSection() {
 
 function TheoryIntroSection() {
   return (
-    <section className="py-20 md:py-28 bg-navy">
+    <section className="py-20 md:py-28 bg-slate-100">
       <div className="container mx-auto">
         <div className="max-w-4xl mx-auto">
           <div className="text-center space-y-6 mb-12">
             <p className="text-teal text-sm font-semibold tracking-widest uppercase">The Foundation</p>
-            <h2 className="text-3xl md:text-4xl font-bold text-cream">
+            <h2 className="text-3xl md:text-4xl font-bold text-navy">
               Beyond Diagnosis Theory™
             </h2>
             <div className="w-16 h-1 bg-orange mx-auto rounded-full" />
@@ -94,18 +94,18 @@ function TheoryIntroSection() {
 
           <div className="grid md:grid-cols-2 gap-8 md:gap-12">
             <div className="space-y-6">
-              <p className="text-cream/80 text-lg leading-relaxed">
+              <p className="text-navy/70 text-lg leading-relaxed">
                 Beyond Diagnosis Theory™ is the framework behind everything we do. It was born from lived experience — from the understanding that recovery is not about returning to who you were before.
               </p>
-              <p className="text-cream/80 text-lg leading-relaxed">
+              <p className="text-navy/70 text-lg leading-relaxed">
                 Recovery is about learning who you are now. It's about rebuilding identity, acknowledging invisible grief, finding purpose again, and recognizing that emotional recovery is just as important as physical recovery.
               </p>
             </div>
             <div className="space-y-6">
-              <p className="text-cream/80 text-lg leading-relaxed">
+              <p className="text-navy/70 text-lg leading-relaxed">
                 The theory addresses what the medical system overlooks: that a diagnosis changes more than your body. It changes how you see yourself, how others see you, and how you move through the world.
               </p>
-              <p className="text-cream/80 text-lg leading-relaxed">
+              <p className="text-navy/70 text-lg leading-relaxed">
                 Caregivers carry their own invisible grief — losing the person they knew, while fighting to support the person who remains. The theory recognizes them too.
               </p>
               <blockquote className="border-l-4 border-orange pl-6 py-2">
@@ -255,14 +255,14 @@ function FeaturesPreviewSection() {
   ];
 
   return (
-    <section className="py-20 md:py-28 bg-navy-light">
+    <section className="py-20 md:py-28 bg-slate-100">
       <div className="container mx-auto">
         <div className="text-center space-y-6 mb-16">
-          <h2 className="text-3xl md:text-4xl font-bold text-cream">
+          <h2 className="text-3xl md:text-4xl font-bold text-navy">
             Tools &amp; Resources
           </h2>
           <div className="w-16 h-1 bg-teal mx-auto rounded-full" />
-          <p className="text-cream/60 text-lg max-w-2xl mx-auto">
+          <p className="text-navy/60 text-lg max-w-2xl mx-auto">
             Everything built to support healing beyond the diagnosis.
           </p>
         </div>
@@ -271,13 +271,13 @@ function FeaturesPreviewSection() {
             <Link
               key={feature.title}
               to={feature.link}
-              className="group bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl p-8 hover:bg-white/10 transition-all hover:border-teal/30"
+              className="group bg-white border border-navy/10 rounded-2xl p-8 shadow-sm hover:shadow-md transition-all hover:border-teal/30"
             >
               <div className={`w-12 h-1 rounded-full mb-6 ${feature.color === "teal" ? "bg-teal" : "bg-orange"}`} />
-              <h3 className="text-xl font-bold text-cream mb-3 group-hover:text-teal transition-colors">
+              <h3 className="text-xl font-bold text-navy mb-3 group-hover:text-teal-dark transition-colors">
                 {feature.title}
               </h3>
-              <p className="text-cream/60 leading-relaxed">
+              <p className="text-navy/60 leading-relaxed">
                 {feature.description}
               </p>
             </Link>

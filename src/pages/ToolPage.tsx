@@ -67,12 +67,12 @@ export function ToolPage() {
   return (
     <div className="min-h-screen flex flex-col">
       {/* Header bar */}
-      <section className="bg-navy py-8 md:py-12">
+      <section className="bg-slate-100 py-8 md:py-12 border-b border-navy/10">
         <div className="container mx-auto">
           <div className="max-w-4xl mx-auto">
             <Link
               to="/assessments"
-              className="inline-flex items-center gap-2 text-cream/60 hover:text-teal transition-colors mb-6 group"
+              className="inline-flex items-center gap-2 text-navy/60 hover:text-teal-dark transition-colors mb-6 group"
             >
               <svg
                 width="20"
@@ -94,7 +94,7 @@ export function ToolPage() {
             <div className="flex items-center gap-4">
               <span className="text-4xl md:text-5xl">{tool.icon}</span>
               <div>
-                <h1 className="text-2xl md:text-3xl font-bold text-cream leading-tight">
+                <h1 className="text-2xl md:text-3xl font-bold text-navy leading-tight">
                   {tool.title}
                 </h1>
                 {tool.audience && (
@@ -102,7 +102,7 @@ export function ToolPage() {
                     {tool.audience}
                   </span>
                 )}
-                <p className="text-cream/60 mt-2 text-sm md:text-base leading-relaxed max-w-xl">
+                <p className="text-navy/60 mt-2 text-sm md:text-base leading-relaxed max-w-xl">
                   {tool.description}
                 </p>
               </div>

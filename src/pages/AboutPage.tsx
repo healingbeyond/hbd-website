@@ -2,15 +2,15 @@ import { Link } from "react-router-dom";
 
 function AboutHero() {
   return (
-    <section className="bg-navy py-20 md:py-28">
+    <section className="bg-slate-100 py-20 md:py-28">
       <div className="container mx-auto">
         <div className="max-w-3xl mx-auto text-center space-y-6">
           <p className="text-teal text-sm font-semibold tracking-widest uppercase">About the Initiative</p>
-          <h1 className="text-4xl md:text-5xl font-bold text-cream leading-tight">
+          <h1 className="text-4xl md:text-5xl font-bold text-navy leading-tight">
             When Treatment Ends, Emotional Recovery Often Begins
           </h1>
           <div className="w-16 h-1 bg-orange mx-auto rounded-full" />
-          <p className="text-cream/60 text-lg leading-relaxed">
+          <p className="text-navy/60 text-lg leading-relaxed">
             Healing Beyond Diagnosis was built by someone who lived the gap — and decided to close it.
           </p>
         </div>
@@ -60,17 +60,17 @@ function FounderSection() {
 
 function GapSection() {
   return (
-    <section className="py-20 md:py-28 bg-navy">
+    <section className="py-20 md:py-28 bg-slate-100">
       <div className="container mx-auto">
         <div className="max-w-3xl mx-auto space-y-10">
           <div className="text-center space-y-6">
-            <h2 className="text-3xl md:text-4xl font-bold text-cream">
+            <h2 className="text-3xl md:text-4xl font-bold text-navy">
               The Problem
             </h2>
             <div className="w-16 h-1 bg-teal mx-auto rounded-full" />
           </div>
 
-          <div className="space-y-6 text-cream/80 text-lg leading-relaxed">
+          <div className="space-y-6 text-navy/70 text-lg leading-relaxed">
             <p>
               When someone receives a life-changing diagnosis — brain injury, stroke, chronic illness,
               disability, or trauma — the medical system focuses on stabilizing the body. And then, almost
@@ -80,11 +80,11 @@ function GapSection() {
               The person is sent home with paperwork, a list of medications, and a well-meaning "give it time."
               But nobody sits them down and says:
             </p>
-            <div className="bg-white/5 rounded-2xl p-8 space-y-4 border border-white/10">
-              <p className="text-cream italic">"You're going to grieve for who you used to be."</p>
-              <p className="text-cream italic">"You're going to question your identity."</p>
-              <p className="text-cream italic">"The people around you are going to struggle too."</p>
-              <p className="text-cream italic">"None of that makes you broken. It makes you human."</p>
+            <div className="bg-white rounded-2xl p-8 space-y-4 border border-navy/10 shadow-sm">
+              <p className="text-navy italic">"You're going to grieve for who you used to be."</p>
+              <p className="text-navy italic">"You're going to question your identity."</p>
+              <p className="text-navy italic">"The people around you are going to struggle too."</p>
+              <p className="text-navy italic">"None of that makes you broken. It makes you human."</p>
             </div>
             <p>
               Invisible grief — the grief that comes after diagnosis — is one of the most common and least
@@ -204,11 +204,11 @@ function CredentialsSection() {
   ];
 
   return (
-    <section className="py-20 md:py-28 bg-navy">
+    <section className="py-20 md:py-28 bg-slate-100">
       <div className="container mx-auto">
         <div className="max-w-3xl mx-auto space-y-10">
           <div className="text-center space-y-6">
-            <h2 className="text-3xl md:text-4xl font-bold text-cream">
+            <h2 className="text-3xl md:text-4xl font-bold text-navy">
               Credentials &amp; Training
             </h2>
             <div className="w-16 h-1 bg-orange mx-auto rounded-full" />
@@ -218,14 +218,14 @@ function CredentialsSection() {
             {credentials.map((credential) => (
               <div
                 key={credential}
-                className="flex items-start gap-3 bg-white/5 rounded-xl p-4 border border-white/10"
+                className="flex items-start gap-3 bg-white rounded-xl p-4 border border-navy/10 shadow-sm"
               >
                 <span className="text-teal mt-1 shrink-0">
                   <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
                     <path d="M8 0C3.582 0 0 3.582 0 8s3.582 8 8 8 8-3.582 8-8-3.582-8-8-8zm3.766 6.966l-4 4a.75.75 0 01-1.06 0l-1.6-1.6a.75.75 0 111.06-1.06L7.266 9.4l3.44-3.44a.75.75 0 111.06 1.06z" fill="currentColor"/>
                   </svg>
                 </span>
-                <span className="text-cream/80 text-sm">{credential}</span>
+                <span className="text-navy/75 text-sm">{credential}</span>
               </div>
             ))}
           </div>
