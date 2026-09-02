@@ -4,9 +4,8 @@ import { Link, useLocation } from "react-router-dom";
 const navLinks = [
   { to: "/", label: "Home" },
   { to: "/about", label: "About" },
-  { to: "/assessments", label: "Assessments & Tools" },
+  { to: "/resources", label: "Resources & Tools" },
   { to: "/podcast", label: "Podcast" },
-  { to: "/resources", label: "Resources" },
   { to: "/contact", label: "Contact" },
 ];
 
@@ -34,7 +33,7 @@ export function Navbar() {
                 key={link.to}
                 to={link.to}
                 className={`px-3 xl:px-4 py-2 rounded-lg text-sm font-medium transition-colors ${
-                  location.pathname === link.to
+                  location.pathname === link.to || (link.to === "/resources" && location.pathname.startsWith("/resources/"))
                     ? "text-teal-dark bg-teal/10"
                     : "text-navy/75 hover:text-teal-dark hover:bg-warm-gray"
                 }`}
@@ -66,7 +65,7 @@ export function Navbar() {
                   to={link.to}
                   onClick={() => setIsOpen(false)}
                   className={`px-4 py-3 rounded-lg text-base font-medium transition-colors ${
-                    location.pathname === link.to
+                    location.pathname === link.to || (link.to === "/resources" && location.pathname.startsWith("/resources/"))
                       ? "text-teal-dark bg-teal/10"
                       : "text-navy/75 hover:text-teal-dark hover:bg-warm-gray"
                   }`}

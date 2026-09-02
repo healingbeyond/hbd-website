@@ -229,15 +229,15 @@ function WhoIsThisForSection() {
 function FeaturesPreviewSection() {
   const features = [
     {
-      title: "Assessments & Tools",
+      title: "Resources & Tools",
       description: "Free self-reflection assessments for individuals and caregivers. Understand where you are in your recovery journey.",
-      link: "/assessments",
+      link: "/resources",
       color: "teal",
     },
     {
       title: "Resource Navigator",
       description: "A Canadian resource search engine. Find funding, support groups, crisis pathways, and caregiver resources by province.",
-      link: "/assessments",
+      link: "/resources/resource-navigator",
       color: "orange",
     },
     {
@@ -246,12 +246,6 @@ function FeaturesPreviewSection() {
       link: "/podcast",
       color: "teal",
     },
-    {
-      title: "Resources",
-      description: "Books, worksheets, guides, recovery tools, and caregiver resources — all grounded in Beyond Diagnosis Theory™.",
-      link: "/resources",
-      color: "orange",
-    },
   ];
 
   return (
@@ -259,7 +253,7 @@ function FeaturesPreviewSection() {
       <div className="container mx-auto">
         <div className="text-center space-y-6 mb-16">
           <h2 className="text-3xl md:text-4xl font-bold text-navy">
-            Tools &amp; Resources
+            Resources &amp; Tools
           </h2>
           <div className="w-16 h-1 bg-teal mx-auto rounded-full" />
           <p className="text-navy/60 text-lg max-w-2xl mx-auto">

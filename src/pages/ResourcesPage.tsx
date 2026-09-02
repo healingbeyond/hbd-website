@@ -1,219 +1,218 @@
+import { useState, type ComponentType } from "react";
 import { Link } from "react-router-dom";
+import { BookOpen, ChevronDown, ClipboardCheck, Coffee, Compass, FileText, Gauge, Headphones, HeartHandshake, Map } from "lucide-react";
 
-interface ResourceSection {
-  icon: string;
+interface ResourceItem {
   title: string;
   description: string;
-  items: { title: string; description: string; type: string }[];
+  status: string;
+  action?: string;
+  to?: string;
 }
 
-const sections: ResourceSection[] = [
+interface ResourceSection {
+  id: string;
+  title: string;
+  description: string;
+  icon: ComponentType<{ className?: string }>;
+  items: ResourceItem[];
+  emptyMessage?: string;
+}
+
+const featuredResources = [
   {
-    icon: "📚",
-    title: "Books",
-    description: "Written resources grounded in Beyond Diagnosis Theory™.",
-    items: [
-      {
-        title: "More Than Your Diagnosis",
-        description: "The foundational guide to understanding life after a life-changing diagnosis — identity, grief, purpose, and recovery.",
-        type: "Book",
-      },
-    ],
+    title: "BDRA",
+    eyebrow: "Beyond Diagnosis Recovery Assessment",
+    description: "HBDI’s guided recovery assessment for reflecting on emotional rebuilding, identity alignment and support structures.",
+    status: "Available now",
+    action: "Start Assessment",
+    to: "/resources/bdra",
+    icon: ClipboardCheck,
+    accent: "border-teal bg-teal/5",
+    badge: "bg-teal/15 text-teal-dark",
   },
   {
-    icon: "📝",
-    title: "Worksheets",
-    description: "Guided self-reflection exercises for individuals and caregivers.",
-    items: [
-      {
-        title: "The Invisible Grief Worksheet",
-        description: "Explore the grief nobody talks about — the grief that comes after diagnosis, injury, or life-changing events.",
-        type: "Worksheet",
-      },
-      {
-        title: "The Old You vs The New You",
-        description: "A guided reflection on identity change — who you were, who you are now, and who you're becoming.",
-        type: "Worksheet",
-      },
-    ],
+    title: "PALE",
+    eyebrow: "Pacing, Adaptation, Learning and Engagement",
+    description: "Immediate support focused on pacing, adaptation, learning and engagement.",
+    status: "Not currently available on this site",
+    action: "Coming soon",
+    icon: Gauge,
+    accent: "border-orange bg-orange/5",
+    badge: "bg-orange/15 text-orange-dark",
   },
   {
-    icon: "🧭",
-    title: "Recovery Tools",
-    description: "Interactive tools built to support emotional recovery and self-reflection.",
-    items: [
-      {
-        title: "Five Pillars Assessment",
-        description: "Evaluate emotional rebuilding, identity alignment, and support structures across five core dimensions.",
-        type: "Assessment",
-      },
-      {
-        title: "Caregiver Assessment",
-        description: "Measure caregiver strain, invisible grief, and personal well-being.",
-        type: "Assessment",
-      },
-      {
-        title: "Recovery Companion",
-        description: "Daily check-ins, guided reflection, companion lessons, and emotional recovery support.",
-        type: "App",
-      },
-      {
-        title: "Black Coffee & Wisdom Journal",
-        description: "Daily reflection journal focused on purpose, growth, and meaning.",
-        type: "App",
-      },
-    ],
-  },
-  {
-    icon: "🤝",
-    title: "Caregiver Resources",
-    description: "Dedicated resources for caregivers navigating their own invisible journey.",
-    items: [
-      {
-        title: "Caregiver Assessment",
-        description: "A self-reflection tool specifically for caregivers — measuring strain, burnout, and well-being.",
-        type: "Assessment",
-      },
-      {
-        title: "Resource Navigator — Caregiver Hub",
-        description: "Canadian caregiver-specific resources including respite programs, support groups, and mental health services.",
-        type: "Tool",
-      },
-    ],
-  },
-  {
-    icon: "🗺️",
-    title: "Guides",
-    description: "Navigating the systems and supports available after diagnosis.",
-    items: [
-      {
-        title: "Resource Navigator",
-        description: "Search Canadian resources by province and condition — funding, support groups, crisis pathways, and more.",
-        type: "Tool",
-      },
-    ],
-  },
-  {
-    icon: "🎙️",
-    title: "Podcast Resources",
-    description: "Episodes and conversations about brain injury, grief, identity, and caregiving.",
-    items: [
-      {
-        title: "Healing Beyond Diagnosis Podcast",
-        description: "Real conversations about brain injury, invisible grief, identity rebuilding, caregiving, and recovery stories.",
-        type: "Podcast",
-      },
-    ],
-  },
-  {
-    icon: "📰",
-    title: "Articles",
-    description: "Written explorations of the topics that matter most to recovery.",
-    items: [
-      {
-        title: "The Weight Nobody Sees: Caregiver Burnout and Invisible Grief",
-        description: "Exploring the grief caregivers carry — the identity erosion, the burnout, and the permission to need support.",
-        type: "Article",
-      },
-      {
-        title: "Surviving vs. Truly Living",
-        description: "What real recovery looks like beyond clinical treatment — moving from surviving to truly living.",
-        type: "Article",
-      },
-    ],
+    title: "Resource Navigator",
+    eyebrow: "Services and community support",
+    description: "Search Canadian services, programs, funding pathways and community support by province and need.",
+    status: "Available now",
+    action: "Find Support",
+    to: "/resources/resource-navigator",
+    icon: Map,
+    accent: "border-navy bg-navy/5",
+    badge: "bg-navy/10 text-navy",
   },
 ];
 
-function TypeBadge({ type }: { type: string }) {
-  const colors: Record<string, string> = {
-    Book: "bg-orange/10 text-orange-dark",
-    Worksheet: "bg-teal/10 text-teal-dark",
-    Assessment: "bg-navy/10 text-navy",
-    App: "bg-teal/10 text-teal-dark",
-    Tool: "bg-orange/10 text-orange-dark",
-    Podcast: "bg-navy/10 text-navy",
-    Article: "bg-warm-gray text-navy/60",
-  };
+const sections: ResourceSection[] = [
+  {
+    id: "assessments",
+    title: "Assessments & Quizzes",
+    description: "Structured self-reflection for individuals and caregivers.",
+    icon: ClipboardCheck,
+    items: [{ title: "Caregiver Assessment", description: "A self-reflection tool for exploring caregiver strain, invisible grief and personal well-being.", status: "Available now", action: "Start", to: "/resources/caregiver" }],
+    emptyMessage: "Additional self-reflection quizzes will be added when they are available.",
+  },
+  {
+    id: "interactive-tools",
+    title: "Interactive Tools",
+    description: "Digital tools that support reflection and day-to-day recovery.",
+    icon: Compass,
+    items: [{ title: "Recovery Companion", description: "Daily check-ins, guided reflection, companion lessons and emotional recovery support.", status: "Available now", action: "Open", to: "/resources/recovery-companion" }],
+  },
+  {
+    id: "journals-worksheets",
+    title: "Journals & Worksheets",
+    description: "Prompts and exercises for personal reflection.",
+    icon: Coffee,
+    items: [
+      { title: "Black Coffee & Wisdom Journal", description: "A digital journal for daily reflection on purpose, growth and meaning.", status: "Available now", action: "Open", to: "/resources/bcw-journal" },
+      { title: "From Stuck to Grounded", description: "A guided reflection resource named in HBDI’s resource collection.", status: "No online destination currently published" },
+      { title: "The Invisible Grief Worksheet", description: "A guided reflection on grief after diagnosis, injury or a life-changing event.", status: "Not currently available online" },
+      { title: "The Old You vs The New You", description: "A guided reflection on identity change and who you are becoming.", status: "Not currently available online" },
+    ],
+  },
+  {
+    id: "books-guides",
+    title: "Books & Guides",
+    description: "Long-form resources and practical guidance.",
+    icon: BookOpen,
+    items: [
+      { title: "More Than Your Diagnosis", description: "A guide to identity, grief, purpose and recovery after a life-changing diagnosis.", status: "No online destination currently published" },
+      { title: "Invisible Grief", description: "An HBDI book resource about grief following life-changing diagnosis or injury.", status: "No online destination currently published" },
+      { title: "Carry Your Past: Some Assembly Required", description: "A title in HBDI’s book and guide collection.", status: "No online destination currently published" },
+    ],
+  },
+  {
+    id: "free-resources",
+    title: "Free Resources",
+    description: "Downloads and materials available without charge.",
+    icon: FileText,
+    items: [],
+    emptyMessage: "No standalone free downloads are currently published on this site.",
+  },
+  {
+    id: "podcast-learning",
+    title: "Podcast & Learning",
+    description: "Conversations and educational content about life beyond diagnosis.",
+    icon: Headphones,
+    items: [{ title: "Healing Beyond Diagnosis Podcast", description: "Conversations about brain injury, invisible grief, identity, caregiving and recovery.", status: "Available now", action: "Listen", to: "/podcast" }],
+  },
+];
+
+function ResourceRow({ item }: { item: ResourceItem }) {
+  return (
+    <div className="flex flex-col gap-4 rounded-xl border border-navy/10 bg-white p-5 sm:flex-row sm:items-center sm:justify-between">
+      <div className="space-y-1">
+        <h3 className="font-bold text-navy">{item.title}</h3>
+        <p className="max-w-2xl text-sm leading-relaxed text-navy/65">{item.description}</p>
+        <p className="text-xs font-semibold uppercase tracking-wide text-navy/45">{item.status}</p>
+      </div>
+      {item.to && item.action ? (
+        <Link to={item.to} className="inline-flex shrink-0 items-center justify-center rounded-lg bg-navy px-5 py-2.5 text-sm font-semibold text-cream transition-colors hover:bg-navy-light">
+          {item.action}
+        </Link>
+      ) : null}
+    </div>
+  );
+}
+
+function ResourceAccordion({ section }: { section: ResourceSection }) {
+  const [isOpen, setIsOpen] = useState(section.id === "assessments");
+  const Icon = section.icon;
+  const panelId = `${section.id}-panel`;
 
   return (
-    <span className={`inline-block px-2.5 py-0.5 rounded-full text-xs font-semibold ${colors[type] || "bg-navy/5 text-navy/60"}`}>
-      {type}
-    </span>
+    <div className="overflow-hidden rounded-2xl border border-navy/10 bg-white shadow-sm">
+      <h2>
+        <button type="button" aria-expanded={isOpen} aria-controls={panelId} onClick={() => setIsOpen((open) => !open)} className="flex w-full items-center gap-4 px-5 py-5 text-left transition-colors hover:bg-gray-50 sm:px-7">
+          <span className="flex size-11 shrink-0 items-center justify-center rounded-xl bg-teal/10 text-teal-dark"><Icon className="size-5" /></span>
+          <span className="min-w-0 flex-1">
+            <span className="block text-lg font-bold text-navy">{section.title}</span>
+            <span className="mt-1 block text-sm text-navy/55">{section.description}</span>
+          </span>
+          <ChevronDown className={`size-5 shrink-0 text-navy/50 transition-transform ${isOpen ? "rotate-180" : ""}`} />
+        </button>
+      </h2>
+      <div id={panelId} hidden={!isOpen} className="border-t border-navy/10 bg-gray-50 p-4 sm:p-6">
+        <div className="space-y-3">
+          {section.items.map((item) => <ResourceRow key={item.title} item={item} />)}
+          {section.emptyMessage ? <p className="rounded-xl border border-dashed border-navy/15 bg-white px-5 py-4 text-sm text-navy/55">{section.emptyMessage}</p> : null}
+        </div>
+      </div>
+    </div>
   );
 }
 
 export function ResourcesPage() {
   return (
     <div>
-      {/* Hero */}
-      <section className="bg-gray-100 py-20 md:py-28">
-        <div className="container mx-auto">
-          <div className="max-w-3xl mx-auto text-center space-y-6">
-            <p className="text-teal text-sm font-semibold tracking-widest uppercase">Resource Library</p>
-            <h1 className="text-4xl md:text-5xl font-bold text-navy leading-tight">
-              Resources
-            </h1>
-            <div className="w-16 h-1 bg-orange mx-auto rounded-full" />
-            <p className="text-navy/60 text-lg leading-relaxed">
-              Books, worksheets, guides, recovery tools, caregiver resources, and more — all grounded in Beyond Diagnosis Theory™. This library grows over time.
-            </p>
-          </div>
-        </div>
+      <section className="bg-gray-100 py-16 md:py-24">
+        <div className="container mx-auto"><div className="mx-auto max-w-3xl space-y-6 text-center">
+          <p className="text-sm font-semibold uppercase tracking-widest text-teal-dark">HBDI Library</p>
+          <h1 className="text-4xl font-bold leading-tight text-navy md:text-5xl">Resources &amp; Tools</h1>
+          <div className="mx-auto h-1 w-16 rounded-full bg-orange" />
+          <p className="text-lg leading-relaxed text-navy/65">Explore assessments, interactive tools and learning resources designed to support reflection and recovery.</p>
+        </div></div>
       </section>
 
-      {/* Resource Sections */}
-      <section className="py-12 md:py-20 bg-cream">
-        <div className="container mx-auto">
-          <div className="max-w-4xl mx-auto space-y-16">
-            {sections.map((section) => (
-              <div key={section.title} className="space-y-6">
-                <div className="flex items-center gap-3">
-                  <span className="text-3xl">{section.icon}</span>
-                  <div>
-                    <h2 className="text-2xl font-bold text-navy">{section.title}</h2>
-                    <p className="text-navy/50 text-sm">{section.description}</p>
+      <section className="bg-cream py-14 md:py-20" aria-labelledby="featured-resources-heading">
+        <div className="container mx-auto"><div className="mx-auto max-w-6xl">
+          <div className="mb-10 max-w-2xl">
+            <p className="text-sm font-semibold uppercase tracking-widest text-orange-dark">Start here</p>
+            <h2 id="featured-resources-heading" className="mt-2 text-3xl font-bold text-navy">Featured Resources</h2>
+          </div>
+          <div className="grid gap-6 lg:grid-cols-3">
+            {featuredResources.map((resource) => {
+              const Icon = resource.icon;
+              return (
+                <article key={resource.title} className={`flex flex-col rounded-2xl border-t-4 p-7 shadow-sm ${resource.accent}`}>
+                  <div className="flex items-start justify-between gap-4">
+                    <span className="flex size-12 items-center justify-center rounded-xl bg-white text-navy shadow-sm"><Icon className="size-6" /></span>
+                    <span className={`rounded-full px-3 py-1 text-xs font-semibold ${resource.badge}`}>{resource.status}</span>
                   </div>
-                </div>
-                <div className="grid gap-4">
-                  {section.items.map((item) => (
-                    <div
-                      key={item.title}
-                      className="bg-white rounded-xl p-6 border border-navy/5 hover:border-teal/20 hover:shadow-sm transition-all"
-                    >
-                      <div className="flex items-start justify-between gap-4">
-                        <div className="space-y-2">
-                          <h3 className="text-lg font-bold text-navy">{item.title}</h3>
-                          <p className="text-navy/60 leading-relaxed">{item.description}</p>
-                        </div>
-                        <TypeBadge type={item.type} />
-                      </div>
-                    </div>
-                  ))}
-                </div>
-              </div>
-            ))}
+                  <h3 className="mt-6 text-2xl font-bold text-navy">{resource.title}</h3>
+                  <p className="mt-1 text-sm font-semibold text-navy/55">{resource.eyebrow}</p>
+                  <p className="mt-4 flex-1 leading-relaxed text-navy/70">{resource.description}</p>
+                  {resource.to ? (
+                    <Link to={resource.to} className="mt-6 inline-flex items-center justify-center rounded-xl bg-navy px-5 py-3 font-semibold text-cream transition-colors hover:bg-navy-light">{resource.action}</Link>
+                  ) : (
+                    <button type="button" disabled className="mt-6 cursor-not-allowed rounded-xl bg-navy/10 px-5 py-3 font-semibold text-navy/45">{resource.action}</button>
+                  )}
+                </article>
+              );
+            })}
           </div>
-        </div>
+        </div></div>
       </section>
 
-      {/* CTA */}
-      <section className="py-16 bg-gray-100">
-        <div className="container mx-auto">
-          <div className="max-w-2xl mx-auto text-center space-y-6">
-            <h2 className="text-2xl md:text-3xl font-bold text-navy">
-              Looking for Something Specific?
-            </h2>
-            <p className="text-navy/60 text-lg">
-              This library is always growing. If you're looking for a specific resource or want to suggest something, reach out.
-            </p>
-            <Link
-              to="/contact"
-              className="inline-flex items-center justify-center px-8 py-4 bg-teal text-navy font-semibold rounded-xl text-lg hover:bg-teal-light transition-all"
-            >
-              Get In Touch
-            </Link>
+      <section className="bg-gray-100 py-14 md:py-20" aria-labelledby="browse-resources-heading">
+        <div className="container mx-auto"><div className="mx-auto max-w-4xl">
+          <div className="mb-8">
+            <p className="text-sm font-semibold uppercase tracking-widest text-teal-dark">Browse by category</p>
+            <h2 id="browse-resources-heading" className="mt-2 text-3xl font-bold text-navy">Resource Library</h2>
           </div>
-        </div>
+          <div className="space-y-4">{sections.map((section) => <ResourceAccordion key={section.id} section={section} />)}</div>
+        </div></div>
+      </section>
+
+      <section className="bg-cream py-14">
+        <div className="container mx-auto"><div className="mx-auto flex max-w-3xl flex-col items-center gap-5 text-center">
+          <HeartHandshake className="size-8 text-teal-dark" />
+          <h2 className="text-2xl font-bold text-navy">Need help finding the right starting point?</h2>
+          <p className="text-navy/60">Contact HBDI with a question about the resources currently available.</p>
+          <Link to="/contact" className="inline-flex items-center justify-center rounded-xl bg-teal px-6 py-3 font-semibold text-navy transition-colors hover:bg-teal-light">Get In Touch</Link>
+        </div></div>
       </section>
     </div>
   );
