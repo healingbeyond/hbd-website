@@ -44,6 +44,7 @@ export function PublicAppRoutes() {
           <Route path="/assessments/:toolId" element={<ToolPage />} />
           <Route path="/podcast" element={<PodcastPage />} />
           <Route path="/resources" element={<ResourcesPage />} />
+          <Route path="/resources/bdra" element={<Navigate to="/resources" replace />} />
           <Route path="/resources/:toolId" element={<ToolPage />} />
           <Route path="/contact" element={<ContactPage />} />
         </Route>

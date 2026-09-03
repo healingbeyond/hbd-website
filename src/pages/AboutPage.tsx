@@ -1,9 +1,7 @@
 import { Link } from "react-router-dom";
-import { ArrowRight, BookOpen, CheckCircle2, ClipboardCheck, Compass, Headphones, Lightbulb, Map, Network, NotebookPen, Quote, Search, Users } from "lucide-react";
+import { ArrowRight, BookOpen, CheckCircle2, Headphones, Lightbulb, Map, Network, NotebookPen, Quote, Search, Users } from "lucide-react";
 
 const initiatives = [
-  { icon: ClipboardCheck, title: "BDRA", text: "HBDI’s recovery assessment for structured self-reflection beyond physical symptoms." },
-  { icon: Compass, title: "PALE", text: "Immediate support shaped around pacing, adaptation, learning and engagement." },
   { icon: Map, title: "HBDI Resource Navigator", text: "A practical way to find services, programs and community support." },
   { icon: Headphones, title: "Podcast", text: "The Healing Beyond Diagnosis Podcast brings lived experience and recovery conversations into the open." },
   { icon: BookOpen, title: "Books and written resources", text: "Published books and educational writing explore identity, grief, purpose and life after diagnosis." },

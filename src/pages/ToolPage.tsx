@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { useParams, Link, Navigate } from "react-router-dom";
-import { ArrowLeft, ClipboardCheck, Coffee, Compass, ExternalLink, HeartHandshake, Map, ShieldCheck, type LucideIcon } from "lucide-react";
+import { ArrowLeft, ClipboardCheck, Coffee, Compass, ExternalLink, HeartHandshake, Map, type LucideIcon } from "lucide-react";
 
 interface ToolInfo {
   id: string;
@@ -14,7 +14,7 @@ interface ToolInfo {
 const toolsMap: Record<string, ToolInfo> = {
   "five-pillars": {
     id: "five-pillars",
-    title: "BDRA — Beyond Diagnosis Recovery Assessment",
+    title: "Five Pillars Assessment",
     audience: "For Individuals",
     description:
       "Evaluate emotional rebuilding, identity alignment, and support structures.",
@@ -50,7 +50,7 @@ const toolsMap: Record<string, ToolInfo> = {
     title: "Resource Navigator",
     description:
       "Canadian resource search. Funding finder. Caregiver supports. Recovery resources. Crisis pathways.",
-    iframeSrc: "https://resource-navigator-9b053b90.viktor.space/",
+    iframeSrc: "https://fastidious-wisp-754d57.netlify.app/",
     icon: Map,
   },
 };
@@ -60,15 +60,14 @@ export function ToolPage() {
   const [iframeLoaded, setIframeLoaded] = useState(false);
   const [loadTimedOut, setLoadTimedOut] = useState(false);
 
-  const resolvedToolId = toolId === "bdra" ? "five-pillars" : toolId;
-  const tool = resolvedToolId ? toolsMap[resolvedToolId] : undefined;
+  const tool = toolId ? toolsMap[toolId] : undefined;
 
   useEffect(() => {
     setIframeLoaded(false);
     setLoadTimedOut(false);
     const timeout = window.setTimeout(() => setLoadTimedOut(true), 10000);
     return () => window.clearTimeout(timeout);
-  }, [resolvedToolId]);
+  }, [toolId]);
 
   useEffect(() => {
     if (iframeLoaded) setLoadTimedOut(false);
@@ -79,8 +78,6 @@ export function ToolPage() {
   }
 
   const ToolIcon = tool.icon;
-  const isBdra = tool.id === "five-pillars";
-
   return (
     <div className="min-h-screen flex flex-col">
       {/* Header bar */}
@@ -116,64 +113,13 @@ export function ToolPage() {
         </div>
       </section>
 
-      {isBdra ? (
-        <section className="bg-cream py-12 md:py-16">
-          <div className="container mx-auto">
-            <div className="mx-auto max-w-5xl space-y-10">
-              <div className="grid gap-6 md:grid-cols-2">
-                <div className="rounded-2xl border border-navy/10 bg-white p-7 shadow-sm">
-                  <h2 className="text-2xl font-bold text-navy">What BDRA is</h2>
-                  <p className="mt-3 leading-relaxed text-navy/70">
-                    BDRA is HBDI’s self-reflection assessment. It provides a structured way to consider recovery beyond physical symptoms without diagnosing or treating a condition.
-                  </p>
-                </div>
-                <div className="rounded-2xl border border-navy/10 bg-white p-7 shadow-sm">
-                  <h2 className="text-2xl font-bold text-navy">Who it is for</h2>
-                  <p className="mt-3 leading-relaxed text-navy/70">
-                    It is designed for individuals reflecting on life after brain injury, chronic illness, disability, trauma or another life-changing diagnosis.
-                  </p>
-                </div>
-                <div className="rounded-2xl border border-navy/10 bg-white p-7 shadow-sm">
-                  <h2 className="text-2xl font-bold text-navy">What it explores</h2>
-                  <p className="mt-3 leading-relaxed text-navy/70">
-                    The assessment uses five pillars to explore emotional rebuilding, identity alignment and the support structures around you.
-                  </p>
-                </div>
-                <div className="rounded-2xl border border-navy/10 bg-white p-7 shadow-sm">
-                  <h2 className="text-2xl font-bold text-navy">What you receive</h2>
-                  <p className="mt-3 leading-relaxed text-navy/70">
-                    You receive a guided set of prompts and an opportunity to review your responses within the assessment experience.
-                  </p>
-                </div>
-              </div>
-
-              <div className="flex flex-col gap-6 rounded-2xl border border-teal/25 bg-teal/5 p-7 md:flex-row md:items-center md:justify-between">
-                <div className="flex gap-4">
-                  <ShieldCheck className="mt-1 size-7 shrink-0 text-teal-dark" />
-                  <div>
-                    <h2 className="text-xl font-bold text-navy">Privacy and data use</h2>
-                    <p className="mt-2 max-w-3xl text-sm leading-relaxed text-navy/65">
-                      This HBDI page does not ask for your name or contact details and does not store assessment responses in the website code. The assessment itself is loaded from an external Viktor Space service, which may handle information separately.
-                    </p>
-                  </div>
-                </div>
-                <a href={tool.iframeSrc} target="_blank" rel="noopener noreferrer" className="inline-flex shrink-0 items-center justify-center gap-2 rounded-xl bg-teal px-6 py-3 font-semibold text-navy transition-colors hover:bg-teal-light">
-                  Start Assessment
-                  <ExternalLink className="size-4" />
-                </a>
-              </div>
-            </div>
-          </div>
-        </section>
-      ) : null}
-
       {/* Iframe area — fill remaining height */}
       <section className="flex-1 bg-cream py-6 md:py-10">
         <div className="container mx-auto">
           <div className="max-w-5xl mx-auto">
             <div className="mb-4 flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
               <div>
-                <h2 className="text-xl font-bold text-navy">{isBdra ? "Start BDRA" : `Open ${tool.title}`}</h2>
+                <h2 className="text-xl font-bold text-navy">Open {tool.title}</h2>
                 <p className="text-sm text-navy/70">The tool loads below from its external service.</p>
               </div>
               <a href={tool.iframeSrc} target="_blank" rel="noopener noreferrer" className="inline-flex items-center justify-center gap-2 rounded-lg border border-navy/15 bg-white px-4 py-2 text-sm font-semibold text-navy transition-colors hover:border-teal/40 hover:text-teal-dark">

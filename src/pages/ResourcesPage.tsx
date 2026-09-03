@@ -1,6 +1,6 @@
 import { useState, type ComponentType } from "react";
 import { Link } from "react-router-dom";
-import { BookOpen, ChevronDown, ClipboardCheck, Coffee, Compass, FileText, Gauge, Headphones, HeartHandshake, Map } from "lucide-react";
+import { BookOpen, ChevronDown, ClipboardCheck, Coffee, Compass, FileText, Headphones, HeartHandshake, Map } from "lucide-react";
 
 interface ResourceItem {
   title: string;
@@ -21,29 +21,18 @@ interface ResourceSection {
 
 const featuredResources = [
   {
-    title: "BDRA",
-    eyebrow: "Beyond Diagnosis Recovery Assessment",
-    description: "HBDI’s guided recovery assessment for reflecting on emotional rebuilding, identity alignment and support structures.",
+    title: "Five Pillars Assessment",
+    eyebrow: "For Individuals",
+    description: "Evaluate emotional rebuilding, identity alignment, and support structures.",
     status: "Available now",
     action: "Start Assessment",
-    to: "/resources/bdra",
+    to: "/resources/five-pillars",
     icon: ClipboardCheck,
     accent: "border-teal bg-teal/5",
     badge: "bg-teal/15 text-teal-dark",
   },
   {
-    title: "PALE",
-    eyebrow: "Pacing, Adaptation, Learning and Engagement",
-    description: "Immediate support focused on pacing, adaptation, learning and engagement.",
-    status: "Available now",
-    action: "Open PALE",
-    to: "https://pale.healingbeyonddiagnosis.ca",
-    icon: Gauge,
-    accent: "border-orange bg-orange/5",
-    badge: "bg-orange/15 text-orange-dark",
-  },
-  {
-    title: "Resource Navigator",
+    title: "HBDI Resource Navigator",
     eyebrow: "Services and community support",
     description: "Search Canadian services, programs, funding pathways and community support by province and need.",
     status: "Available now",
@@ -129,7 +118,7 @@ function ResourceRow({ item }: { item: ResourceItem }) {
 }
 
 function ResourceAccordion({ section }: { section: ResourceSection }) {
-  const [isOpen, setIsOpen] = useState(section.id === "assessments");
+  const [isOpen, setIsOpen] = useState(false);
   const Icon = section.icon;
   const panelId = `${section.id}-panel`;
   const buttonId = `${section.id}-button`;
@@ -172,9 +161,9 @@ export function ResourcesPage() {
         <div className="container mx-auto"><div className="mx-auto max-w-6xl">
           <div className="mb-10 max-w-2xl">
             <p className="text-sm font-semibold uppercase tracking-widest text-navy/70">Start here</p>
-            <h2 id="featured-resources-heading" className="mt-2 text-3xl font-bold text-navy">Featured Resources</h2>
+            <h2 id="featured-resources-heading" className="mt-2 text-3xl font-bold text-navy">Featured Assessments &amp; Tools</h2>
           </div>
-          <div className="grid gap-6 lg:grid-cols-3">
+          <div className="grid gap-6 md:grid-cols-2">
             {featuredResources.map((resource) => {
               const Icon = resource.icon;
               return (
@@ -202,7 +191,7 @@ export function ResourcesPage() {
         <div className="container mx-auto"><div className="mx-auto max-w-4xl">
           <div className="mb-8">
             <p className="text-sm font-semibold uppercase tracking-widest text-navy/70">Browse by category</p>
-            <h2 id="browse-resources-heading" className="mt-2 text-3xl font-bold text-navy">Resource Library</h2>
+            <h2 id="browse-resources-heading" className="mt-2 text-3xl font-bold text-navy">Free Resources</h2>
           </div>
           <div className="space-y-4">{sections.map((section) => <ResourceAccordion key={section.id} section={section} />)}</div>
         </div></div>
