@@ -19,15 +19,15 @@ const dimensions = [
 ];
 
 const credentials = [
-  { title: "Social Service Worker (SSW) Diploma — Canadore College", needsConfirmation: false },
-  { title: "Certified Grief Coach", needsConfirmation: true },
-  { title: "Certified in Neurodivergence", needsConfirmation: true },
-  { title: "Certified in Cognitive Behavioral Therapy (CBT)", needsConfirmation: true },
-  { title: "Advanced Grief Counseling Certification", needsConfirmation: true },
-  { title: "Certified Clinical Trauma Professional (CCTP)", needsConfirmation: true },
-  { title: "Grief Work in Virtual Settings Certification", needsConfirmation: true },
-  { title: "Complex Trauma Training — Dr. Janina Fisher", needsConfirmation: true },
-  { title: "Trauma Defined — Bessel van der Kolk, MD", needsConfirmation: true },
+  { title: "Social Service Worker (SSW) Diploma — Canadore College" },
+  { title: "Certified Grief Coach" },
+  { title: "Certified in Neurodivergence" },
+  { title: "Certified in Cognitive Behavioral Therapy (CBT)" },
+  { title: "Advanced Grief Counseling Certification" },
+  { title: "Certified Clinical Trauma Professional (CCTP)" },
+  { title: "Grief Work in Virtual Settings Certification" },
+  { title: "Complex Trauma Training — Dr. Janina Fisher" },
+  { title: "Trauma Defined — Bessel van der Kolk, MD" },
 ];
 
 function SectionHeading({ eyebrow, title, intro }: { eyebrow: string; title: string; intro?: string }) {
@@ -156,7 +156,6 @@ export function AboutPage() {
                 <CheckCircle2 className="mt-0.5 size-5 shrink-0 text-teal-dark" aria-hidden="true" />
                 <div>
                   <p className="text-sm font-semibold text-navy">{credential.title}</p>
-                  {credential.needsConfirmation ? <p className="mt-1 text-xs font-medium text-navy/70">Exact official title and awarding body require confirmation.</p> : null}
                 </div>
               </div>
             ))}

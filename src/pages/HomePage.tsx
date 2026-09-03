@@ -32,10 +32,10 @@ function HeroSection() {
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center pt-4">
             <Link
-              to="/assessments"
+              to="/resources"
               className="inline-flex items-center justify-center px-8 py-4 bg-teal text-navy font-semibold rounded-xl text-lg hover:bg-teal-light transition-all shadow-lg shadow-teal/20 hover:shadow-teal/30"
             >
-              Explore Assessments &amp; Tools
+              Explore Resources &amp; Tools
             </Link>
             <Link
               to="/about"
