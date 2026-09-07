@@ -30,6 +30,7 @@ export function Footer() {
               <Link to="/" className="text-cream/60 hover:text-teal transition-colors text-sm">Home</Link>
               <Link to="/podcast" className="text-cream/60 hover:text-teal transition-colors text-sm">Podcast</Link>
               <Link to="/about" className="text-cream/60 hover:text-teal transition-colors text-sm">About</Link>
+              <Link to="/bdrs" className="text-cream/60 hover:text-teal transition-colors text-sm">BDRS</Link>
               <Link to="/resources" className="text-cream/60 hover:text-teal transition-colors text-sm">Resources & Tools</Link>
               <Link to="/contact" className="text-cream/60 hover:text-teal transition-colors text-sm">Contact</Link>
             </div>
