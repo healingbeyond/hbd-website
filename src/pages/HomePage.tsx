@@ -229,6 +229,12 @@ function WhoIsThisForSection() {
 function FeaturesPreviewSection() {
   const features = [
     {
+      title: "Beyond Diagnosis Recovery System™",
+      description: "Learn how BDRS brings identity, invisible grief, emotional recovery, caregivers, and next-step conversations into one developing system.",
+      link: "/bdrs",
+      color: "orange",
+    },
+    {
       title: "Resources & Tools",
       description: "Free self-reflection assessments for individuals and caregivers. Understand where you are in your recovery journey.",
       link: "/resources",
