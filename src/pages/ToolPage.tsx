@@ -23,11 +23,11 @@ const toolsMap: Record<string, ToolInfo> = {
   },
   caregiver: {
     id: "caregiver",
-    title: "Caregiver Assessment",
+    title: "Caregiver Pillar Path Assessment",
     audience: "For Caregivers",
     description:
-      "Measure caregiver strain, invisible grief, and personal well-being while supporting someone you love.",
-    iframeSrc: "https://caregiver-assessment-263c6cf5.viktor.space/",
+      "Explore caregiver strain, invisible grief, and personal well-being while supporting someone you care about.",
+    iframeSrc: "https://bdrs.healingbeyonddiagnosis.ca/caregiver",
     icon: HeartHandshake,
   },
   "recovery-companion": {
