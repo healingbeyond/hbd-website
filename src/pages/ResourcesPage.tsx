@@ -8,6 +8,7 @@ interface ResourceItem {
   status: string;
   action?: string;
   to?: string;
+  external?: boolean;
 }
 
 interface ResourceSection {
@@ -78,9 +79,9 @@ const sections: ResourceSection[] = [
     description: "Long-form resources and practical guidance.",
     icon: BookOpen,
     items: [
-      { title: "More Than Your Diagnosis", description: "A guide to identity, grief, purpose and recovery after a life-changing diagnosis.", status: "No online destination currently published" },
-      { title: "Invisible Grief", description: "An HBDI book resource about grief following life-changing diagnosis or injury.", status: "No online destination currently published" },
-      { title: "Carry Your Past: Some Assembly Required", description: "A title in HBDI’s book and guide collection.", status: "No online destination currently published" },
+      { title: "More Than Your Diagnosis", description: "A guide to identity, grief, purpose and recovery after a life-changing diagnosis.", status: "Available on Amazon", action: "View on Amazon", to: "https://a.co/d/05byUF5F", external: true },
+      { title: "Invisible Grief", description: "An HBDI book resource about grief following life-changing diagnosis or injury.", status: "Available on Amazon", action: "View on Amazon", to: "https://a.co/d/01okbKOQ", external: true },
+      { title: "Carry Your Past: Some Assembly Required", description: "A title in HBDI’s book and guide collection.", status: "Available on Amazon", action: "View on Amazon", to: "https://a.co/d/0aOThnfX", external: true },
     ],
   },
   {
@@ -109,9 +110,15 @@ function ResourceRow({ item }: { item: ResourceItem }) {
         <p className="text-xs font-semibold uppercase tracking-wide text-navy/65">{item.status}</p>
       </div>
       {item.to && item.action ? (
-        <Link to={item.to} className="inline-flex shrink-0 items-center justify-center rounded-lg bg-navy px-5 py-2.5 text-sm font-semibold text-cream transition-colors hover:bg-navy-light">
-          {item.action}
-        </Link>
+        item.external ? (
+          <a href={item.to} target="_blank" rel="noopener noreferrer" className="inline-flex shrink-0 items-center justify-center rounded-lg bg-navy px-5 py-2.5 text-sm font-semibold text-cream transition-colors hover:bg-navy-light">
+            {item.action}
+          </a>
+        ) : (
+          <Link to={item.to} className="inline-flex shrink-0 items-center justify-center rounded-lg bg-navy px-5 py-2.5 text-sm font-semibold text-cream transition-colors hover:bg-navy-light">
+            {item.action}
+          </Link>
+        )
       ) : null}
     </div>
   );
