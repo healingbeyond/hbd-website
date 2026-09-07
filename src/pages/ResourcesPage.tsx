@@ -1,6 +1,6 @@
 import { useState, type ComponentType } from "react";
 import { Link } from "react-router-dom";
-import { BookOpen, ChevronDown, ClipboardCheck, Coffee, Compass, FileText, Headphones, HeartHandshake, Map } from "lucide-react";
+import { BookOpen, ChevronDown, ClipboardCheck, Coffee, Compass, Headphones, HeartHandshake, Map } from "lucide-react";
 
 interface ResourceItem {
   title: string;
@@ -83,14 +83,6 @@ const sections: ResourceSection[] = [
       { title: "Invisible Grief", description: "An HBDI book resource about grief following life-changing diagnosis or injury.", status: "Available on Amazon", action: "View on Amazon", to: "https://a.co/d/01okbKOQ", external: true },
       { title: "Carry Your Past: Some Assembly Required", description: "A title in HBDI’s book and guide collection.", status: "Available on Amazon", action: "View on Amazon", to: "https://a.co/d/0aOThnfX", external: true },
     ],
-  },
-  {
-    id: "free-resources",
-    title: "Free Resources",
-    description: "Downloads and materials available without charge.",
-    icon: FileText,
-    items: [],
-    emptyMessage: "No standalone free downloads are currently published on this site.",
   },
   {
     id: "podcast-learning",
