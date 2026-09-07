@@ -15,16 +15,16 @@ export function PodcastPage() {
   return (
     <div>
       {/* Hero */}
-      <section className="bg-navy py-20 md:py-28">
+      <section className="bg-gray-100 py-20 md:py-28">
         <div className="container mx-auto">
           <div className="max-w-3xl mx-auto text-center space-y-6">
             <p className="text-teal text-sm font-semibold tracking-widest uppercase">Listen Now</p>
-            <h1 className="text-4xl md:text-5xl font-bold text-cream leading-tight">
+            <h1 className="text-4xl md:text-5xl font-bold text-navy leading-tight">
               Healing Beyond Diagnosis
               <span className="block text-teal mt-2">Podcast</span>
             </h1>
             <div className="w-16 h-1 bg-orange mx-auto rounded-full" />
-            <p className="text-cream/60 text-lg leading-relaxed max-w-2xl mx-auto">
+            <p className="text-navy/60 text-lg leading-relaxed max-w-2xl mx-auto">
               Real conversations about brain injury, invisible grief, identity, caregiving, and recovery.
               Hosted by Corey Furnival.
             </p>
@@ -78,10 +78,10 @@ export function PodcastPage() {
       </section>
 
       {/* Topics */}
-      <section className="py-16 md:py-24 bg-navy">
+      <section className="py-16 md:py-24 bg-gray-100">
         <div className="container mx-auto">
           <div className="text-center space-y-6 mb-14">
-            <h2 className="text-3xl md:text-4xl font-bold text-cream">
+            <h2 className="text-3xl md:text-4xl font-bold text-navy">
               What We Talk About
             </h2>
             <div className="w-16 h-1 bg-teal mx-auto rounded-full" />
@@ -90,11 +90,11 @@ export function PodcastPage() {
             {topics.map((topic) => (
               <div
                 key={topic.title}
-                className="bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl p-6 hover:bg-white/10 transition-all"
+                className="bg-white border border-navy/10 rounded-2xl p-6 shadow-sm hover:shadow-md hover:border-teal/30 transition-all"
               >
                 <div className="text-3xl mb-3">{topic.icon}</div>
-                <h3 className="text-lg font-bold text-cream mb-2">{topic.title}</h3>
-                <p className="text-cream/60 text-sm leading-relaxed">{topic.description}</p>
+                <h3 className="text-lg font-bold text-navy mb-2">{topic.title}</h3>
+                <p className="text-navy/60 text-sm leading-relaxed">{topic.description}</p>
               </div>
             ))}
           </div>

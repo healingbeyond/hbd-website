@@ -90,14 +90,14 @@ export function AssessmentsPage() {
   return (
     <div>
       {/* Hero */}
-      <section className="bg-navy py-20 md:py-28">
+      <section className="bg-gray-100 py-20 md:py-28">
         <div className="container mx-auto">
           <div className="max-w-3xl mx-auto text-center space-y-6">
-            <h1 className="text-4xl md:text-5xl font-bold text-cream leading-tight">
+            <h1 className="text-4xl md:text-5xl font-bold text-navy leading-tight">
               Assessments &amp; Tools
             </h1>
             <div className="w-16 h-1 bg-teal mx-auto rounded-full" />
-            <p className="text-cream/60 text-lg leading-relaxed">
+            <p className="text-navy/60 text-lg leading-relaxed">
               Free, anonymous self-reflection tools grounded in Beyond Diagnosis
               Theory™. Select a tool below to begin.
             </p>
@@ -121,7 +121,7 @@ export function AssessmentsPage() {
         <div className="container mx-auto">
           <div className="max-w-3xl mx-auto text-center space-y-4">
             <h3 className="text-lg font-bold text-navy">Disclaimer</h3>
-            <p className="text-navy/50 text-sm leading-relaxed">
+            <p className="text-navy/65 text-sm leading-relaxed">
               The Healing Beyond Diagnosis Initiative provides educational,
               reflective, and recovery-focused resources. These tools are not
               intended to diagnose, treat, or replace professional medical,

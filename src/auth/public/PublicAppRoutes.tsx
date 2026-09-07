@@ -5,7 +5,7 @@ import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
 import { HomePage } from "@/pages/HomePage";
 import { AboutPage } from "@/pages/AboutPage";
-import { AssessmentsPage } from "@/pages/AssessmentsPage";
+import { BdrsPage } from "@/pages/BdrsPage";
 import { ToolPage } from "@/pages/ToolPage";
 import { PodcastPage } from "@/pages/PodcastPage";
 import { ResourcesPage } from "@/pages/ResourcesPage";
@@ -41,10 +41,13 @@ export function PublicAppRoutes() {
         <Route element={<PublicShell />}>
           <Route path="/" element={<HomePage />} />
           <Route path="/about" element={<AboutPage />} />
-          <Route path="/assessments" element={<AssessmentsPage />} />
+          <Route path="/bdrs" element={<BdrsPage />} />
+          <Route path="/assessments" element={<Navigate to="/resources" replace />} />
           <Route path="/assessments/:toolId" element={<ToolPage />} />
           <Route path="/podcast" element={<PodcastPage />} />
           <Route path="/resources" element={<ResourcesPage />} />
+          <Route path="/resources/bdra" element={<Navigate to="/resources" replace />} />
+          <Route path="/resources/:toolId" element={<ToolPage />} />
           <Route path="/contact" element={<ContactPage />} />
         </Route>
 

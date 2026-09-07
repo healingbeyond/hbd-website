@@ -49,7 +49,7 @@ const toolsMap: Record<string, ToolInfo> = {
     title: "Resource Navigator",
     description:
       "Canadian resource search. Funding finder. Caregiver supports. Recovery resources. Crisis pathways.",
-    iframeSrc: "https://resource-navigator-9b053b90.viktor.space/",
+    iframeSrc: "https://fastidious-wisp-754d57.netlify.app/",
     icon: "🗺️",
   },
 };

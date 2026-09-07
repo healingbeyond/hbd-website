@@ -25,16 +25,16 @@ export function ContactPage() {
   return (
     <div>
       {/* Hero */}
-      <section className="bg-navy py-20 md:py-28">
+      <section className="bg-gray-100 py-20 md:py-28">
         <div className="container mx-auto">
           <div className="max-w-3xl mx-auto text-center space-y-6">
-            <h1 className="text-4xl md:text-5xl font-bold text-cream leading-tight">
+            <h1 className="text-4xl md:text-5xl font-bold text-navy leading-tight">
               Contact
             </h1>
 
             <div className="w-16 h-1 bg-teal mx-auto rounded-full" />
 
-            <p className="text-cream/60 text-lg leading-relaxed">
+            <p className="text-navy/60 text-lg leading-relaxed">
               Have a question, want to connect, or interested in the initiative?
               Reach out.
             </p>
@@ -59,7 +59,7 @@ export function ContactPage() {
 
               <div className="space-y-6">
                 <div className="space-y-2">
-                  <p className="text-navy/40 text-sm font-semibold uppercase tracking-wider">
+                  <p className="text-navy/65 text-sm font-semibold uppercase tracking-wider">
                     Founder
                   </p>
 
@@ -69,7 +69,7 @@ export function ContactPage() {
                 </div>
 
                 <div className="space-y-2">
-                  <p className="text-navy/40 text-sm font-semibold uppercase tracking-wider">
+                  <p className="text-navy/65 text-sm font-semibold uppercase tracking-wider">
                     Organization
                   </p>
 
@@ -79,7 +79,7 @@ export function ContactPage() {
                 </div>
 
                 <div className="space-y-2">
-                  <p className="text-navy/40 text-sm font-semibold uppercase tracking-wider">
+                  <p className="text-navy/65 text-sm font-semibold uppercase tracking-wider">
                     Email
                   </p>
 
@@ -97,7 +97,7 @@ export function ContactPage() {
                   "Healing was never meant to be faced alone."
                 </p>
 
-                <p className="text-navy/40 text-xs mt-3">
+                <p className="text-navy/65 text-xs mt-3">
                   Ottawa Valley · Renfrew County · Ontario
                 </p>
               </div>
@@ -173,12 +173,12 @@ export function ContactPage() {
                   Send Message
                 </button>
 
-                <p className="text-center text-navy/40 text-sm">
+                <p className="text-center text-navy/65 text-sm">
                   Clicking Send Message will open your email app with your
                   message prepared.
                 </p>
 
-                <p className="text-center text-navy/40 text-sm">
+                <p className="text-center text-navy/65 text-sm">
                   Or email us directly at{" "}
                   <a
                     href="mailto:corey@healingbeyonddiagnosis.ca"
@@ -196,7 +196,7 @@ export function ContactPage() {
       {/* Disclaimer */}
       <section className="py-8 bg-warm-gray">
         <div className="container mx-auto">
-          <p className="text-navy/40 text-xs leading-relaxed text-center max-w-3xl mx-auto">
+          <p className="text-navy/65 text-xs leading-relaxed text-center max-w-3xl mx-auto">
             The Healing Beyond Diagnosis Initiative provides educational,
             reflective, and recovery-focused resources. These tools are not
             intended to diagnose, treat, or replace professional medical,

@@ -1,258 +1,178 @@
 import { Link } from "react-router-dom";
+import { ArrowRight, BookOpen, CheckCircle2, Headphones, Lightbulb, Map, Network, NotebookPen, Quote, Search, Users } from "lucide-react";
 
-function AboutHero() {
+const initiatives = [
+  { icon: Map, title: "HBDI Resource Navigator", text: "A practical way to find services, programs and community support." },
+  { icon: Headphones, title: "Podcast", text: "The Healing Beyond Diagnosis Podcast brings lived experience and recovery conversations into the open." },
+  { icon: BookOpen, title: "Books and written resources", text: "Published books and educational writing explore identity, grief, purpose and life after diagnosis." },
+  { icon: NotebookPen, title: "Reflection materials", text: "Journals, worksheets and caregiver materials turn the initiative’s ideas into practical reflection." },
+];
+
+const dimensions = [
+  { title: "Identity", text: "Making sense of who you are after life changes." },
+  { title: "Grief", text: "Recognizing losses that may be real even when they are invisible." },
+  { title: "Purpose", text: "Finding meaning and direction as life takes a different shape." },
+  { title: "Connection", text: "Rebuilding relationships and reducing isolation." },
+  { title: "Resilience", text: "Adapting and rebuilding without reducing recovery to simply pushing through." },
+];
+
+const credentials = [
+  { title: "Social Service Worker (SSW) Diploma — Canadore College" },
+  { title: "Certified Grief Coach" },
+  { title: "Certified in Neurodivergence" },
+  { title: "Certified in Cognitive Behavioral Therapy (CBT)" },
+  { title: "Advanced Grief Counseling Certification" },
+  { title: "Certified Clinical Trauma Professional (CCTP)" },
+  { title: "Grief Work in Virtual Settings Certification" },
+  { title: "Complex Trauma Training — Dr. Janina Fisher" },
+  { title: "Trauma Defined — Bessel van der Kolk, MD" },
+];
+
+function SectionHeading({ eyebrow, title, intro }: { eyebrow: string; title: string; intro?: string }) {
   return (
-    <section className="bg-navy py-20 md:py-28">
-      <div className="container mx-auto">
-        <div className="max-w-3xl mx-auto text-center space-y-6">
-          <p className="text-teal text-sm font-semibold tracking-widest uppercase">About the Initiative</p>
-          <h1 className="text-4xl md:text-5xl font-bold text-cream leading-tight">
-            When Treatment Ends, Emotional Recovery Often Begins
-          </h1>
-          <div className="w-16 h-1 bg-orange mx-auto rounded-full" />
-          <p className="text-cream/60 text-lg leading-relaxed">
-            Healing Beyond Diagnosis was built by someone who lived the gap — and decided to close it.
-          </p>
-        </div>
-      </div>
-    </section>
-  );
-}
-
-function FounderSection() {
-  return (
-    <section className="py-20 md:py-28 bg-cream">
-      <div className="container mx-auto">
-        <div className="max-w-3xl mx-auto space-y-10">
-          <div className="space-y-6">
-            <h2 className="text-3xl md:text-4xl font-bold text-navy">
-              Corey Furnival
-            </h2>
-            <p className="text-teal font-semibold">Founder, Healing Beyond Diagnosis Initiative</p>
-          </div>
-
-          <div className="space-y-6 text-navy/70 text-lg leading-relaxed">
-            <p>
-              Corey Furnival understands the gap in recovery services — because he's lived it.
-            </p>
-            <p>
-              After sustaining injuries that would later be understood as brain injury, Corey experienced
-              what millions of people face every year: the medical system treated the visible damage, but
-              nobody addressed what happened to the person inside. The grief for a life that changed in an instant.
-              The identity crisis that followed. The isolation. The frustration of being told he looked fine
-              when nothing felt fine.
-            </p>
-            <p>
-              Years of navigating invisible injury, misunderstanding, and a system that wasn't designed
-              for the kind of recovery he needed led Corey to a critical realization: the gap between
-              clinical treatment and emotional recovery is where people fall through the cracks.
-            </p>
-            <p>
-              And caregivers — the people holding everything together — are falling through those same cracks,
-              carrying their own invisible grief that nobody acknowledges.
-            </p>
-          </div>
-        </div>
-      </div>
-    </section>
-  );
-}
-
-function GapSection() {
-  return (
-    <section className="py-20 md:py-28 bg-navy">
-      <div className="container mx-auto">
-        <div className="max-w-3xl mx-auto space-y-10">
-          <div className="text-center space-y-6">
-            <h2 className="text-3xl md:text-4xl font-bold text-cream">
-              The Problem
-            </h2>
-            <div className="w-16 h-1 bg-teal mx-auto rounded-full" />
-          </div>
-
-          <div className="space-y-6 text-cream/80 text-lg leading-relaxed">
-            <p>
-              When someone receives a life-changing diagnosis — brain injury, stroke, chronic illness,
-              disability, or trauma — the medical system focuses on stabilizing the body. And then, almost
-              overnight, treatment ends.
-            </p>
-            <p>
-              The person is sent home with paperwork, a list of medications, and a well-meaning "give it time."
-              But nobody sits them down and says:
-            </p>
-            <div className="bg-white/5 rounded-2xl p-8 space-y-4 border border-white/10">
-              <p className="text-cream italic">"You're going to grieve for who you used to be."</p>
-              <p className="text-cream italic">"You're going to question your identity."</p>
-              <p className="text-cream italic">"The people around you are going to struggle too."</p>
-              <p className="text-cream italic">"None of that makes you broken. It makes you human."</p>
-            </div>
-            <p>
-              Invisible grief — the grief that comes after diagnosis — is one of the most common and least
-              recognized forms of suffering. It affects individuals, caregivers, families, and entire communities.
-              And it doesn't have a clinical treatment protocol.
-            </p>
-          </div>
-        </div>
-      </div>
-    </section>
-  );
-}
-
-function TheorySection() {
-  return (
-    <section className="py-20 md:py-28 bg-warm-gray">
-      <div className="container mx-auto">
-        <div className="max-w-3xl mx-auto space-y-10">
-          <div className="text-center space-y-6">
-            <p className="text-teal text-sm font-semibold tracking-widest uppercase">The Framework</p>
-            <h2 className="text-3xl md:text-4xl font-bold text-navy">
-              Beyond Diagnosis Theory™
-            </h2>
-            <div className="w-16 h-1 bg-orange mx-auto rounded-full" />
-          </div>
-
-          <div className="space-y-6 text-navy/70 text-lg leading-relaxed">
-            <p>
-              Beyond Diagnosis Theory™ is the theoretical framework Corey developed to address
-              what the medical system overlooks. It is the foundation of the entire Healing Beyond
-              Diagnosis Initiative.
-            </p>
-            <p>
-              The theory is built on a core truth:
-            </p>
-            <blockquote className="border-l-4 border-orange pl-6 py-4 bg-white rounded-r-xl">
-              <p className="text-navy text-xl md:text-2xl italic font-medium">
-                "Recovery is not returning to who you were. Recovery is learning who you are now."
-              </p>
-            </blockquote>
-            <p>
-              The theory addresses five interconnected dimensions of recovery that are typically
-              left unaddressed after diagnosis:
-            </p>
-            <div className="space-y-4">
-              {[
-                { title: "Identity", desc: "Who am I after this happened? The old you isn't gone — they became the foundation for who you're becoming." },
-                { title: "Grief", desc: "The invisible grief that comes from losing a life, an identity, a future — even when you're still alive. It's real. It counts." },
-                { title: "Purpose", desc: "Purpose doesn't disappear after diagnosis. It changes shape. Finding meaning again is a critical part of healing." },
-                { title: "Connection", desc: "Isolation after diagnosis is one of the most destructive forces in recovery. Rebuilding connection is essential." },
-                { title: "Resilience", desc: "Not the toxic kind that tells you to push through. The real kind — the ability to rebuild, adapt, and keep going." },
-              ].map((item) => (
-                <div key={item.title} className="bg-white rounded-xl p-6 border border-navy/5">
-                  <h4 className="font-bold text-navy mb-2">{item.title}</h4>
-                  <p className="text-navy/60">{item.desc}</p>
-                </div>
-              ))}
-            </div>
-            <p>
-              The theory also recognizes caregivers as integral to the recovery ecosystem. They carry
-              their own invisible grief — watching someone they love change while losing parts of
-              their own identity in the process.
-            </p>
-          </div>
-        </div>
-      </div>
-    </section>
-  );
-}
-
-function VisionSection() {
-  return (
-    <section className="py-20 md:py-28 bg-cream">
-      <div className="container mx-auto">
-        <div className="max-w-3xl mx-auto space-y-10">
-          <div className="text-center space-y-6">
-            <h2 className="text-3xl md:text-4xl font-bold text-navy">
-              The Vision
-            </h2>
-            <div className="w-16 h-1 bg-teal mx-auto rounded-full" />
-          </div>
-
-          <div className="space-y-6 text-navy/70 text-lg leading-relaxed">
-            <p>
-              Healing Beyond Diagnosis is working toward a future where emotional recovery is recognized
-              as essential — not optional. Where invisible grief is acknowledged. Where caregivers receive
-              the support they deserve. Where identity rebuilding is part of every recovery plan.
-            </p>
-            <p>
-              The initiative builds free, accessible tools grounded in Beyond Diagnosis Theory™ — assessments,
-              journals, resource navigators, and educational content — so that anyone navigating life after
-              diagnosis can find support, regardless of where they live or what they can afford.
-            </p>
-            <blockquote className="border-l-4 border-teal pl-6 py-2">
-              <p className="text-navy text-xl italic">
-                "When the world sees a diagnosis, we see a person fighting to be seen."
-              </p>
-            </blockquote>
-          </div>
-        </div>
-      </div>
-    </section>
-  );
-}
-
-function CredentialsSection() {
-  const credentials = [
-    "Social Service Worker (SSW) Diploma — Canadore College",
-    "Certified Grief Coach",
-    "Certified in Neurodivergence",
-    "Certified in Cognitive Behavioral Therapy (CBT)",
-    "Advanced Grief Counseling Certification",
-    "Certified Clinical Trauma Professional (CCTP)",
-    "Grief Work in Virtual Settings Certification",
-    "Complex Trauma Training — Dr. Janina Fisher",
-    "Trauma Defined — Bessel van der Kolk, MD",
-  ];
-
-  return (
-    <section className="py-20 md:py-28 bg-navy">
-      <div className="container mx-auto">
-        <div className="max-w-3xl mx-auto space-y-10">
-          <div className="text-center space-y-6">
-            <h2 className="text-3xl md:text-4xl font-bold text-cream">
-              Credentials &amp; Training
-            </h2>
-            <div className="w-16 h-1 bg-orange mx-auto rounded-full" />
-          </div>
-
-          <div className="grid sm:grid-cols-2 gap-3">
-            {credentials.map((credential) => (
-              <div
-                key={credential}
-                className="flex items-start gap-3 bg-white/5 rounded-xl p-4 border border-white/10"
-              >
-                <span className="text-teal mt-1 shrink-0">
-                  <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
-                    <path d="M8 0C3.582 0 0 3.582 0 8s3.582 8 8 8 8-3.582 8-8-3.582-8-8-8zm3.766 6.966l-4 4a.75.75 0 01-1.06 0l-1.6-1.6a.75.75 0 111.06-1.06L7.266 9.4l3.44-3.44a.75.75 0 111.06 1.06z" fill="currentColor"/>
-                  </svg>
-                </span>
-                <span className="text-cream/80 text-sm">{credential}</span>
-              </div>
-            ))}
-          </div>
-
-          <div className="text-center pt-8">
-            <Link
-              to="/contact"
-              className="inline-flex items-center justify-center px-8 py-4 bg-teal text-navy font-semibold rounded-xl text-lg hover:bg-teal-light transition-all"
-            >
-              Get In Touch
-            </Link>
-          </div>
-        </div>
-      </div>
-    </section>
+    <div className="max-w-3xl">
+      <p className="text-sm font-semibold uppercase tracking-widest text-navy/70">{eyebrow}</p>
+      <h2 className="mt-3 text-3xl font-bold leading-tight text-navy md:text-4xl">{title}</h2>
+      {intro ? <p className="mt-4 text-lg leading-relaxed text-navy/65">{intro}</p> : null}
+    </div>
   );
 }
 
 export function AboutPage() {
   return (
     <div>
-      <AboutHero />
-      <FounderSection />
-      <GapSection />
-      <TheorySection />
-      <VisionSection />
-      <CredentialsSection />
+      <section className="relative overflow-hidden bg-gray-100 py-14 md:py-20">
+        <div className="absolute inset-y-0 right-0 w-1/3 bg-gradient-to-l from-teal/10 to-transparent" />
+        <div className="container relative mx-auto">
+          <div className="max-w-4xl">
+            <p className="text-sm font-semibold uppercase tracking-widest text-navy/70">About HBDI</p>
+            <h1 className="mt-4 text-4xl font-bold leading-tight text-navy md:text-5xl">Recovery includes the person, not only the diagnosis.</h1>
+            <p className="mt-6 max-w-3xl text-xl leading-relaxed text-navy/65">Healing Beyond Diagnosis Initiative is a developing Canadian community initiative focused on the emotional side of recovery—and on the people and caregivers living through it.</p>
+          </div>
+        </div>
+      </section>
+
+      <section className="bg-white py-14 md:py-20">
+        <div className="container mx-auto grid gap-10 lg:grid-cols-[1.1fr_0.9fr] lg:items-start">
+          <SectionHeading eyebrow="1 · What HBDI Is Today" title="A growing community initiative for life beyond diagnosis" intro="HBDI develops practical, public-facing resources for people navigating brain injury, chronic illness, disability, trauma and other life-changing diagnoses. Caregiver experience is part of that picture, not an afterthought." />
+          <blockquote className="border-l-4 border-orange bg-gray-50 px-7 py-6">
+            <Quote className="size-7 text-orange-dark" aria-hidden="true" />
+            <p className="mt-4 text-2xl font-semibold leading-snug text-navy">“When the world sees a diagnosis, we see a person fighting to be seen.”</p>
+          </blockquote>
+        </div>
+      </section>
+
+      <section className="bg-gray-100 py-14 md:py-20">
+        <div className="container mx-auto grid gap-10 lg:grid-cols-2 lg:gap-16">
+          <SectionHeading eyebrow="2 · Why It Exists" title="The emotional work often begins after clinical care ends" />
+          <div className="space-y-5 text-lg leading-relaxed text-navy/70">
+            <p>Medical care may stabilize the body while grief, identity change, isolation and uncertainty remain. Families and caregivers can carry their own invisible losses at the same time.</p>
+            <p>HBDI exists to make that part of recovery easier to name, explore and discuss—without presenting its resources as diagnosis, treatment or a replacement for professional care.</p>
+          </div>
+        </div>
+      </section>
+
+      <section className="bg-cream py-14 md:py-20">
+        <div className="container mx-auto">
+          <SectionHeading eyebrow="3 · What We’re Building" title="An accessible collection of ways to reflect, learn and connect" />
+          <div className="mt-10 grid gap-x-10 gap-y-8 md:grid-cols-2 lg:grid-cols-3">
+            {initiatives.map((initiative) => {
+              const Icon = initiative.icon;
+              return (
+                <article key={initiative.title} className="border-t border-navy/15 pt-6">
+                  <Icon className="size-6 text-teal-dark" aria-hidden="true" />
+                  <h3 className="mt-4 text-lg font-bold text-navy">{initiative.title}</h3>
+                  <p className="mt-2 text-sm leading-relaxed text-navy/65">{initiative.text}</p>
+                </article>
+              );
+            })}
+          </div>
+          <Link to="/resources" className="mt-10 inline-flex items-center gap-2 font-semibold text-teal-dark hover:text-navy">Explore Resources &amp; Tools <ArrowRight className="size-4" aria-hidden="true" /></Link>
+        </div>
+      </section>
+
+      <section className="bg-white py-14 md:py-20">
+        <div className="container mx-auto grid gap-10 lg:grid-cols-[0.85fr_1.15fr] lg:gap-16">
+          <SectionHeading eyebrow="4 · Community Connection and Growing Recognition" title="Built through conversations across the Ottawa Valley" intro="HBDI’s development includes community and municipal outreach across Renfrew County, including Pembroke." />
+          <div className="grid gap-6 sm:grid-cols-2">
+            <div className="border-t-2 border-teal pt-5">
+              <Network className="size-6 text-teal-dark" aria-hidden="true" />
+              <h3 className="mt-3 font-bold text-navy">Health and community discussions</h3>
+              <p className="mt-2 text-sm leading-relaxed text-navy/65">HBDI has been involved with Ottawa Valley health-system and caregiver/community-support discussions and has engaged in conversations with Ontario 211.</p>
+            </div>
+            <div className="border-t-2 border-orange pt-5">
+              <Users className="size-6 text-orange-dark" aria-hidden="true" />
+              <h3 className="mt-3 font-bold text-navy">Local outreach</h3>
+              <p className="mt-2 text-sm leading-relaxed text-navy/65">Outreach has included community organizations, municipal services, military-family and veteran-support organizations, seniors’ services and caregiver organizations.</p>
+            </div>
+          </div>
+        </div>
+        <div className="container mx-auto mt-10"><p className="border-l-4 border-navy/15 pl-5 text-sm italic leading-relaxed text-navy/70">These connections are described as engagement and exploration. They do not imply endorsement, funding, affiliation or formal partnership.</p></div>
+      </section>
+
+      <section className="bg-gray-100 py-14 md:py-20">
+        <div className="container mx-auto">
+          <div className="grid gap-10 lg:grid-cols-[0.8fr_1.2fr] lg:gap-16">
+            <div>
+              <SectionHeading eyebrow="5 · Beyond Diagnosis Theory" title="A framework for the parts of recovery that can be hard to see" />
+              <p className="mt-5 leading-relaxed text-navy/65">Developed from lived experience, the theory recognizes the person and caregiver within a wider recovery ecosystem.</p>
+            </div>
+            <div className="grid grid-cols-2 gap-x-8 gap-y-7 sm:grid-cols-3">
+              {dimensions.map((dimension, index) => (
+                <div key={dimension.title} className={index === dimensions.length - 1 ? "col-span-2 sm:col-span-1" : ""}>
+                  <p className="text-xs font-bold text-orange-dark">0{index + 1}</p>
+                  <h3 className="mt-2 text-lg font-bold text-navy">{dimension.title}</h3>
+                  <p className="mt-2 text-sm leading-relaxed text-navy/60">{dimension.text}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+          <blockquote className="mt-12 border-l-4 border-teal bg-white px-7 py-6 text-xl font-semibold italic text-navy">“Recovery is not returning to who you were. Recovery is learning who you are now.”</blockquote>
+        </div>
+      </section>
+
+      <section className="bg-white py-14 md:py-20">
+        <div className="container mx-auto grid gap-10 lg:grid-cols-[0.75fr_1.25fr] lg:items-start lg:gap-16">
+          <div>
+            <p className="text-sm font-semibold uppercase tracking-widest text-navy/70">6 · Founder and Lived Experience</p>
+            <h2 className="mt-3 text-3xl font-bold text-navy">Corey Furnival</h2>
+            <p className="mt-2 font-semibold text-orange-dark">Founder, Healing Beyond Diagnosis Initiative</p>
+          </div>
+          <div className="space-y-5 text-lg leading-relaxed text-navy/70">
+            <p>Corey’s experience of brain injury, invisible symptoms, identity change and gaps in emotional recovery support became the lived-experience foundation for HBDI.</p>
+            <p>That experience supports the initiative’s work; HBDI’s focus is the broader community of individuals, caregivers and organizations trying to improve what recovery can include.</p>
+          </div>
+        </div>
+      </section>
+
+      <section className="bg-cream py-14 md:py-20">
+        <div className="container mx-auto">
+          <SectionHeading eyebrow="7 · Credentials and Training" title="Training that informs the work" intro="The titles below are retained exactly as documented in the existing HBDI repository." />
+          <div className="mt-9 divide-y divide-navy/10 border-y border-navy/10 md:grid md:grid-cols-2 md:divide-y-0">
+            {credentials.map((credential) => (
+              <div key={credential.title} className="flex items-start gap-3 py-4 md:border-b md:border-navy/10 md:pr-8 even:md:border-l even:md:pl-8">
+                <CheckCircle2 className="mt-0.5 size-5 shrink-0 text-teal-dark" aria-hidden="true" />
+                <div>
+                  <p className="text-sm font-semibold text-navy">{credential.title}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="bg-gray-100 py-14 md:py-20">
+        <div className="container mx-auto grid gap-10 lg:grid-cols-[1fr_auto] lg:items-end lg:gap-16">
+          <div>
+            <SectionHeading eyebrow="8 · Where HBDI Is Going" title="Growing carefully, with community relevance and independent learning" />
+            <div className="mt-6 grid gap-5 sm:grid-cols-2">
+              <p className="flex gap-3 leading-relaxed text-navy/65"><Search className="mt-1 size-5 shrink-0 text-teal-dark" aria-hidden="true" />HBDI is seeking opportunities for independent research and evaluation of its developing ideas and resources.</p>
+              <p className="flex gap-3 leading-relaxed text-navy/65"><Lightbulb className="mt-1 size-5 shrink-0 text-orange-dark" aria-hidden="true" />The initiative is exploring collaboration and wider community access while keeping claims proportionate to available evidence.</p>
+            </div>
+          </div>
+          <Link to="/contact" className="inline-flex items-center justify-center gap-2 rounded-xl bg-teal px-7 py-3.5 font-semibold text-navy transition-colors hover:bg-teal-light">Connect with HBDI <ArrowRight className="size-4" aria-hidden="true" /></Link>
+        </div>
+      </section>
     </div>
   );
 }
