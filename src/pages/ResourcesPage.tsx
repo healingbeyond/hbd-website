@@ -70,7 +70,7 @@ const sections: ResourceSection[] = [
       { title: "Black Coffee & Wisdom Journal", description: "A digital journal for daily reflection on purpose, growth and meaning.", status: "Available now", action: "Open", to: "/resources/bcw-journal" },
       { title: "From Stuck to Grounded", description: "A guided reflection resource named in HBDI’s resource collection.", status: "No online destination currently published" },
       { title: "The Invisible Grief Worksheet", description: "A guided reflection on grief after diagnosis, injury or a life-changing event.", status: "Not currently available online" },
-      { title: "The Old You vs The New You", description: "A guided reflection on identity change and who you are becoming.", status: "Not currently available online" },
+      { title: "The Old You vs The New You", description: "A guided reflection on identity change - who you were, who you are now, and who you are becoming.", status: "Free printable PDF", action: "Open worksheet", to: "/resources/the-old-you-vs-the-new-you-worksheet.pdf", external: true },
     ],
   },
   {
