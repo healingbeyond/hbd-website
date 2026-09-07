@@ -50,7 +50,7 @@ const sections: ResourceSection[] = [
     title: "Assessments & Quizzes",
     description: "Structured self-reflection for individuals and caregivers.",
     icon: ClipboardCheck,
-    items: [{ title: "Caregiver Assessment", description: "A self-reflection tool for exploring caregiver strain, invisible grief and personal well-being.", status: "Available now", action: "Start", to: "/resources/caregiver" }],
+    items: [{ title: "Caregiver Pillar Path Assessment", description: "A public self-reflection tool for exploring caregiver strain, invisible grief and personal well-being. Responses are not saved or recorded.", status: "Available now", action: "Start", to: "/resources/caregiver" }],
     emptyMessage: "Additional self-reflection quizzes will be added when they are available.",
   },
   {
