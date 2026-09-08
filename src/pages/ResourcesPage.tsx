@@ -1,6 +1,6 @@
 import { useState, type ComponentType } from "react";
 import { Link } from "react-router-dom";
-import { BookOpen, ChevronDown, ClipboardCheck, Coffee, Compass, FileText, Headphones, HeartHandshake, Map } from "lucide-react";
+import { BookOpen, ChevronDown, ClipboardCheck, Coffee, Compass, Headphones, HeartHandshake, Map } from "lucide-react";
 
 interface ResourceItem {
   title: string;
@@ -8,6 +8,7 @@ interface ResourceItem {
   status: string;
   action?: string;
   to?: string;
+  external?: boolean;
 }
 
 interface ResourceSection {
@@ -69,7 +70,7 @@ const sections: ResourceSection[] = [
       { title: "Black Coffee & Wisdom Journal", description: "A digital journal for daily reflection on purpose, growth and meaning.", status: "Available now", action: "Open", to: "/resources/bcw-journal" },
       { title: "From Stuck to Grounded", description: "A guided reflection resource named in HBDI’s resource collection.", status: "No online destination currently published" },
       { title: "The Invisible Grief Worksheet", description: "A guided reflection on grief after diagnosis, injury or a life-changing event.", status: "Not currently available online" },
-      { title: "The Old You vs The New You", description: "A guided reflection on identity change and who you are becoming.", status: "Not currently available online" },
+      { title: "The Old You vs The New You", description: "A guided reflection on identity change - who you were, who you are now, and who you are becoming.", status: "Free printable PDF", action: "Open worksheet", to: "/resources/the-old-you-vs-the-new-you-worksheet.pdf", external: true },
     ],
   },
   {
@@ -78,18 +79,10 @@ const sections: ResourceSection[] = [
     description: "Long-form resources and practical guidance.",
     icon: BookOpen,
     items: [
-      { title: "More Than Your Diagnosis", description: "A guide to identity, grief, purpose and recovery after a life-changing diagnosis.", status: "No online destination currently published" },
-      { title: "Invisible Grief", description: "An HBDI book resource about grief following life-changing diagnosis or injury.", status: "No online destination currently published" },
-      { title: "Carry Your Past: Some Assembly Required", description: "A title in HBDI’s book and guide collection.", status: "No online destination currently published" },
+      { title: "More Than Your Diagnosis", description: "A guide to identity, grief, purpose and recovery after a life-changing diagnosis.", status: "Available on Amazon", action: "View on Amazon", to: "https://a.co/d/05byUF5F", external: true },
+      { title: "Invisible Grief", description: "An HBDI book resource about grief following life-changing diagnosis or injury.", status: "Available on Amazon", action: "View on Amazon", to: "https://a.co/d/01okbKOQ", external: true },
+      { title: "Carry Your Past: Some Assembly Required", description: "A title in HBDI’s book and guide collection.", status: "Available on Amazon", action: "View on Amazon", to: "https://a.co/d/0aOThnfX", external: true },
     ],
-  },
-  {
-    id: "free-resources",
-    title: "Free Resources",
-    description: "Downloads and materials available without charge.",
-    icon: FileText,
-    items: [],
-    emptyMessage: "No standalone free downloads are currently published on this site.",
   },
   {
     id: "podcast-learning",
@@ -109,9 +102,15 @@ function ResourceRow({ item }: { item: ResourceItem }) {
         <p className="text-xs font-semibold uppercase tracking-wide text-navy/65">{item.status}</p>
       </div>
       {item.to && item.action ? (
-        <Link to={item.to} className="inline-flex shrink-0 items-center justify-center rounded-lg bg-navy px-5 py-2.5 text-sm font-semibold text-cream transition-colors hover:bg-navy-light">
-          {item.action}
-        </Link>
+        item.external ? (
+          <a href={item.to} target="_blank" rel="noopener noreferrer" className="inline-flex shrink-0 items-center justify-center rounded-lg bg-navy px-5 py-2.5 text-sm font-semibold text-cream transition-colors hover:bg-navy-light">
+            {item.action}
+          </a>
+        ) : (
+          <Link to={item.to} className="inline-flex shrink-0 items-center justify-center rounded-lg bg-navy px-5 py-2.5 text-sm font-semibold text-cream transition-colors hover:bg-navy-light">
+            {item.action}
+          </Link>
+        )
       ) : null}
     </div>
   );
