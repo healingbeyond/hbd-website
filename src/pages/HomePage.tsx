@@ -1,4 +1,8 @@
+import { ExternalLink, Headphones, Play } from "lucide-react";
 import { Link } from "react-router-dom";
+
+const SPOTIFY_SHOW_URL = "https://open.spotify.com/show/033hiLHKfhB2oyLlVvyYz2?si=vrA8b6N9Squ7SPCikQX-8A&utm_source=copy-link";
+const LATEST_YOUTUBE_URL = "https://www.youtube.com/watch?v=0Smv4FtJ5lQ";
 
 function HeroSection() {
   return (
@@ -288,6 +292,58 @@ function FeaturesPreviewSection() {
   );
 }
 
+function LatestMediaSection() {
+  return (
+    <section className="bg-warm-gray py-20 md:py-28" aria-labelledby="latest-media-heading">
+      <div className="container mx-auto">
+        <div className="mx-auto max-w-5xl">
+          <div className="mb-12 max-w-2xl">
+            <p className="text-sm font-semibold uppercase tracking-widest text-teal-dark">Latest from HBDI</p>
+            <h2 id="latest-media-heading" className="mt-3 text-3xl font-bold text-navy md:text-4xl">Media &amp; Podcast</h2>
+            <p className="mt-4 text-lg leading-relaxed text-navy/65">
+              Recent conversations from Healing Beyond Diagnosis—without the clutter of a full social feed.
+            </p>
+          </div>
+
+          <div className="grid gap-6 md:grid-cols-2">
+            <article className="flex flex-col rounded-2xl bg-navy p-7 text-cream shadow-sm md:p-8">
+              <span className="flex size-12 items-center justify-center rounded-xl bg-teal/15 text-teal">
+                <Headphones className="size-6" aria-hidden="true" />
+              </span>
+              <p className="mt-6 text-sm font-semibold uppercase tracking-widest text-teal">Latest podcast episode</p>
+              <h3 className="mt-3 text-2xl font-bold leading-snug">The Diagnosis Has One Name on It—But the Whole Family Feels It</h3>
+              <p className="mt-4 flex-1 leading-relaxed text-cream/65">
+                A conversation about how a life-changing diagnosis can affect the whole family, including the people providing care.
+              </p>
+              <a href={SPOTIFY_SHOW_URL} target="_blank" rel="noopener noreferrer" className="mt-7 inline-flex items-center justify-center gap-2 rounded-xl bg-teal px-5 py-3 font-semibold text-navy transition-colors hover:bg-teal-light">
+                Listen on Spotify <ExternalLink className="size-4" aria-hidden="true" />
+              </a>
+            </article>
+
+            <article className="overflow-hidden rounded-2xl border border-navy/10 bg-white shadow-sm">
+              <a href={LATEST_YOUTUBE_URL} target="_blank" rel="noopener noreferrer" className="group relative block aspect-video overflow-hidden bg-navy" aria-label="Watch Healing Beyond Diagnosis Episode 4 on YouTube">
+                <img src="https://i.ytimg.com/vi/0Smv4FtJ5lQ/hqdefault.jpg" alt="Healing Beyond Diagnosis Episode 4" className="h-full w-full object-cover transition-transform duration-300 group-hover:scale-[1.02]" loading="lazy" />
+                <span className="absolute inset-0 bg-navy/20 transition-colors group-hover:bg-navy/10" />
+                <span className="absolute inset-0 flex items-center justify-center">
+                  <span className="flex size-14 items-center justify-center rounded-full bg-orange text-white shadow-lg"><Play className="ml-1 size-6 fill-current" aria-hidden="true" /></span>
+                </span>
+              </a>
+              <div className="p-7">
+                <p className="text-sm font-semibold uppercase tracking-widest text-teal-dark">Latest YouTube video</p>
+                <h3 className="mt-3 text-2xl font-bold text-navy">Healing Beyond Diagnosis—Episode 4</h3>
+                <p className="mt-3 leading-relaxed text-navy/65">An honest conversation about the invisible side of trauma, diagnosis, brain injury and chronic illness.</p>
+                <a href={LATEST_YOUTUBE_URL} target="_blank" rel="noopener noreferrer" className="mt-6 inline-flex items-center gap-2 font-semibold text-teal-dark transition-colors hover:text-navy">
+                  Watch on YouTube <ExternalLink className="size-4" aria-hidden="true" />
+                </a>
+              </div>
+            </article>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}
+
 function ClosingSection() {
   return (
     <section className="py-20 md:py-28 bg-cream">
@@ -323,6 +379,7 @@ export function HomePage() {
       <TheoryIntroSection />
       <WhoIsThisForSection />
       <FeaturesPreviewSection />
+      <LatestMediaSection />
       <ClosingSection />
     </div>
   );
