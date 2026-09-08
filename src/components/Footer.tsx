@@ -1,3 +1,4 @@
+import { Facebook, Linkedin } from "lucide-react";
 import { Link } from "react-router-dom";
 
 export function Footer() {
@@ -5,7 +6,7 @@ export function Footer() {
     <footer className="bg-navy text-cream/80">
       {/* Main Footer */}
       <div className="container mx-auto py-12 md:py-16">
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-10 md:gap-12">
+        <div className="grid grid-cols-1 gap-10 md:grid-cols-2 md:gap-12 lg:grid-cols-4">
           {/* Brand */}
           <div className="space-y-4">
             <div className="flex items-center gap-3">
@@ -46,6 +47,21 @@ export function Footer() {
                 className="text-teal hover:text-teal-light transition-colors text-sm"
               >
                 corey@healingbeyonddiagnosis.ca
+              </a>
+            </div>
+          </div>
+
+          {/* Social */}
+          <div className="space-y-4">
+            <h3 className="text-teal font-semibold text-sm tracking-widest uppercase">Follow HBDI</h3>
+            <div className="flex flex-col gap-3">
+              <a href="https://ca.linkedin.com/in/corey-furnival-257204414" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-3 text-sm text-cream/60 transition-colors hover:text-teal">
+                <span className="flex size-9 items-center justify-center rounded-lg bg-white/10"><Linkedin className="size-4" aria-hidden="true" /></span>
+                LinkedIn updates
+              </a>
+              <a href="https://www.facebook.com/HealingBeyondDiagnosis/" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-3 text-sm text-cream/60 transition-colors hover:text-teal">
+                <span className="flex size-9 items-center justify-center rounded-lg bg-white/10"><Facebook className="size-4" aria-hidden="true" /></span>
+                Facebook
               </a>
             </div>
           </div>

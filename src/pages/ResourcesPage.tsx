@@ -1,6 +1,6 @@
-import { useState, type ComponentType } from "react";
+import { BookOpen, ChevronDown, ClipboardCheck, Coffee, Compass, Headphones, HeartHandshake, Map as MapIcon } from "lucide-react";
+import { type ComponentType, useState } from "react";
 import { Link } from "react-router-dom";
-import { BookOpen, ChevronDown, ClipboardCheck, Coffee, Compass, Headphones, HeartHandshake, Map } from "lucide-react";
 
 interface ResourceItem {
   title: string;
@@ -39,7 +39,7 @@ const featuredResources = [
     status: "Available now",
     action: "Find Support",
     to: "/resources/resource-navigator",
-    icon: Map,
+    icon: MapIcon,
     accent: "border-navy bg-navy/5",
     badge: "bg-navy/10 text-navy",
   },
@@ -68,8 +68,10 @@ const sections: ResourceSection[] = [
     icon: Coffee,
     items: [
       { title: "Black Coffee & Wisdom Journal", description: "A digital journal for daily reflection on purpose, growth and meaning.", status: "Available now", action: "Open", to: "/resources/bcw-journal" },
-      { title: "From Stuck to Grounded", description: "A guided reflection resource named in HBDI’s resource collection.", status: "No online destination currently published" },
-      { title: "The Invisible Grief Worksheet", description: "A guided reflection on grief after diagnosis, injury or a life-changing event.", status: "Not currently available online" },
+      { title: "From Stuck to Grounded", description: "A guided journal for moving from overwhelm toward steadier ground through reflection and practical prompts.", status: "Free printable PDF", action: "Open journal", to: "/resources/from-stuck-to-grounded-journal.pdf", external: true },
+      { title: "Invisible Grief Worksheets", description: "Guided reflection on grief after diagnosis, injury or a life-changing event.", status: "Free printable PDF", action: "Open worksheets", to: "/resources/invisible-grief-worksheets.pdf", external: true },
+      { title: "Caregiver Reflection Sheets", description: "Reflection prompts created for caregivers navigating change, strain and their own emotional well-being.", status: "Free printable PDF", action: "Open reflection sheets", to: "/resources/caregiver-reflection-sheets.pdf", external: true },
+      { title: "Recovery Planning Tools", description: "Practical worksheets for identifying needs, priorities, supports and next steps in recovery.", status: "Free printable PDF", action: "Open planning tools", to: "/resources/recovery-planning-tools.pdf", external: true },
       { title: "The Old You vs The New You", description: "A guided reflection on identity change - who you were, who you are now, and who you are becoming.", status: "Free printable PDF", action: "Open worksheet", to: "/resources/the-old-you-vs-the-new-you-worksheet.pdf", external: true },
     ],
   },
@@ -190,7 +192,7 @@ export function ResourcesPage() {
         <div className="container mx-auto"><div className="mx-auto max-w-4xl">
           <div className="mb-8">
             <p className="text-sm font-semibold uppercase tracking-widest text-navy/70">Browse by category</p>
-            <h2 id="browse-resources-heading" className="mt-2 text-3xl font-bold text-navy">Free Resources</h2>
+            <h2 id="browse-resources-heading" className="mt-2 text-3xl font-bold text-navy">Resource Library</h2>
           </div>
           <div className="space-y-4">{sections.map((section) => <ResourceAccordion key={section.id} section={section} />)}</div>
         </div></div>
