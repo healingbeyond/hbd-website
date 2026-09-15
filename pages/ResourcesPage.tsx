@@ -4,10 +4,31 @@ interface ResourceSection {
   icon: string;
   title: string;
   description: string;
-  items: { title: string; description: string; type: string }[];
+  items: { title: string; description: string; type: string; href?: string; linkLabel?: string }[];
 }
 
 const sections: ResourceSection[] = [
+  {
+    icon: "🧩",
+    title: "HBDI Systems & Assessments",
+    description: "Learn about HBDI's developing assessment systems and open their dedicated platforms.",
+    items: [
+      {
+        title: "Beyond Diagnosis Recovery System™ (BDRS)",
+        description: "A private member-based recovery system that includes BDRA Orientation, Integration and Transformation, plus the Caregiver Assessment. Members can complete assessments, review plain-language results, and choose to explore Resource Navigator supports connected to the areas identified in their responses.",
+        type: "System",
+        href: "https://bdrs.healingbeyonddiagnosis.ca",
+        linkLabel: "Visit the BDRS website",
+      },
+      {
+        title: "S.T.E.P.H.™ & SARA™",
+        description: "STEPH is HBDI's person-centred aging support framework. SARA — the Senior Aging Resource Assessment — applies that framework through practical questions about what is working, what has changed, and where support may be useful. SARA can also connect people with Resource Navigator supports based on their responses.",
+        type: "System",
+        href: "https://steph.bigcoreyd.chatgpt.site/",
+        linkLabel: "Learn about STEPH & SARA",
+      },
+    ],
+  },
   {
     icon: "📚",
     title: "Books",
@@ -131,6 +152,7 @@ function TypeBadge({ type }: { type: string }) {
     Assessment: "bg-navy/10 text-navy",
     App: "bg-teal/10 text-teal-dark",
     Tool: "bg-orange/10 text-orange-dark",
+    System: "bg-teal/10 text-teal-dark",
     Podcast: "bg-navy/10 text-navy",
     Article: "bg-warm-gray text-navy/60",
   };
@@ -145,23 +167,21 @@ function TypeBadge({ type }: { type: string }) {
 export function ResourcesPage() {
   return (
     <div>
-      {/* Hero */}
       <section className="bg-navy py-20 md:py-28">
         <div className="container mx-auto">
           <div className="max-w-3xl mx-auto text-center space-y-6">
             <p className="text-teal text-sm font-semibold tracking-widest uppercase">Resource Library</p>
             <h1 className="text-4xl md:text-5xl font-bold text-cream leading-tight">
-              Resources
+              Resources &amp; Tools
             </h1>
             <div className="w-16 h-1 bg-orange mx-auto rounded-full" />
             <p className="text-cream/60 text-lg leading-relaxed">
-              Books, worksheets, guides, recovery tools, caregiver resources, and more — all grounded in Beyond Diagnosis Theory™. This library grows over time.
+              HBDI systems, assessments, books, worksheets, guides, recovery tools, caregiver resources, and more — built to help people understand what has changed and connect with practical support.
             </p>
           </div>
         </div>
       </section>
 
-      {/* Resource Sections */}
       <section className="py-12 md:py-20 bg-cream">
         <div className="container mx-auto">
           <div className="max-w-4xl mx-auto space-y-16">
@@ -181,9 +201,19 @@ export function ResourcesPage() {
                       className="bg-white rounded-xl p-6 border border-navy/5 hover:border-teal/20 hover:shadow-sm transition-all"
                     >
                       <div className="flex items-start justify-between gap-4">
-                        <div className="space-y-2">
+                        <div className="space-y-2 flex-1">
                           <h3 className="text-lg font-bold text-navy">{item.title}</h3>
                           <p className="text-navy/60 leading-relaxed">{item.description}</p>
+                          {item.href && (
+                            <a
+                              href={item.href}
+                              target="_blank"
+                              rel="noopener noreferrer"
+                              className="inline-flex mt-2 items-center justify-center px-5 py-2.5 bg-teal text-navy font-semibold rounded-lg hover:bg-teal-light transition-all"
+                            >
+                              {item.linkLabel || "Open"}
+                            </a>
+                          )}
                         </div>
                         <TypeBadge type={item.type} />
                       </div>
@@ -196,7 +226,6 @@ export function ResourcesPage() {
         </div>
       </section>
 
-      {/* CTA */}
       <section className="py-16 bg-navy">
         <div className="container mx-auto">
           <div className="max-w-2xl mx-auto text-center space-y-6">
