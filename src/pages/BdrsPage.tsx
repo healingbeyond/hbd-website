@@ -11,7 +11,7 @@ export function BdrsPage() {
             <p className="max-w-3xl text-lg leading-relaxed text-navy/70">BDRS is HBDI’s private member-based recovery system. It brings together structured assessments, plain-language results, guided reflection and optional connections to practical supports.</p>
             <div className="flex flex-col gap-3 sm:flex-row">
               <a href="https://bdrs.healingbeyonddiagnosis.ca" target="_blank" rel="noopener noreferrer" className="inline-flex items-center justify-center gap-2 rounded-xl bg-teal px-7 py-3.5 font-semibold text-navy transition-colors hover:bg-teal-light">
-                Open BDRS <ExternalLink className="size-4" />
+                Open BDRS Website <ExternalLink className="size-4" />
               </a>
               <a href="/resources" className="inline-flex items-center justify-center rounded-xl border border-navy/20 bg-white px-7 py-3.5 font-semibold text-navy transition-colors hover:bg-gray-50">Explore public resources</a>
             </div>
