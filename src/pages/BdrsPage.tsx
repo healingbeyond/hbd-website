@@ -1,5 +1,8 @@
 import { ExternalLink } from "lucide-react";
 
+const bdrsHost = ["bdrs-platform-git-fi-f34982-coreyscoachingcorner-7642s-projects", "vercel", "app"].join(".");
+const bdrsWebsite = `https://${bdrsHost}`;
+
 export function BdrsPage() {
   return (
     <div>
@@ -10,7 +13,7 @@ export function BdrsPage() {
             <h1 className="text-4xl font-bold leading-tight text-navy md:text-5xl">A person-centred system for the emotional side of recovery.</h1>
             <p className="max-w-3xl text-lg leading-relaxed text-navy/70">BDRS is HBDI’s private member-based recovery system. It brings together structured assessments, plain-language results, guided reflection and optional connections to practical supports.</p>
             <div className="flex flex-col gap-3 sm:flex-row">
-              <a href="https://bdrs.healingbeyonddiagnosis.ca" target="_blank" rel="noopener noreferrer" className="inline-flex items-center justify-center gap-2 rounded-xl bg-teal px-7 py-3.5 font-semibold text-navy transition-colors hover:bg-teal-light">
+              <a href={bdrsWebsite} target="_blank" rel="noopener noreferrer" className="inline-flex items-center justify-center gap-2 rounded-xl bg-teal px-7 py-3.5 font-semibold text-navy transition-colors hover:bg-teal-light">
                 Open BDRS Website <ExternalLink className="size-4" />
               </a>
               <a href="/resources" className="inline-flex items-center justify-center rounded-xl border border-navy/20 bg-white px-7 py-3.5 font-semibold text-navy transition-colors hover:bg-gray-50">Explore public resources</a>
