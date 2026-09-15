@@ -4,6 +4,8 @@ import { Link, useLocation } from "react-router-dom";
 const navLinks = [
   { to: "/", label: "Home" },
   { to: "/about", label: "About" },
+  { to: "/bdrs", label: "BDRS" },
+  { to: "/steph-sara", label: "STEPH / SARA" },
   { to: "/resources", label: "Resources & Tools" },
   { to: "/podcast", label: "Podcast" },
   { to: "/contact", label: "Contact" },
@@ -17,7 +19,6 @@ export function Navbar() {
     <nav className="fixed top-0 left-0 right-0 z-50 bg-gray-50/95 backdrop-blur-md border-b border-navy/10 shadow-sm">
       <div className="container mx-auto">
         <div className="flex items-center justify-between h-16 md:h-20">
-          {/* Logo */}
           <Link to="/" className="flex items-center gap-3 shrink-0" onClick={() => setIsOpen(false)}>
             <img src="/logo.png" alt="Healing Beyond Diagnosis Initiative" className="h-10 w-10 md:h-12 md:w-12 rounded-full" />
             <div className="hidden sm:block">
@@ -26,7 +27,6 @@ export function Navbar() {
             </div>
           </Link>
 
-          {/* Desktop Nav */}
           <div className="hidden lg:flex items-center gap-1">
             {navLinks.map((link) => (
               <Link
@@ -44,7 +44,6 @@ export function Navbar() {
             ))}
           </div>
 
-          {/* Mobile Menu Button */}
           <button
             onClick={() => setIsOpen(!isOpen)}
             className="lg:hidden flex flex-col gap-1.5 p-2 rounded-lg hover:bg-warm-gray transition-colors"
@@ -58,7 +57,6 @@ export function Navbar() {
           </button>
         </div>
 
-        {/* Mobile Menu */}
         {isOpen && (
           <div id="mobile-navigation" className="lg:hidden pb-4 border-t border-navy/10 mt-1">
             <div className="flex flex-col gap-1 pt-3">
