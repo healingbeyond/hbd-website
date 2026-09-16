@@ -235,9 +235,9 @@ function FeaturesPreviewSection() {
       color: "teal",
     },
     {
-      title: "Resource Navigator",
-      description: "A Canadian resource search engine. Find funding, support groups, crisis pathways, and caregiver resources by province.",
-      link: "/resources/resource-navigator",
+      title: "HBDI Resource Navigator",
+      description: "Find practical supports and services based on your needs and location. Currently available for Ontario residents. More regions coming in the future.",
+      link: "https://resources.healingbeyonddiagnosis.ca",
       color: "orange",
     },
     {
