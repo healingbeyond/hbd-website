@@ -24,7 +24,7 @@ const sections: ResourceSection[] = [
         title: "S.T.E.P.H.™ & SARA™",
         description: "STEPH is HBDI's person-centred aging support framework. SARA — the Senior Aging Resource Assessment — applies that framework through practical questions about what is working, what has changed, and where support may be useful. SARA can also connect people with Resource Navigator supports based on their responses.",
         type: "System",
-        href: "https://steph.bigcoreyd.chatgpt.site/",
+        href: "https://steph.floot.app/",
         linkLabel: "Learn about STEPH & SARA",
       },
     ],
