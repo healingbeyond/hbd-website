@@ -9,7 +9,7 @@ export function StephSaraPage() {
             <p className="text-sm font-semibold uppercase tracking-widest text-teal-dark">S.T.E.P.H.™ &amp; SARA™</p>
             <h1 className="text-4xl font-bold leading-tight text-navy md:text-5xl">Person-centred aging support that starts with the person.</h1>
             <p className="max-w-3xl text-lg leading-relaxed text-navy/70">STEPH is HBDI’s person-centred aging support framework. SARA — the Senior Aging Resource Assessment — is the assessment built from that framework.</p>
-            <a href="https://steph.bigcoreyd.chatgpt.site/" target="_blank" rel="noopener noreferrer" className="inline-flex items-center justify-center gap-2 rounded-xl bg-teal px-7 py-3.5 font-semibold text-navy transition-colors hover:bg-teal-light">
+            <a href="https://steph.floot.app/" target="_blank" rel="noopener noreferrer" className="inline-flex items-center justify-center gap-2 rounded-xl bg-teal px-7 py-3.5 font-semibold text-navy transition-colors hover:bg-teal-light">
               Open STEPH &amp; SARA <ExternalLink className="size-4" />
             </a>
           </div>
