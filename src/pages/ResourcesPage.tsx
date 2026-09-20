@@ -21,20 +21,31 @@ interface ResourceSection {
 
 const featuredResources = [
   {
-    title: "Five Pillars Assessment",
-    eyebrow: "For Individuals",
-    description: "Evaluate emotional rebuilding, identity alignment, and support structures.",
+    title: "Beyond Diagnosis Recovery System™",
+    eyebrow: "BDRS",
+    description: "HBDI’s recovery system, including the five-part BDRA pathway plus separate Five Pillars and Caregiver assessment tools.",
     status: "Available now",
-    action: "Start Assessment",
-    to: "/resources/five-pillars",
+    action: "Explore BDRS",
+    to: "/bdrs",
     icon: ClipboardCheck,
     accent: "border-teal bg-teal/5",
     badge: "bg-teal/15 text-teal-dark",
   },
   {
+    title: "STEPH™ & SARA™",
+    eyebrow: "Aging support",
+    description: "Person-centred aging support through the STEPH framework and the Senior Aging Resource Assessment (SARA).",
+    status: "Available now",
+    action: "Explore STEPH / SARA",
+    to: "/steph-sara",
+    icon: HeartHandshake,
+    accent: "border-orange bg-orange/5",
+    badge: "bg-orange/15 text-orange",
+  },
+  {
     title: "HBDI Resource Navigator",
     eyebrow: "Services and community support",
-    description: "Search Canadian services, programs, funding pathways and community support by province and need.",
+    description: "Find practical supports and services based on need and location, with Ontario resources available now and more regions planned.",
     status: "Available now",
     action: "Find Support",
     to: "/resources/resource-navigator",
@@ -47,11 +58,13 @@ const featuredResources = [
 const sections: ResourceSection[] = [
   {
     id: "assessments",
-    title: "Assessments & Quizzes",
-    description: "Structured self-reflection for individuals and caregivers.",
+    title: "Assessments & Recovery Systems",
+    description: "Structured reflection and support pathways for individuals, caregivers and older adults.",
     icon: ClipboardCheck,
-    items: [{ title: "Caregiver Assessment", description: "A self-reflection tool for exploring caregiver strain, invisible grief and personal well-being.", status: "Available now", action: "Start", to: "/resources/caregiver" }],
-    emptyMessage: "Additional self-reflection quizzes will be added when they are available.",
+    items: [
+      { title: "BDRS", description: "The Beyond Diagnosis Recovery System includes Intake, Stage 1 BDRA, Stage 2 Integration, Stage 3 Transformation and Follow-Up, with Five Pillars and Caregiver tools kept separate.", status: "Available now", action: "Explore", to: "/bdrs" },
+      { title: "STEPH / SARA", description: "STEPH is HBDI’s person-centred aging framework. SARA is the Senior Aging Resource Assessment built from that framework.", status: "Available now", action: "Explore", to: "/steph-sara" },
+    ],
   },
   {
     id: "interactive-tools",
@@ -67,7 +80,7 @@ const sections: ResourceSection[] = [
     icon: Coffee,
     items: [
       { title: "Black Coffee & Wisdom Journal", description: "A digital journal for daily reflection on purpose, growth and meaning.", status: "Available now", action: "Open", to: "/resources/bcw-journal" },
-      { title: "From Stuck to Grounded", description: "A guided reflection resource named in HBDI’s resource collection.", status: "No online destination currently published" },
+      { title: "From Stuck to Grounded", description: "A guided reflection resource in HBDI’s resource collection.", status: "No online destination currently published" },
       { title: "The Invisible Grief Worksheet", description: "A guided reflection on grief after diagnosis, injury or a life-changing event.", status: "Not currently available online" },
       { title: "The Old You vs The New You", description: "A guided reflection on identity change and who you are becoming.", status: "Not currently available online" },
     ],
@@ -153,7 +166,7 @@ export function ResourcesPage() {
           <p className="text-sm font-semibold uppercase tracking-widest text-navy/70">HBDI Library</p>
           <h1 className="text-4xl font-bold leading-tight text-navy md:text-5xl">Resources &amp; Tools</h1>
           <div className="mx-auto h-1 w-16 rounded-full bg-orange" />
-          <p className="text-lg leading-relaxed text-navy/65">Explore assessments, interactive tools and learning resources designed to support reflection and recovery.</p>
+          <p className="text-lg leading-relaxed text-navy/65">Explore HBDI’s current recovery systems, assessments, interactive tools and learning resources.</p>
         </div></div>
       </section>
 
@@ -161,9 +174,9 @@ export function ResourcesPage() {
         <div className="container mx-auto"><div className="mx-auto max-w-6xl">
           <div className="mb-10 max-w-2xl">
             <p className="text-sm font-semibold uppercase tracking-widest text-navy/70">Start here</p>
-            <h2 id="featured-resources-heading" className="mt-2 text-3xl font-bold text-navy">Featured Assessments &amp; Tools</h2>
+            <h2 id="featured-resources-heading" className="mt-2 text-3xl font-bold text-navy">Current HBDI Systems &amp; Tools</h2>
           </div>
-          <div className="grid gap-6 md:grid-cols-2">
+          <div className="grid gap-6 md:grid-cols-3">
             {featuredResources.map((resource) => {
               const Icon = resource.icon;
               return (
@@ -175,11 +188,7 @@ export function ResourcesPage() {
                   <h3 className="mt-6 text-2xl font-bold text-navy">{resource.title}</h3>
                   <p className="mt-1 text-sm font-semibold text-navy/70">{resource.eyebrow}</p>
                   <p className="mt-4 flex-1 leading-relaxed text-navy/70">{resource.description}</p>
-                  {resource.to ? (
-                    <Link to={resource.to} className="mt-6 inline-flex items-center justify-center rounded-xl bg-navy px-5 py-3 font-semibold text-cream transition-colors hover:bg-navy-light">{resource.action}</Link>
-                  ) : (
-                    <button type="button" disabled className="mt-6 cursor-not-allowed rounded-xl bg-navy/10 px-5 py-3 font-semibold text-navy/65">{resource.action}</button>
-                  )}
+                  <Link to={resource.to} className="mt-6 inline-flex items-center justify-center rounded-xl bg-navy px-5 py-3 font-semibold text-cream transition-colors hover:bg-navy-light">{resource.action}</Link>
                 </article>
               );
             })}
@@ -191,7 +200,7 @@ export function ResourcesPage() {
         <div className="container mx-auto"><div className="mx-auto max-w-4xl">
           <div className="mb-8">
             <p className="text-sm font-semibold uppercase tracking-widest text-navy/70">Browse by category</p>
-            <h2 id="browse-resources-heading" className="mt-2 text-3xl font-bold text-navy">Free Resources</h2>
+            <h2 id="browse-resources-heading" className="mt-2 text-3xl font-bold text-navy">More Resources</h2>
           </div>
           <div className="space-y-4">{sections.map((section) => <ResourceAccordion key={section.id} section={section} />)}</div>
         </div></div>
