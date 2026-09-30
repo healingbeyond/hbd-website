@@ -42,6 +42,12 @@ export function Navbar() {
                 {link.label}
               </Link>
             ))}
+            <button
+              type="button"
+              className="colib--widget--open ml-2 px-4 py-2 rounded-lg bg-teal text-white text-sm font-semibold hover:bg-teal-dark transition-colors shadow-sm"
+            >
+              Book Appointment
+            </button>
           </div>
 
           <button
@@ -75,6 +81,13 @@ export function Navbar() {
                   {link.label}
                 </Link>
               ))}
+              <button
+                type="button"
+                onClick={() => setIsOpen(false)}
+                className="colib--widget--open mx-2 mt-2 px-4 py-3 rounded-lg bg-teal text-white text-base font-semibold hover:bg-teal-dark transition-colors shadow-sm"
+              >
+                Book Appointment
+              </button>
             </div>
           </div>
         )}
