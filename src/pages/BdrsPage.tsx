@@ -3,7 +3,7 @@ import { ExternalLink, LogIn } from "lucide-react";
 const bdrsWebsite = "https://bdrs-platform-one.vercel.app";
 const bdrsLogin = `${bdrsWebsite}/login`;
 const bdrsDemo = `${bdrsWebsite}/integration`;
-const bdrsDemoVideo = "https://www.linkedin.com/posts/healing-beyond-diagnosis-initiative_healthcareinnovation-braininjury-patientexperience-activity-7511844403284484096-b5Fo?utm_source=share&utm_medium=member_ios&rcm=ACoAAGlktGMBdm2bepEEcXY_KSHDHhDmZy0veAo";
+const bdrsDemoVideo = "https://youtu.be/M8xR_zApLV8?si=n3RWXpXXcPrb2C3r";
 
 export function BdrsPage() {
   return (
