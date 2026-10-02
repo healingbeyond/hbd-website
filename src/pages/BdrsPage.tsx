@@ -3,6 +3,7 @@ import { ExternalLink, LogIn } from "lucide-react";
 const bdrsWebsite = "https://bdrs-platform-one.vercel.app";
 const bdrsLogin = `${bdrsWebsite}/login`;
 const bdrsDemo = `${bdrsWebsite}/integration`;
+const bdrsDemoVideo = "https://www.linkedin.com/posts/healing-beyond-diagnosis-initiative_healthcareinnovation-braininjury-patientexperience-activity-7511844403284484096-b5Fo?utm_source=share&utm_medium=member_ios&rcm=ACoAAGlktGMBdm2bepEEcXY_KSHDHhDmZy0veAo";
 
 export function BdrsPage() {
   return (
@@ -40,7 +41,7 @@ export function BdrsPage() {
                   The demo is part of an evolving pilot. It is not a diagnostic test, and demo responses should not be treated as clinical advice or a substitute for care.
                 </p>
               </div>
-              <div className="flex md:justify-end">
+              <div className="flex flex-col gap-3 md:items-end">
                 <a
                   href={bdrsDemo}
                   target="_blank"
@@ -48,6 +49,14 @@ export function BdrsPage() {
                   className="inline-flex w-full items-center justify-center gap-2 rounded-xl bg-teal px-7 py-4 font-semibold text-navy transition-colors hover:bg-teal-light md:w-auto"
                 >
                   Open the Demo <ExternalLink className="size-4" />
+                </a>
+                <a
+                  href={bdrsDemoVideo}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex w-full items-center justify-center gap-2 rounded-xl border border-white/20 bg-white/10 px-7 py-4 font-semibold text-white transition-colors hover:bg-white/15 md:w-auto"
+                >
+                  Watch Demo Video <ExternalLink className="size-4" />
                 </a>
               </div>
             </div>
