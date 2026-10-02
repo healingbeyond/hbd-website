@@ -2,6 +2,7 @@ import { ExternalLink, LogIn } from "lucide-react";
 
 const bdrsWebsite = "https://bdrs-platform-one.vercel.app";
 const bdrsLogin = `${bdrsWebsite}/login`;
+const bdrsDemo = `${bdrsWebsite}/integration`;
 
 export function BdrsPage() {
   return (
@@ -20,6 +21,35 @@ export function BdrsPage() {
                 Member Login <LogIn className="size-4" />
               </a>
               <a href="/resources" className="inline-flex items-center justify-center rounded-xl border border-navy/20 bg-white px-7 py-3.5 font-semibold text-navy transition-colors hover:bg-gray-50">Explore public resources</a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section className="bg-white py-16 md:py-20">
+        <div className="container mx-auto">
+          <div className="mx-auto max-w-5xl overflow-hidden rounded-3xl border border-navy/10 bg-navy p-8 text-white shadow-sm md:p-12">
+            <div className="grid gap-8 md:grid-cols-[1.4fr_0.6fr] md:items-center">
+              <div>
+                <p className="text-sm font-semibold uppercase tracking-widest text-teal-light">See what we’re building</p>
+                <h2 className="mt-3 text-3xl font-bold md:text-4xl">Experience the BDRS participant demo.</h2>
+                <p className="mt-4 max-w-2xl leading-relaxed text-white/80">
+                  This public demo walks through the participant side of the Beyond Diagnosis Recovery System™ so you can see how the assessment experience is designed to feel: clear, private, person-centred and focused on life beyond the diagnosis.
+                </p>
+                <p className="mt-4 max-w-2xl text-sm leading-relaxed text-white/65">
+                  The demo is part of an evolving pilot. It is not a diagnostic test, and demo responses should not be treated as clinical advice or a substitute for care.
+                </p>
+              </div>
+              <div className="flex md:justify-end">
+                <a
+                  href={bdrsDemo}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex w-full items-center justify-center gap-2 rounded-xl bg-teal px-7 py-4 font-semibold text-navy transition-colors hover:bg-teal-light md:w-auto"
+                >
+                  Open the Demo <ExternalLink className="size-4" />
+                </a>
+              </div>
             </div>
           </div>
         </div>
