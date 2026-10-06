@@ -20,7 +20,7 @@ export function Navbar() {
   return (
     <nav className="fixed top-0 left-0 right-0 z-50 bg-gray-50/95 backdrop-blur-md border-b border-navy/10 shadow-sm">
       <div className="container mx-auto">
-        <div className="flex items-center justify-between h-16 md:h-20">
+        <div className="flex items-center justify-between h-16 md:h-20 gap-3">
           <Link to="/" className="flex items-center gap-3 shrink-0" onClick={() => setIsOpen(false)}>
             <img src="/logo.png" alt="Healing Beyond Diagnosis Initiative" className="h-10 w-10 md:h-12 md:w-12 rounded-full" />
             <div className="hidden sm:block">
@@ -54,17 +54,29 @@ export function Navbar() {
             </a>
           </div>
 
-          <button
-            onClick={() => setIsOpen(!isOpen)}
-            className="lg:hidden flex flex-col gap-1.5 p-2 rounded-lg hover:bg-warm-gray transition-colors"
-            aria-label="Toggle menu"
-            aria-expanded={isOpen}
-            aria-controls="mobile-navigation"
-          >
-            <span className={`block w-6 h-0.5 bg-navy transition-transform ${isOpen ? "rotate-45 translate-y-2" : ""}`} />
-            <span className={`block w-6 h-0.5 bg-navy transition-opacity ${isOpen ? "opacity-0" : ""}`} />
-            <span className={`block w-6 h-0.5 bg-navy transition-transform ${isOpen ? "-rotate-45 -translate-y-2" : ""}`} />
-          </button>
+          <div className="lg:hidden flex items-center gap-2 ml-auto">
+            <a
+              href={COLIB_BOOKING_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center justify-center px-3.5 py-2 rounded-lg bg-teal text-white text-sm font-semibold shadow-sm hover:bg-teal-dark transition-colors whitespace-nowrap"
+              aria-label="Book an appointment with Healing Beyond Diagnosis"
+            >
+              Book
+            </a>
+
+            <button
+              onClick={() => setIsOpen(!isOpen)}
+              className="flex flex-col gap-1.5 p-2 rounded-lg hover:bg-warm-gray transition-colors"
+              aria-label="Toggle menu"
+              aria-expanded={isOpen}
+              aria-controls="mobile-navigation"
+            >
+              <span className={`block w-6 h-0.5 bg-navy transition-transform ${isOpen ? "rotate-45 translate-y-2" : ""}`} />
+              <span className={`block w-6 h-0.5 bg-navy transition-opacity ${isOpen ? "opacity-0" : ""}`} />
+              <span className={`block w-6 h-0.5 bg-navy transition-transform ${isOpen ? "-rotate-45 -translate-y-2" : ""}`} />
+            </button>
+          </div>
         </div>
 
         {isOpen && (
