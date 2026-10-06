@@ -11,6 +11,8 @@ const navLinks = [
   { to: "/contact", label: "Contact" },
 ];
 
+const COLIB_BOOKING_URL = "https://www.colib.io/Booking/healing-beyond-diagnosis-initiative";
+
 export function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
   const location = useLocation();
@@ -42,12 +44,14 @@ export function Navbar() {
                 {link.label}
               </Link>
             ))}
-            <button
-              type="button"
-              className="colib--widget--open ml-2 px-4 py-2 rounded-lg bg-teal text-white text-sm font-semibold hover:bg-teal-dark transition-colors shadow-sm"
+            <a
+              href={COLIB_BOOKING_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="ml-2 px-4 py-2 rounded-lg bg-teal text-white text-sm font-semibold hover:bg-teal-dark transition-colors shadow-sm"
             >
               Book Appointment
-            </button>
+            </a>
           </div>
 
           <button
@@ -81,13 +85,15 @@ export function Navbar() {
                   {link.label}
                 </Link>
               ))}
-              <button
-                type="button"
+              <a
+                href={COLIB_BOOKING_URL}
+                target="_blank"
+                rel="noopener noreferrer"
                 onClick={() => setIsOpen(false)}
-                className="colib--widget--open mx-2 mt-2 px-4 py-3 rounded-lg bg-teal text-white text-base font-semibold hover:bg-teal-dark transition-colors shadow-sm"
+                className="mx-2 mt-2 px-4 py-3 rounded-lg bg-teal text-white text-base font-semibold hover:bg-teal-dark transition-colors shadow-sm text-center"
               >
                 Book Appointment
-              </button>
+              </a>
             </div>
           </div>
         )}
