@@ -15,7 +15,7 @@ export function BdrsPage() {
             <h1 className="text-4xl font-bold leading-tight text-navy md:text-5xl">A person-centred system for the emotional side of recovery.</h1>
             <p className="max-w-3xl text-lg leading-relaxed text-navy/70">BDRS is HBDI’s recovery system for people living beyond a major injury, illness, disability, diagnosis or medical event. It brings together intake, stage-specific assessment, plain-language results, reflection and optional connections to practical supports.</p>
             <div className="flex flex-col gap-3 sm:flex-row sm:flex-wrap">
-              <a href={bdrsWebsite} target="_blank" rel="noopener noreferrer" className="inline-flex items-center justify-center gap-2 rounded-xl bg-teal px-7 py-3.5 font-semibold text-navy transition-colors hover:bg-teal-light">
+              <a href="https://bdrs.healingbeyonddiagnosis.ca/" target="_blank" rel="noopener noreferrer" className="inline-flex items-center justify-center gap-2 rounded-xl bg-teal px-7 py-3.5 font-semibold text-navy transition-colors hover:bg-teal-light">
                 Open BDRS <ExternalLink className="size-4" />
               </a>
               <a href={bdrsLogin} target="_blank" rel="noopener noreferrer" className="inline-flex items-center justify-center gap-2 rounded-xl border border-navy/20 bg-white px-7 py-3.5 font-semibold text-navy transition-colors hover:bg-gray-50">
