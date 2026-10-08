@@ -1,7 +1,7 @@
 import { ExternalLink, LogIn } from "lucide-react";
 
 const bdrsWebsite = "https://bdrs-platform-one.vercel.app";
-const bdrsLogin = `${bdrsWebsite}/login`;
+const bdrsLogin = "https://bdrs.healingbeyonddiagnosis.ca/login";
 const bdrsDemo = `${bdrsWebsite}/integration`;
 const bdrsDemoVideo = "https://youtu.be/M8xR_zApLV8?si=n3RWXpXXcPrb2C3r";
 
