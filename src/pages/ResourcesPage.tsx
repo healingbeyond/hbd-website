@@ -20,31 +20,6 @@ interface ResourceSection {
   emptyMessage?: string;
 }
 
-const featuredResources = [
-  {
-    title: "Five Pillars Assessment",
-    eyebrow: "For Individuals",
-    description: "Evaluate emotional rebuilding, identity alignment, and support structures.",
-    status: "Available now",
-    action: "Start Assessment",
-    to: "/resources/five-pillars",
-    icon: ClipboardCheck,
-    accent: "border-teal bg-teal/5",
-    badge: "bg-teal/15 text-teal-dark",
-  },
-  {
-    title: "HBDI Resource Navigator",
-    eyebrow: "Services and community support",
-    description: "Search Canadian services, programs, funding pathways and community support by province and need.",
-    status: "Available now",
-    action: "Find Support",
-    to: "/resources/resource-navigator",
-    icon: MapIcon,
-    accent: "border-navy bg-navy/5",
-    badge: "bg-navy/10 text-navy",
-  },
-];
-
 const sections: ResourceSection[] = [
   {
     id: "assessments",
