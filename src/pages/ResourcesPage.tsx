@@ -140,7 +140,7 @@ export function ResourcesPage() {
     const text = (item.title + " " + item.description + " " + item.status).toLowerCase();
     if (search.trim() && !text.includes(search.trim().toLowerCase())) return false;
     if (kind === "free" && !(/free|available now/i.test(item.status))) return false;
-    if (kind === "assessments" && !(/assessment|recovery companion/i.test(item.title))) return false;
+    if (kind === "assessments" && !(/assessment|recovery companion|BDRS/i.test(item.title))) return false;
     if (kind === "reading" && !(/pdf|amazon|podcast|journal/i.test(item.status + " " + item.title))) return false;
     return true;
   });
