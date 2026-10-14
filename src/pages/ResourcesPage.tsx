@@ -1,6 +1,6 @@
-import { BookOpen, ChevronDown, ClipboardCheck, Coffee, Compass, Headphones, HeartHandshake, Map as MapIcon } from "lucide-react";
+import { BookOpen, ClipboardCheck, Coffee, Compass, HeartHandshake, Map as MapIcon, Search, X } from "lucide-react";
 import { type ComponentType, useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useSearchParams } from "react-router-dom";
 
 interface ResourceItem {
   title: string;
@@ -127,93 +127,135 @@ function ResourceRow({ item }: { item: ResourceItem }) {
   );
 }
 
-function ResourceAccordion({ section }: { section: ResourceSection }) {
-  const [isOpen, setIsOpen] = useState(false);
-  const Icon = section.icon;
-  const panelId = `${section.id}-panel`;
-  const buttonId = `${section.id}-button`;
 
-  return (
-    <div className="overflow-hidden rounded-2xl border border-navy/10 bg-white shadow-sm">
-      <h2>
-        <button id={buttonId} type="button" aria-expanded={isOpen} aria-controls={panelId} onClick={() => setIsOpen((open) => !open)} className="flex w-full items-center gap-4 px-5 py-5 text-left transition-colors hover:bg-gray-50 sm:px-7">
-          <span className="flex size-11 shrink-0 items-center justify-center rounded-xl bg-teal/10 text-navy"><Icon className="size-5" aria-hidden="true" /></span>
-          <span className="min-w-0 flex-1">
-            <span className="block text-lg font-bold text-navy">{section.title}</span>
-            <span className="mt-1 block text-sm text-navy/70">{section.description}</span>
-          </span>
-          <ChevronDown aria-hidden="true" className={`size-5 shrink-0 text-navy/65 transition-transform ${isOpen ? "rotate-180" : ""}`} />
-        </button>
-      </h2>
-      <div id={panelId} role="region" aria-labelledby={buttonId} hidden={!isOpen} className="border-t border-navy/10 bg-gray-50 p-4 sm:p-6">
-        <div className="space-y-3">
-          {section.items.map((item) => <ResourceRow key={item.title} item={item} />)}
-          {section.emptyMessage ? <p className="rounded-xl border border-dashed border-navy/15 bg-white px-5 py-4 text-sm text-navy/70">{section.emptyMessage}</p> : null}
-        </div>
-      </div>
-    </div>
-  );
+type Pathway = "individual" | "caregiver" | "services" | "learning";
+const pathways = [
+  { id: "individual" as const, title: "Living With a Diagnosis or Injury", description: "Explore identity, grief, adjustment and recovery.", icon: Compass },
+  { id: "caregiver" as const, title: "Caregiver & Family Support", description: "Support for those caring for someone else.", icon: HeartHandshake },
+  { id: "services" as const, title: "Find Community Support", description: "Connect with services and practical help.", icon: MapIcon },
+  { id: "learning" as const, title: "Learning, Journals & Education", description: "Books, worksheets, podcasts and reflection.", icon: BookOpen },
+];
+
+const additionalResources: (ResourceItem & { categories: Pathway[] })[] = [
+  { title: "HBDI Resource Navigator", description: "Find services and supports based on your location and needs.", status: "Free online tool", action: "Find support", to: "/resources/resource-navigator", categories: ["services", "caregiver", "individual"] },
+  { title: "Five Pillars Assessment", description: "Explore identity, emotional rebuilding, and support structures.", status: "Available now", action: "Start assessment", to: "/resources/five-pillars", categories: ["individual"] },
+  { title: "Young Caregivers Association", description: "Find specialist support for young people in caregiving roles.", status: "External organization", action: "Visit organization", to: "https://youngcaregivers.ca/", external: true, categories: ["caregiver", "services"] },
+];
+
+function getCategories(title: string): Pathway[] {
+  if (title === "HBDI Caregiver Support Toolkit" || title.includes("Caregiver")) return ["caregiver", "individual"];
+  if (title === "Recovery Companion" || title === "Recovery Planning Tools" || title === "The Old You vs The New You" || title === "Invisible Grief Worksheets") return ["individual", "learning"];
+  if (title === "From Stuck to Grounded" || title === "Black Coffee & Wisdom Journal") return ["individual", "learning"];
+  return ["learning", "individual"];
 }
+const catalog = [
+  ...sections.flatMap(section => section.items.map(item => ({ ...item, categories: getCategories(item.title) }))),
+  ...additionalResources,
+];
 
 export function ResourcesPage() {
+  const [params, setParams] = useSearchParams();
+  const selected = params.get("path") as Pathway | null;
+  const activePath = pathways.some(path => path.id === selected) ? selected : null;
+  const [search, setSearch] = useState("");
+  const [kind, setKind] = useState("all");
+  const resourceTypes = ["all", "free", "assessments", "reading"];
+  const filtered = catalog.filter(item => {
+    if (activePath && !item.categories.includes(activePath)) return false;
+    const text = (item.title + " " + item.description + " " + item.status).toLowerCase();
+    if (search.trim() && !text.includes(search.trim().toLowerCase())) return false;
+    if (kind === "free" && !(/free|available now/i.test(item.status))) return false;
+    if (kind === "assessments" && !(/assessment|recovery companion/i.test(item.title))) return false;
+    if (kind === "reading" && !(/pdf|amazon|podcast|journal/i.test(item.status + " " + item.title))) return false;
+    return true;
+  });
+  const navigate = (value: Pathway | null) => {
+    setParams(value ? { path: value } : {});
+    setKind("all");
+    setSearch("");
+    document.getElementById("resource-results")?.scrollIntoView({ behavior: "smooth", block: "start" });
+  };
+
   return (
     <div>
-      <section className="bg-gray-100 py-14 md:py-20">
-        <div className="container mx-auto"><div className="mx-auto max-w-3xl space-y-6 text-center">
-          <p className="text-sm font-semibold uppercase tracking-widest text-navy/70">HBDI Library</p>
-          <h1 className="text-4xl font-bold leading-tight text-navy md:text-5xl">Resources &amp; Tools</h1>
-          <div className="mx-auto h-1 w-16 rounded-full bg-orange" />
-          <p className="text-lg leading-relaxed text-navy/65">Explore assessments, interactive tools and learning resources designed to support reflection and recovery.</p>
-        </div></div>
+      <section className="bg-gray-100 py-12 md:py-16">
+        <div className="container mx-auto max-w-5xl text-center">
+          <p className="text-sm font-semibold uppercase tracking-widest text-navy/70">HBDI Resource Library</p>
+          <h1 className="mt-3 text-4xl font-bold text-navy md:text-5xl">Find the support you need</h1>
+          <p className="mx-auto mt-4 max-w-2xl text-lg text-navy/70">Explore free guides, tools, assessments, and trusted resources for life beyond diagnosis.</p>
+        </div>
       </section>
 
-      <section className="bg-cream py-14 md:py-20" aria-labelledby="featured-resources-heading">
-        <div className="container mx-auto"><div className="mx-auto max-w-6xl">
-          <div className="mb-10 max-w-2xl">
-            <p className="text-sm font-semibold uppercase tracking-widest text-navy/70">Start here</p>
-            <h2 id="featured-resources-heading" className="mt-2 text-3xl font-bold text-navy">Featured Assessments &amp; Tools</h2>
-          </div>
-          <div className="grid gap-6 md:grid-cols-2">
-            {featuredResources.map((resource) => {
-              const Icon = resource.icon;
+      <section className="bg-cream py-10 md:py-14">
+        <div className="container mx-auto max-w-6xl">
+          <h2 className="mb-5 text-2xl font-bold text-navy">What brings you here today?</h2>
+          <div className="grid gap-4 sm:grid-cols-2">
+            {pathways.map(path => {
+              const Icon = path.icon;
               return (
-                <article key={resource.title} className={`flex flex-col rounded-2xl border-t-4 p-7 shadow-sm ${resource.accent}`}>
-                  <div className="flex items-start justify-between gap-4">
-                    <span className="flex size-12 items-center justify-center rounded-xl bg-white text-navy shadow-sm"><Icon className="size-6" aria-hidden="true" /></span>
-                    <span className={`rounded-full px-3 py-1 text-xs font-semibold ${resource.badge}`}>{resource.status}</span>
-                  </div>
-                  <h3 className="mt-6 text-2xl font-bold text-navy">{resource.title}</h3>
-                  <p className="mt-1 text-sm font-semibold text-navy/70">{resource.eyebrow}</p>
-                  <p className="mt-4 flex-1 leading-relaxed text-navy/70">{resource.description}</p>
-                  {resource.to ? (
-                    <Link to={resource.to} className="mt-6 inline-flex items-center justify-center rounded-xl bg-navy px-5 py-3 font-semibold text-cream transition-colors hover:bg-navy-light">{resource.action}</Link>
-                  ) : (
-                    <button type="button" disabled className="mt-6 cursor-not-allowed rounded-xl bg-navy/10 px-5 py-3 font-semibold text-navy/65">{resource.action}</button>
-                  )}
-                </article>
+                <button key={path.id} type="button" onClick={() => navigate(path.id)}
+                  aria-pressed={activePath === path.id}
+                  className={`flex min-h-32 items-start gap-4 rounded-2xl border-2 p-5 text-left shadow-sm transition hover:border-teal ${activePath === path.id ? "border-teal bg-teal/10" : "border-navy/10 bg-white"}`}>
+                  <span className="rounded-xl bg-teal/10 p-3 text-navy"><Icon className="size-6" /></span>
+                  <span><span className="block text-lg font-bold text-navy">{path.title}</span><span className="mt-1 block text-sm text-navy/65">{path.description}</span></span>
+                </button>
               );
             })}
           </div>
-        </div></div>
+        </div>
       </section>
 
-      <section className="bg-gray-100 py-14 md:py-20" aria-labelledby="browse-resources-heading">
-        <div className="container mx-auto"><div className="mx-auto max-w-4xl">
-          <div className="mb-8">
-            <p className="text-sm font-semibold uppercase tracking-widest text-navy/70">Browse by category</p>
-            <h2 id="browse-resources-heading" className="mt-2 text-3xl font-bold text-navy">Resource Library</h2>
+      <section className="bg-gray-100 py-12 md:py-16" id="resource-results">
+        <div className="container mx-auto max-w-5xl">
+          <div className="mb-5 flex flex-wrap items-center justify-between gap-3">
+            <div>
+              <p className="text-sm font-semibold uppercase tracking-widest text-navy/65">Browse and search</p>
+              <h2 className="text-3xl font-bold text-navy">{activePath ? pathways.find(p => p.id === activePath)?.title : "All resources"}</h2>
+            </div>
+            {activePath && <button onClick={() => navigate(null)} className="inline-flex items-center gap-2 rounded-lg border border-navy/20 bg-white px-4 py-2 font-semibold text-navy"><X className="size-4" /> View all pathways</button>}
           </div>
-          <div className="space-y-4">{sections.map((section) => <ResourceAccordion key={section.id} section={section} />)}</div>
-        </div></div>
+          <label className="flex items-center gap-3 rounded-xl border border-navy/20 bg-white px-4 py-3">
+            <Search className="size-5 text-navy/60" />
+            <span className="sr-only">Search all resources</span>
+            <input type="search" value={search} onChange={e => setSearch(e.target.value)} placeholder="Search caregiver burnout, grief, stroke recovery..." className="w-full bg-transparent text-navy outline-none placeholder:text-navy/45" />
+          </label>
+          <div className="my-5 flex flex-wrap gap-2" aria-label="Filter resource types">
+            {resourceTypes.map(type => (
+              <button key={type} type="button" onClick={() => setKind(type)} aria-pressed={kind === type}
+                className={`rounded-full border px-4 py-2 text-sm font-semibold capitalize ${kind === type ? "border-navy bg-navy text-cream" : "border-navy/15 bg-white text-navy hover:border-teal"}`}>
+                {type === "all" ? "All types" : type === "free" ? "Free resources" : type === "assessments" ? "Assessments & tools" : "Reading & listening"}
+              </button>
+            ))}
+          </div>
+          <p aria-live="polite" className="mb-4 text-sm text-navy/65">{filtered.length} resource{filtered.length === 1 ? "" : "s"} found</p>
+          <div className="grid gap-3">
+            {filtered.map(item => <ResourceRow key={item.title + item.to} item={item} />)}
+            {filtered.length === 0 && <div className="rounded-xl bg-white p-8 text-center text-navy/70">No resources match those filters. Try another search or view all resources.</div>}
+          </div>
+        </div>
       </section>
 
-      <section className="bg-cream py-14">
-        <div className="container mx-auto"><div className="mx-auto flex max-w-3xl flex-col items-center gap-5 text-center">
-          <HeartHandshake className="size-8 text-teal-dark" aria-hidden="true" />
-          <h2 className="text-2xl font-bold text-navy">Need help finding the right starting point?</h2>
-          <p className="text-navy/60">Contact HBDI with a question about the resources currently available.</p>
-          <Link to="/contact" className="inline-flex items-center justify-center rounded-xl bg-teal px-6 py-3 font-semibold text-navy transition-colors hover:bg-teal-light">Get In Touch</Link>
-        </div></div>
+      <section className="bg-cream py-12">
+        <div className="container mx-auto max-w-5xl">
+          <div className="grid gap-4 md:grid-cols-2">
+            <div className="rounded-2xl border-t-4 border-teal bg-white p-6">
+              <h2 className="text-xl font-bold text-navy">Featured: Caregiver Support Toolkit</h2>
+              <p className="mt-2 text-navy/65">Free practical worksheets to help caregivers plan, communicate, and protect their own well-being.</p>
+              <a href="/HBDI_Caregiver_Support_Toolkit_2026.pdf" target="_blank" rel="noopener noreferrer" className="mt-4 inline-flex rounded-lg bg-navy px-5 py-3 font-semibold text-cream">Open free toolkit</a>
+            </div>
+            <div className="rounded-2xl border-t-4 border-teal bg-white p-6">
+              <h2 className="text-xl font-bold text-navy">Need help finding services?</h2>
+              <p className="mt-2 text-navy/65">Use HBDI’s public Resource Navigator for support programs and community connections.</p>
+              <Link to="/resources/resource-navigator" className="mt-4 inline-flex rounded-lg bg-navy px-5 py-3 font-semibold text-cream">Open Resource Navigator</Link>
+            </div>
+          </div>
+          <div className="mt-10 text-center">
+            <HeartHandshake className="mx-auto size-8 text-teal-dark" />
+            <h2 className="mt-3 text-2xl font-bold text-navy">Still not sure where to start?</h2>
+            <p className="mt-2 text-navy/65">Contact HBDI with your question.</p>
+            <Link to="/contact" className="mt-4 inline-flex rounded-xl bg-teal px-6 py-3 font-semibold text-navy">Get in touch</Link>
+          </div>
+        </div>
       </section>
     </div>
   );
