@@ -4,7 +4,7 @@ interface ResourceSection {
   icon: string;
   title: string;
   description: string;
-  items: { title: string; description: string; type: string }[];
+  items: { title: string; description: string; type: string; href?: string }[];
 }
 
 const sections: ResourceSection[] = [
@@ -70,6 +70,13 @@ const sections: ResourceSection[] = [
     description: "Dedicated resources for caregivers navigating their own invisible journey.",
     items: [
       {
+        title: "Caregiver Support Toolkit",
+        description: "Free downloadable guide with caregiver check-ins, hospital-to-home preparation, communication planning, support mapping, and practical reflection worksheets.",
+        type: "PDF",
+        href: "/HBDI_Caregiver_Support_Toolkit_2026.pdf",
+      },
+
+      {
         title: "Caregiver Assessment",
         description: "A self-reflection tool specifically for caregivers — measuring strain, burnout, and well-being.",
         type: "Assessment",
@@ -126,6 +133,7 @@ const sections: ResourceSection[] = [
 
 function TypeBadge({ type }: { type: string }) {
   const colors: Record<string, string> = {
+    PDF: "bg-teal/10 text-teal-dark",
     Book: "bg-orange/10 text-orange-dark",
     Worksheet: "bg-teal/10 text-teal-dark",
     Assessment: "bg-navy/10 text-navy",
@@ -185,7 +193,14 @@ export function ResourcesPage() {
                           <h3 className="text-lg font-bold text-navy">{item.title}</h3>
                           <p className="text-navy/60 leading-relaxed">{item.description}</p>
                         </div>
-                        <TypeBadge type={item.type} />
+                        <div className="flex flex-col items-end gap-3">
+                          <TypeBadge type={item.type} />
+                          {item.href && (
+                            <a href={item.href} download className="px-4 py-2 rounded-lg bg-teal text-navy font-semibold text-sm hover:bg-teal-light transition-colors whitespace-nowrap">
+                              Download free PDF
+                            </a>
+                          )}
+                        </div>
                       </div>
                     </div>
                   ))}
