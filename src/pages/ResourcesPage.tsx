@@ -1,4 +1,4 @@
-import { BookOpen, ClipboardCheck, Coffee, Compass, HeartHandshake, Map as MapIcon, Search, X } from "lucide-react";
+import { BookOpen, ClipboardCheck, Coffee, Compass, Headphones, HeartHandshake, Map as MapIcon, Search, X } from "lucide-react";
 import { type ComponentType, useState } from "react";
 import { Link, useSearchParams } from "react-router-dom";
 
