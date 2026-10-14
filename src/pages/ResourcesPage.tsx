@@ -76,6 +76,15 @@ const sections: ResourceSection[] = [
     ],
   },
   {
+    id: "caregiver-support",
+    title: "Caregiver Support",
+    description: "Free practical tools for people supporting a loved one after illness, injury or diagnosis.",
+    icon: HeartHandshake,
+    items: [
+      { title: "HBDI Caregiver Support Toolkit", description: "A free 13-page guide covering caregiver well-being, preparing for discharge, changing roles, communication, support circles and finding help.", status: "Free downloadable PDF", action: "Open caregiver toolkit", to: "/HBDI_Caregiver_Support_Toolkit_2026.pdf", external: true },
+    ],
+  },
+  {
     id: "books-guides",
     title: "Books & Guides",
     description: "Long-form resources and practical guidance.",
