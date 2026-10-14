@@ -113,7 +113,7 @@ const pathways = [
 
 const additionalResources: (ResourceItem & { categories: Pathway[] })[] = [
   { title: "HBDI Resource Navigator", description: "Find services and supports based on your location and needs.", status: "Free online tool", action: "Find support", to: "/resources/resource-navigator", categories: ["services", "caregiver", "individual"] },
-  { title: "Five Pillars Assessment", description: "Explore identity, emotional rebuilding, and support structures.", status: "Available now", action: "Start assessment", to: "/resources/five-pillars", categories: ["individual"] },
+  { title: "Beyond Diagnosis Recovery System (BDRS)", description: "HBDI’s structured recovery system brings together survivor and caregiver assessment tools, reflection, and support planning in a secure member environment. Login is required.", status: "Member login required", action: "Open BDRS", to: "https://bdrs.healingbeyonddiagnosis.ca/login", external: true, categories: ["individual", "caregiver"] },
   { title: "Young Caregivers Association", description: "Find specialist support for young people in caregiving roles.", status: "External organization", action: "Visit organization", to: "https://youngcaregivers.ca/", external: true, categories: ["caregiver", "services"] },
 ];
 
