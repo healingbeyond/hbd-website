@@ -34,7 +34,7 @@ const sections: ResourceSection[] = [
     title: "Interactive Tools",
     description: "Digital tools that support reflection and day-to-day recovery.",
     icon: Compass,
-    items: [{ title: "Recovery Companion", description: "Daily check-ins, guided reflection, companion lessons and emotional recovery support.", status: "Available now", action: "Open", to: "/resources/recovery-companion" }],
+    items: [{ title: "STEPH / SARA", description: "Person-centred aging support and assessment.", status: "Available now", action: "Explore", to: "/steph-sara" }, { title: "Recovery Companion", description: "Daily check-ins, guided reflection, companion lessons and emotional recovery support.", status: "Available now", action: "Open", to: "/resources/recovery-companion" }],
   },
   {
     id: "journals-worksheets",

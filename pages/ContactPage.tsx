@@ -42,7 +42,58 @@ export function ContactPage() {
             </h1>
             <div className="w-16 h-1 bg-teal mx-auto rounded-full" />
             <p className="text-cream/60 text-lg leading-relaxed">
-              Have a question, want to connect, or interested in the initiative? Reach out.
+              Book a session, access your client portal, or get in touch with Healing Beyond Diagnosis.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      {/* Booking Paths */}
+      <section className="py-14 md:py-20 bg-warm-gray border-b border-navy/5">
+        <div className="container mx-auto">
+          <div className="max-w-4xl mx-auto">
+            <div className="text-center space-y-4 mb-10">
+              <p className="text-teal-dark text-sm font-semibold tracking-widest uppercase">Start Here</p>
+              <h2 className="text-3xl md:text-4xl font-bold text-navy">Choose Your Path</h2>
+              <p className="text-navy/60 text-lg max-w-2xl mx-auto">
+                New to HBDI and ready to book? Use the public scheduler. Already connected with us? Go directly to your secure client portal.
+              </p>
+            </div>
+
+            <div className="grid md:grid-cols-2 gap-6">
+              <div className="bg-white rounded-2xl p-8 border border-navy/5 shadow-sm flex flex-col">
+                <p className="text-teal-dark text-sm font-semibold uppercase tracking-wider mb-3">New to HBDI</p>
+                <h3 className="text-2xl font-bold text-navy mb-3">Book a Session</h3>
+                <p className="text-navy/60 leading-relaxed mb-8 flex-1">
+                  Choose an available appointment through our Colib booking scheduler. You do not need a client portal account to make your first booking.
+                </p>
+                <button
+                  type="button"
+                  className="colib--widget--open w-full inline-flex items-center justify-center px-6 py-4 bg-teal text-navy font-semibold rounded-xl text-lg hover:bg-teal-light transition-all shadow-sm"
+                >
+                  Open Booking Scheduler
+                </button>
+              </div>
+
+              <div className="bg-white rounded-2xl p-8 border border-navy/5 shadow-sm flex flex-col">
+                <p className="text-orange text-sm font-semibold uppercase tracking-wider mb-3">Already a Client</p>
+                <h3 className="text-2xl font-bold text-navy mb-3">Client Portal</h3>
+                <p className="text-navy/60 leading-relaxed mb-8 flex-1">
+                  Access your secure Colib portal to manage appointments, complete forms, view documents and invoices, or use secure messaging.
+                </p>
+                <a
+                  href="https://portal.colib.io"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="w-full inline-flex items-center justify-center px-6 py-4 bg-navy text-cream font-semibold rounded-xl text-lg hover:bg-navy-light transition-all shadow-sm"
+                >
+                  Open Client Portal
+                </a>
+              </div>
+            </div>
+
+            <p className="text-center text-navy/45 text-sm mt-6">
+              Not sure which path applies to you? Send us a message below and we can help.
             </p>
           </div>
         </div>

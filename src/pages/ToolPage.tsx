@@ -23,11 +23,11 @@ const toolsMap: Record<string, ToolInfo> = {
   },
   caregiver: {
     id: "caregiver",
-    title: "Caregiver Pillar Path Assessment",
+    title: "Caregiver Assessment",
     audience: "For Caregivers",
     description:
-      "Explore caregiver strain, invisible grief, and personal well-being while supporting someone you care about.",
-    iframeSrc: "https://bdrs.healingbeyonddiagnosis.ca/caregiver",
+      "Measure caregiver strain, invisible grief, and personal well-being while supporting someone you love.",
+    iframeSrc: "https://caregiver-assessment-263c6cf5.viktor.space/",
     icon: HeartHandshake,
   },
   "recovery-companion": {
@@ -50,7 +50,7 @@ const toolsMap: Record<string, ToolInfo> = {
     title: "Resource Navigator",
     description:
       "Canadian resource search. Funding finder. Caregiver supports. Recovery resources. Crisis pathways.",
-    iframeSrc: "https://resource-navigator-9b053b90.viktor.space/",
+    iframeSrc: "https://fastidious-wisp-754d57.netlify.app/",
     icon: Map,
   },
 };

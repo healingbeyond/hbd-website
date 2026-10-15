@@ -1,65 +1,91 @@
-import { Link } from "react-router-dom";
-import { ArrowRight, Building2, ClipboardCheck, HeartHandshake, Search, Users } from "lucide-react";
+import { ExternalLink, LogIn } from "lucide-react";
 
-const steps = [
-  { number: "01", title: "Listen to the person", text: "Begin with lived experience, priorities and the changes that may be difficult to name." },
-  { number: "02", title: "Understand the picture", text: "Use structured reflection to explore identity, energy, emotional resilience, planning and support." },
-  { number: "03", title: "Shape the next conversation", text: "Turn what is learned into clearer questions, priorities and connections to appropriate support." },
-];
+const bdrsWebsite = "https://bdrs-platform-one.vercel.app";
+const bdrsLogin = "https://bdrs.healingbeyonddiagnosis.ca/login";
+const bdrsDemo = `${bdrsWebsite}/integration`;
+const bdrsDemoVideo = "https://youtu.be/M8xR_zApLV8?si=n3RWXpXXcPrb2C3r";
 
 export function BdrsPage() {
-  return <div>
-    <section className="relative overflow-hidden bg-gray-100 py-16 md:py-24">
-      <div className="absolute inset-y-0 right-0 w-1/2 bg-gradient-to-l from-teal/10 to-transparent" />
-      <div className="container relative mx-auto">
-        <div className="max-w-4xl">
-          <p className="text-sm font-semibold uppercase tracking-widest text-navy/70">Beyond Diagnosis Recovery System™</p>
-          <h1 className="mt-4 text-4xl font-bold leading-tight text-navy md:text-6xl">A person-centred system for the emotional side of recovery.</h1>
-          <p className="mt-6 max-w-3xl text-xl leading-relaxed text-navy/70">BDRS is a developing framework designed to help people and caregivers make sense of identity change, invisible grief, emotional recovery and life after a life-changing diagnosis.</p>
-          <div className="mt-8 flex flex-col gap-4 sm:flex-row">
-            <Link to="/contact" className="inline-flex items-center justify-center gap-2 rounded-xl bg-teal px-7 py-3.5 font-semibold text-navy transition-colors hover:bg-teal-light">Partner with HBDI <ArrowRight className="size-4" aria-hidden="true" /></Link>
-            <Link to="/resources" className="inline-flex items-center justify-center rounded-xl border-2 border-navy/15 px-7 py-3.5 font-semibold text-navy transition-colors hover:bg-white">Explore public resources</Link>
+  return (
+    <div>
+      <section className="bg-gray-100 py-16 md:py-24">
+        <div className="container mx-auto">
+          <div className="mx-auto max-w-4xl space-y-6">
+            <p className="text-sm font-semibold uppercase tracking-widest text-teal-dark">Beyond Diagnosis Recovery System™</p>
+            <h1 className="text-4xl font-bold leading-tight text-navy md:text-5xl">A person-centred system for the emotional side of recovery.</h1>
+            <p className="max-w-3xl text-lg leading-relaxed text-navy/70">BDRS is HBDI’s recovery system for people living beyond a major injury, illness, disability, diagnosis or medical event. It brings together intake, stage-specific assessment, plain-language results, reflection and optional connections to practical supports.</p>
+            <div className="flex flex-col gap-3 sm:flex-row sm:flex-wrap">
+              <a href="https://bdrs.healingbeyonddiagnosis.ca/" target="_blank" rel="noopener noreferrer" className="inline-flex items-center justify-center gap-2 rounded-xl bg-teal px-7 py-3.5 font-semibold text-navy transition-colors hover:bg-teal-light">
+                Open BDRS <ExternalLink className="size-4" />
+              </a>
+              <a href={bdrsLogin} target="_blank" rel="noopener noreferrer" className="inline-flex items-center justify-center gap-2 rounded-xl border border-navy/20 bg-white px-7 py-3.5 font-semibold text-navy transition-colors hover:bg-gray-50">
+                Member Login <LogIn className="size-4" />
+              </a>
+              <a href="/resources" className="inline-flex items-center justify-center rounded-xl border border-navy/20 bg-white px-7 py-3.5 font-semibold text-navy transition-colors hover:bg-gray-50">Explore public resources</a>
+            </div>
           </div>
         </div>
-      </div>
-    </section>
+      </section>
 
-    <section className="bg-cream py-14 md:py-20">
-      <div className="container mx-auto grid gap-10 lg:grid-cols-[0.9fr_1.1fr] lg:gap-16">
-        <div><p className="text-sm font-semibold uppercase tracking-widest text-navy/70">Why BDRS</p><h2 className="mt-3 text-3xl font-bold leading-tight text-navy md:text-4xl">Recovery changes more than the body.</h2></div>
-        <div className="space-y-5 text-lg leading-relaxed text-navy/70">
-          <p>Clinical care can address injury, illness and immediate rehabilitation needs while grief, identity, relationships, purpose and caregiver strain remain less visible.</p>
-          <p>BDRS creates a structured way to recognize those experiences and support better conversations. It is educational and reflective; it does not diagnose, treat or replace professional care.</p>
+      <section className="bg-white py-16 md:py-20">
+        <div className="container mx-auto">
+          <div className="mx-auto max-w-5xl overflow-hidden rounded-3xl border border-navy/10 bg-navy p-8 text-white shadow-sm md:p-12">
+            <div className="grid gap-8 md:grid-cols-[1.4fr_0.6fr] md:items-center">
+              <div>
+                <p className="text-sm font-semibold uppercase tracking-widest text-teal-light">See what we’re building</p>
+                <h2 className="mt-3 text-3xl font-bold md:text-4xl">Experience the BDRS participant demo.</h2>
+                <p className="mt-4 max-w-2xl leading-relaxed text-white/80">
+                  This public demo walks through the participant side of the Beyond Diagnosis Recovery System™ so you can see how the assessment experience is designed to feel: clear, private, person-centred and focused on life beyond the diagnosis.
+                </p>
+                <p className="mt-4 max-w-2xl text-sm leading-relaxed text-white/65">
+                  The demo is part of an evolving pilot. It is not a diagnostic test, and demo responses should not be treated as clinical advice or a substitute for care.
+                </p>
+              </div>
+              <div className="flex flex-col gap-3 md:items-end">
+                <a
+                  href={bdrsDemo}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex w-full items-center justify-center gap-2 rounded-xl bg-teal px-7 py-4 font-semibold text-navy transition-colors hover:bg-teal-light md:w-auto"
+                >
+                  Open the Demo <ExternalLink className="size-4" />
+                </a>
+                <a
+                  href={bdrsDemoVideo}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex w-full items-center justify-center gap-2 rounded-xl border border-white/20 bg-white/10 px-7 py-4 font-semibold text-white transition-colors hover:bg-white/15 md:w-auto"
+                >
+                  Watch Demo Video <ExternalLink className="size-4" />
+                </a>
+              </div>
+            </div>
+          </div>
         </div>
-      </div>
-    </section>
+      </section>
 
-    <section className="bg-gray-100 py-14 md:py-20">
-      <div className="container mx-auto">
-        <div className="max-w-3xl"><p className="text-sm font-semibold uppercase tracking-widest text-navy/70">How it works</p><h2 className="mt-3 text-3xl font-bold text-navy md:text-4xl">From experience to a clearer next step.</h2></div>
-        <div className="mt-10 grid gap-6 md:grid-cols-3">{steps.map(step => <article key={step.number} className="rounded-2xl border border-navy/10 bg-white p-7 shadow-sm"><span className="text-sm font-bold text-orange-dark">{step.number}</span><h3 className="mt-4 text-xl font-bold text-navy">{step.title}</h3><p className="mt-3 leading-relaxed text-navy/65">{step.text}</p></article>)}</div>
-      </div>
-    </section>
-
-    <section className="bg-white py-14 md:py-20">
-      <div className="container mx-auto">
-        <div className="max-w-3xl"><p className="text-sm font-semibold uppercase tracking-widest text-navy/70">The developing system</p><h2 className="mt-3 text-3xl font-bold text-navy md:text-4xl">Different tools. Different purposes.</h2><p className="mt-4 text-lg leading-relaxed text-navy/65">The Five Pillars Assessment and the Beyond Diagnosis Recovery Assessment (BDRA) are separate tools within the wider work.</p></div>
-        <div className="mt-10 grid gap-6 md:grid-cols-2">
-          <article className="border-t-4 border-teal bg-gray-50 p-7"><ClipboardCheck className="size-7 text-teal-dark" aria-hidden="true" /><h3 className="mt-4 text-xl font-bold text-navy">Five Pillars Assessment</h3><p className="mt-3 leading-relaxed text-navy/65">A public self-reflection tool that helps individuals consider key parts of emotional rebuilding.</p><Link to="/resources/five-pillars" className="mt-5 inline-flex items-center gap-2 font-semibold text-teal-dark">Open the public assessment <ArrowRight className="size-4" aria-hidden="true" /></Link></article>
-          <article className="border-t-4 border-navy bg-gray-50 p-7"><Search className="size-7 text-navy" aria-hidden="true" /><h3 className="mt-4 text-xl font-bold text-navy">BDRA</h3><p className="mt-3 leading-relaxed text-navy/65">A separate assessment being developed and evaluated within the secured BDRS pilot environment. Its questions, scoring and participant information are not published here.</p></article>
+      <section className="bg-cream py-16 md:py-20">
+        <div className="container mx-auto">
+          <div className="mx-auto grid max-w-5xl gap-6 md:grid-cols-2">
+            <article className="rounded-2xl border border-navy/10 bg-white p-7">
+              <h2 className="text-2xl font-bold text-navy">The BDRA pathway</h2>
+              <p className="mt-3 leading-relaxed text-navy/70">The five-part BDRA flow is Intake → Stage 1 Beyond Diagnosis Recovery Assessment → Stage 2 Integration → Stage 3 Transformation → Follow-Up.</p>
+            </article>
+            <article className="rounded-2xl border border-navy/10 bg-white p-7">
+              <h2 className="text-2xl font-bold text-navy">Separate BDRS tools</h2>
+              <p className="mt-3 leading-relaxed text-navy/70">The Five Pillars and Caregiver Assessment are separate from the five-part BDRA flow. Each keeps its own purpose, questions and interpretation.</p>
+            </article>
+            <article className="rounded-2xl border border-navy/10 bg-white p-7">
+              <h2 className="text-2xl font-bold text-navy">What happens after an assessment?</h2>
+              <p className="mt-3 leading-relaxed text-navy/70">Participants can review a plain-language summary, see areas that may be worth exploring further and choose whether to open relevant Resource Navigator support categories.</p>
+            </article>
+            <article className="rounded-2xl border border-navy/10 bg-white p-7">
+              <h2 className="text-2xl font-bold text-navy">What it is not</h2>
+              <p className="mt-3 leading-relaxed text-navy/70">BDRS is not a diagnostic test and does not tell a person which service they must use. It organizes reflection, identifies possible support areas and keeps the individual in control of what happens next.</p>
+            </article>
+          </div>
         </div>
-      </div>
-    </section>
-
-    <section className="bg-cream py-14 md:py-20">
-      <div className="container mx-auto">
-        <div className="grid gap-6 md:grid-cols-3">
-          <article className="rounded-2xl bg-white p-7"><HeartHandshake className="size-7 text-teal-dark" aria-hidden="true" /><h3 className="mt-4 text-xl font-bold text-navy">Recovery Partners</h3><p className="mt-3 text-navy/65">The system recognizes supportive people and caregivers as part of the recovery picture while keeping the individual at the centre.</p></article>
-          <article className="rounded-2xl bg-white p-7"><Building2 className="size-7 text-orange-dark" aria-hidden="true" /><h3 className="mt-4 text-xl font-bold text-navy">For Organizations</h3><p className="mt-3 text-navy/65">HBDI is exploring how BDRS may complement community, rehabilitation and caregiver-support conversations.</p></article>
-          <article className="rounded-2xl bg-white p-7"><Users className="size-7 text-navy" aria-hidden="true" /><h3 className="mt-4 text-xl font-bold text-navy">Research &amp; Evaluation</h3><p className="mt-3 text-navy/65">BDRS remains in development. HBDI is seeking independent collaboration to examine its tools and strengthen the evidence behind them.</p></article>
-        </div>
-        <div className="mt-12 text-center"><h2 className="text-3xl font-bold text-navy">Interested in the work?</h2><p className="mx-auto mt-4 max-w-2xl text-navy/65">Connect with HBDI about research, evaluation, community use or partnership opportunities.</p><Link to="/contact" className="mt-6 inline-flex items-center justify-center gap-2 rounded-xl bg-navy px-7 py-3.5 font-semibold text-cream hover:bg-navy-light">Contact HBDI <ArrowRight className="size-4" aria-hidden="true" /></Link></div>
-      </div>
-    </section>
-  </div>;
+      </section>
+    </div>
+  );
 }

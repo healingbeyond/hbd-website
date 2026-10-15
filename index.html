@@ -19,6 +19,22 @@
   </head>
   <body>
     <div id="root"></div>
+
+    <div style="display: none" id="overlayBookingColib" class="colib--widget--overlay"></div>
+    <div id="modalBookingColib" style="display: none" class="colib--widget--scroller modalColib">
+      <div class="modalBookingColibWrapper">
+        <span class="closeModalBookingColib" aria-label="Close booking window">x</span>
+        <iframe
+          src="https://www.colib.io/Booking/healing-beyond-diagnosis-initiative?i=true"
+          id="colibIFrame"
+          frameborder="0"
+          allowtransparency="true"
+          title="Request an Appointment"
+        ></iframe>
+      </div>
+    </div>
+
     <script type="module" src="/src/main.tsx"></script>
+    <script src="https://www.colib.io/Scripts/Widget/ColibWidget.js"></script>
   </body>
 </html>
