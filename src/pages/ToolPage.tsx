@@ -21,7 +21,7 @@ const toolsMap: Record<string, ToolInfo> = {
     iframeSrc: "https://five-pillars-assessment-c9231a24.viktor.space/",
     icon: ClipboardCheck,
   },
-  caregiver: {
+  "caregiver-assessment": {
     id: "caregiver",
     title: "Caregiver Assessment",
     audience: "For Caregivers",
