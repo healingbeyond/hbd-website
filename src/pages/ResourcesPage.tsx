@@ -47,7 +47,7 @@ const sections: ResourceSection[] = [
       { title: "Invisible Grief Worksheets", description: "Guided reflection on grief after diagnosis, injury or a life-changing event.", status: "Free printable PDF", action: "Open worksheets", to: "/resources/invisible-grief-worksheets.pdf", external: true },
       { title: "Caregiver Reflection Sheets", description: "Reflection prompts created for caregivers navigating change, strain and their own emotional well-being.", status: "Free printable PDF", action: "Open reflection sheets", to: "/resources/caregiver-reflection-sheets.pdf", external: true },
       { title: "Recovery Planning Tools", description: "Practical worksheets for identifying needs, priorities, supports and next steps in recovery.", status: "Free printable PDF", action: "Open planning tools", to: "/resources/recovery-planning-tools.pdf", external: true },
-      { title: "The Old You vs The New You", description: "A guided reflection on identity change - who you were, who you are now, and who you are becoming.", status: "Free printable PDF", action: "Open worksheet", to: "/resources/the-old-you-vs-the-new-you-worksheet.pdf", external: true },
+      { title: "The Old You vs The New You", description: "A guided reflection on identity change - who you were, who you are now, and who you are becoming.", status: "Free printable worksheet", action: "Open worksheet", to: "/resources/the-old-you-vs-the-new-you-worksheet.html", external: true },
     ],
   },
   {
