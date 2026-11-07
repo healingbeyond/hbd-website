@@ -46,13 +46,13 @@ export function PublicAppRoutes() {
           <Route path="/steph-sara" element={<StephSaraPage />} />
           <Route path="/assessments" element={<Navigate to="/resources" replace />} />
           <Route path="/assessments/five-pillars" element={<Navigate to="/bdrs" replace />} />
-          <Route path="/assessments/caregiver" element={<Navigate to="/bdrs" replace />} />
+          <Route path="/assessments/caregiver" element={<Navigate to="/resources/caregiver" replace />} />
           <Route path="/assessments/:toolId" element={<ToolPage />} />
           <Route path="/podcast" element={<PodcastPage />} />
           <Route path="/resources" element={<ResourcesPage />} />
           <Route path="/resources/bdra" element={<Navigate to="/bdrs" replace />} />
           <Route path="/resources/five-pillars" element={<Navigate to="/bdrs" replace />} />
-          <Route path="/resources/caregiver" element={<Navigate to="/bdrs" replace />} />
+          <Route path="/resources/caregiver" element={<ToolPage />} />
           <Route path="/resources/:toolId" element={<ToolPage />} />
           <Route path="/contact" element={<ContactPage />} />
         </Route>
