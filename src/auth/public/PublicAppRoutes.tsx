@@ -52,7 +52,7 @@ export function PublicAppRoutes() {
           <Route path="/resources" element={<ResourcesPage />} />
           <Route path="/resources/bdra" element={<Navigate to="/bdrs" replace />} />
           <Route path="/resources/five-pillars" element={<Navigate to="/bdrs" replace />} />
-          <Route path="/resources/caregiver" element={<ToolPage />} />
+          <Route path="/resources/caregiver" element={<Navigate to="/resources/caregiver-assessment" replace />} />
           <Route path="/resources/:toolId" element={<ToolPage />} />
           <Route path="/contact" element={<ContactPage />} />
         </Route>
