@@ -95,7 +95,7 @@ const pathways = [
 ];
 
 const additionalResources: (ResourceItem & { categories: Pathway[] })[] = [
-  { title: "HBDI Resource Navigator", description: "Find services and supports based on your location and needs.", status: "Free online tool", action: "Find support", to: "/resources/resource-navigator", categories: ["services", "caregiver", "individual"] },
+  { title: "Free HBDI Resource Navigator", description: "Find public community resources and services in Ontario. For specialized 211-based navigation, use the BDRS member platform.", status: "Free online tool", action: "Open free Navigator", to: "https://resources.healingbeyonddiagnosis.ca/", external: true, categories: ["services", "caregiver", "individual"] },
   { title: "Beyond Diagnosis Recovery System (BDRS)", description: "Access HBDI’s recovery system, including the separate BDRA, Five Pillars and Caregiver Assessment tools. Member login is required.", status: "Member login required", action: "Open BDRS", to: "https://bdrs.healingbeyonddiagnosis.ca/login", external: true, categories: ["individual", "caregiver"] },
   { title: "Young Caregivers Association", description: "Find specialist support for young people in caregiving roles.", status: "External organization", action: "Visit organization", to: "https://youngcaregivers.ca/", external: true, categories: ["caregiver", "services"] },
 ];
@@ -195,14 +195,7 @@ export function ResourcesPage() {
 
       <section className="bg-cream py-12">
         <div className="container mx-auto max-w-5xl">
-          <div className="grid gap-4">
-            <div className="rounded-2xl border-t-4 border-teal bg-white p-6">
-              <h2 className="text-xl font-bold text-navy">Need help finding services?</h2>
-              <p className="mt-2 text-navy/65">Use HBDI’s public Resource Navigator for support programs and community connections.</p>
-              <Link to="/resources/resource-navigator" className="mt-4 inline-flex rounded-lg bg-navy px-5 py-3 font-semibold text-cream">Open Resource Navigator</Link>
-            </div>
-          </div>
-          <div className="mt-10 text-center">
+          <div className="text-center">
             <HeartHandshake className="mx-auto size-8 text-teal-dark" />
             <h2 className="mt-3 text-2xl font-bold text-navy">Still not sure where to start?</h2>
             <p className="mt-2 text-navy/65">Contact HBDI with your question.</p>
