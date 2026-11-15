@@ -56,7 +56,7 @@ const sections: ResourceSection[] = [
     description: "Free practical tools for people supporting a loved one after illness, injury or diagnosis.",
     icon: HeartHandshake,
     items: [
-      { title: "HBDI Caregiver Support Toolkit", description: "A free 13-page guide covering caregiver well-being, preparing for discharge, changing roles, communication, support circles and finding help.", status: "Free downloadable PDF", action: "Open caregiver toolkit", to: "/HBDI_Caregiver_Support_Toolkit_2026.pdf", external: true },
+      { title: "Caregiver Assessment", description: "Explore caregiver strain, invisible grief and personal well-being using HBDI’s free self-reflection assessment.", status: "Available now", action: "Start assessment", to: "/resources/caregiver" },
     ],
   },
   {
@@ -118,7 +118,7 @@ const additionalResources: (ResourceItem & { categories: Pathway[] })[] = [
 ];
 
 function getCategories(title: string): Pathway[] {
-  if (title === "HBDI Caregiver Support Toolkit" || title.includes("Caregiver")) return ["caregiver", "individual"];
+  if (title.includes("Caregiver")) return ["caregiver", "individual"];
   if (title === "Recovery Companion" || title === "Recovery Planning Tools" || title === "The Old You vs The New You" || title === "Invisible Grief Worksheets") return ["individual", "learning"];
   if (title === "From Stuck to Grounded" || title === "Black Coffee & Wisdom Journal") return ["individual", "learning"];
   return ["learning", "individual"];
@@ -214,9 +214,9 @@ export function ResourcesPage() {
         <div className="container mx-auto max-w-5xl">
           <div className="grid gap-4 md:grid-cols-2">
             <div className="rounded-2xl border-t-4 border-teal bg-white p-6">
-              <h2 className="text-xl font-bold text-navy">Featured: Caregiver Support Toolkit</h2>
-              <p className="mt-2 text-navy/65">Free practical worksheets to help caregivers plan, communicate, and protect their own well-being.</p>
-              <a href="/HBDI_Caregiver_Support_Toolkit_2026.pdf" target="_blank" rel="noopener noreferrer" className="mt-4 inline-flex rounded-lg bg-navy px-5 py-3 font-semibold text-cream">Open free toolkit</a>
+              <h2 className="text-xl font-bold text-navy">Caregiver Assessment</h2>
+              <p className="mt-2 text-navy/65">Explore caregiver strain, invisible grief and your own well-being with a free self-reflection tool.</p>
+              <Link to="/resources/caregiver" className="mt-4 inline-flex rounded-lg bg-navy px-5 py-3 font-semibold text-cream">Start caregiver assessment</Link>
             </div>
             <div className="rounded-2xl border-t-4 border-teal bg-white p-6">
               <h2 className="text-xl font-bold text-navy">Need help finding services?</h2>
