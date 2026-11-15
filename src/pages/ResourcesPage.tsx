@@ -1,4 +1,4 @@
-import { BookOpen, ClipboardCheck, Coffee, Compass, Headphones, HeartHandshake, Map as MapIcon, Search, X } from "lucide-react";
+import { BookOpen, Coffee, Compass, Headphones, HeartHandshake, Map as MapIcon, Search, X } from "lucide-react";
 import { type ComponentType, useState } from "react";
 import { Link, useSearchParams } from "react-router-dom";
 
@@ -22,14 +22,6 @@ interface ResourceSection {
 
 const sections: ResourceSection[] = [
   {
-    id: "assessments",
-    title: "Assessments & Quizzes",
-    description: "Structured self-reflection for individuals and caregivers.",
-    icon: ClipboardCheck,
-    items: [{ title: "Caregiver Pillar Path Assessment", description: "A public self-reflection tool for exploring caregiver strain, invisible grief and personal well-being. Responses are not saved or recorded.", status: "Available now", action: "Start", to: "/resources/caregiver" }],
-    emptyMessage: "Additional self-reflection quizzes will be added when they are available.",
-  },
-  {
     id: "interactive-tools",
     title: "Interactive Tools",
     description: "Digital tools that support reflection and day-to-day recovery.",
@@ -48,15 +40,6 @@ const sections: ResourceSection[] = [
       { title: "Caregiver Reflection Sheets", description: "Reflection prompts created for caregivers navigating change, strain and their own emotional well-being.", status: "Free printable PDF", action: "Open reflection sheets", to: "/resources/caregiver-reflection-sheets.pdf", external: true },
       { title: "Recovery Planning Tools", description: "Practical worksheets for identifying needs, priorities, supports and next steps in recovery.", status: "Free printable PDF", action: "Open planning tools", to: "/resources/recovery-planning-tools.pdf", external: true },
       { title: "The Old You vs The New You", description: "A guided reflection on identity change - who you were, who you are now, and who you are becoming.", status: "Free printable worksheet", action: "Open worksheet", to: "/resources/the-old-you-vs-the-new-you-worksheet.html", external: true },
-    ],
-  },
-  {
-    id: "caregiver-support",
-    title: "Caregiver Support",
-    description: "Free practical tools for people supporting a loved one after illness, injury or diagnosis.",
-    icon: HeartHandshake,
-    items: [
-      { title: "Caregiver Assessment", description: "Explore caregiver strain, invisible grief and personal well-being using HBDI’s free self-reflection assessment.", status: "Available now", action: "Start assessment", to: "/resources/caregiver" },
     ],
   },
   {
@@ -113,7 +96,7 @@ const pathways = [
 
 const additionalResources: (ResourceItem & { categories: Pathway[] })[] = [
   { title: "HBDI Resource Navigator", description: "Find services and supports based on your location and needs.", status: "Free online tool", action: "Find support", to: "/resources/resource-navigator", categories: ["services", "caregiver", "individual"] },
-  { title: "Beyond Diagnosis Recovery System (BDRS)", description: "HBDI’s structured recovery system brings together survivor and caregiver assessment tools, reflection, and support planning in a secure member environment. Login is required.", status: "Member login required", action: "Open BDRS", to: "https://bdrs.healingbeyonddiagnosis.ca/login", external: true, categories: ["individual", "caregiver"] },
+  { title: "Beyond Diagnosis Recovery System (BDRS)", description: "Access HBDI’s recovery system, including the separate BDRA, Five Pillars and Caregiver Assessment tools. Member login is required.", status: "Member login required", action: "Open BDRS", to: "https://bdrs.healingbeyonddiagnosis.ca/login", external: true, categories: ["individual", "caregiver"] },
   { title: "Young Caregivers Association", description: "Find specialist support for young people in caregiving roles.", status: "External organization", action: "Visit organization", to: "https://youngcaregivers.ca/", external: true, categories: ["caregiver", "services"] },
 ];
 
@@ -212,12 +195,7 @@ export function ResourcesPage() {
 
       <section className="bg-cream py-12">
         <div className="container mx-auto max-w-5xl">
-          <div className="grid gap-4 md:grid-cols-2">
-            <div className="rounded-2xl border-t-4 border-teal bg-white p-6">
-              <h2 className="text-xl font-bold text-navy">Caregiver Assessment</h2>
-              <p className="mt-2 text-navy/65">Explore caregiver strain, invisible grief and your own well-being with a free self-reflection tool.</p>
-              <Link to="/resources/caregiver" className="mt-4 inline-flex rounded-lg bg-navy px-5 py-3 font-semibold text-cream">Start caregiver assessment</Link>
-            </div>
+          <div className="grid gap-4">
             <div className="rounded-2xl border-t-4 border-teal bg-white p-6">
               <h2 className="text-xl font-bold text-navy">Need help finding services?</h2>
               <p className="mt-2 text-navy/65">Use HBDI’s public Resource Navigator for support programs and community connections.</p>
