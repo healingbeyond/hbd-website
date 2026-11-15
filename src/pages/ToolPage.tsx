@@ -49,8 +49,8 @@ const toolsMap: Record<string, ToolInfo> = {
     id: "resource-navigator",
     title: "Resource Navigator",
     description:
-      "Canadian resource search. Funding finder. Caregiver supports. Recovery resources. Crisis pathways.",
-    iframeSrc: "https://fastidious-wisp-754d57.netlify.app/",
+      "Free public resource navigation to help Ontario residents find community services and support.",
+    iframeSrc: "https://resources.healingbeyonddiagnosis.ca/",
     icon: Map,
   },
 };
