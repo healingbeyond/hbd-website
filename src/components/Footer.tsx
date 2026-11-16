@@ -34,6 +34,7 @@ export function Footer() {
             <h3 className="text-teal font-semibold text-sm tracking-widest uppercase">Contact</h3>
             <div className="space-y-2">
               <p className="text-cream/60 text-sm">Corey Furnival, Founder</p>
+              <a href="tel:+18669673652" className="block text-teal hover:text-teal-light transition-colors text-sm">1-866-967-3652 (toll-free)</a>
               <a href="mailto:corey@healingbeyonddiagnosis.ca" className="text-teal hover:text-teal-light transition-colors text-sm">corey@healingbeyonddiagnosis.ca</a>
             </div>
           </div>
