@@ -79,6 +79,11 @@ export function ContactPage() {
                 </div>
 
                 <div className="space-y-2">
+                  <p className="text-navy/65 text-sm font-semibold uppercase tracking-wider">Toll-free phone</p>
+                  <a href="tel:+18669673652" className="text-teal text-lg font-medium hover:text-teal-dark transition-colors">1-866-967-3652</a>
+                </div>
+
+                <div className="space-y-2">
                   <p className="text-navy/65 text-sm font-semibold uppercase tracking-wider">
                     Email
                   </p>
