@@ -16,16 +16,39 @@ const dimensions = [
   { title: "Resilience", text: "Adapting and rebuilding without reducing recovery to simply pushing through." },
 ];
 
-const credentials = [
-  { title: "Social Service Worker (SSW) Diploma — Canadore College" },
-  { title: "Certified Grief Coach" },
-  { title: "Certified in Neurodivergence" },
-  { title: "Certified in Cognitive Behavioral Therapy (CBT)" },
-  { title: "Advanced Grief Counseling Certification" },
-  { title: "Certified Clinical Trauma Professional (CCTP)" },
-  { title: "Grief Work in Virtual Settings Certification" },
-  { title: "Complex Trauma Training — Dr. Janina Fisher" },
-  { title: "Trauma Defined — Bessel van der Kolk, MD" },
+const credentialGroups = [
+  {
+    heading: "Professional registration and education",
+    items: [
+      "Registered Social Service Worker (RSSW) — OCSWSSW (registration restrictions apply)",
+      "Social Service Worker Diploma — Canadore College",
+    ],
+  },
+  {
+    heading: "Professional certifications",
+    items: [
+      "Certified Clinical Trauma Professional (CCTP), Levels I and II",
+      "Certified Grief Coach",
+      "Cognitive Behavioural Therapy (CBT) Certification",
+      "Neurodivergence Certification",
+      "Neuropsychology Coach Certification",
+      "Shame-Informed Treatment Certification",
+      "Advanced Grief Counselling Certification Course — PESI",
+      "Grief Work in Virtual Settings Certification — PESI",
+    ],
+  },
+  {
+    heading: "Specialized training and continuing education",
+    items: [
+      "Complex Trauma Training — Dr. Janina Fisher",
+      "Trauma Defined: The Body Keeps the Score — Dr. Bessel van der Kolk",
+      "Shame and the Disowned Self",
+      "Overcoming Trauma-Related Shame and Self-Loathing — PESI",
+      "Working with Somatic Components to Overcome Trauma-Related Fears of Feeling Good — PESI",
+      "The Missing Stage of Grief: Anxiety in the Wake of Loss",
+      "Brain Basics eLearning — Ontario Brain Injury Association",
+    ],
+  },
 ];
 
 function SectionHeading({ eyebrow, title, intro }: { eyebrow: string; title: string; intro?: string }) {
@@ -135,7 +158,7 @@ export function AboutPage() {
         <div className="container mx-auto grid gap-10 lg:grid-cols-[0.75fr_1.25fr] lg:items-start lg:gap-16">
           <div>
             <p className="text-sm font-semibold uppercase tracking-widest text-navy/70">6 · Founder and Lived Experience</p>
-            <h2 className="mt-3 text-3xl font-bold text-navy">Corey Furnival</h2>
+            <h2 className="mt-3 text-3xl font-bold text-navy">Corey Furnival, RSSW</h2>
             <p className="mt-2 font-semibold text-orange-dark">Founder, Healing Beyond Diagnosis Initiative</p>
           </div>
           <div className="space-y-5 text-lg leading-relaxed text-navy/70">
@@ -147,17 +170,23 @@ export function AboutPage() {
 
       <section className="bg-cream py-14 md:py-20">
         <div className="container mx-auto">
-          <SectionHeading eyebrow="7 · Credentials and Training" title="Training that informs the work" intro="The titles below are retained exactly as documented in the existing HBDI repository." />
-          <div className="mt-9 divide-y divide-navy/10 border-y border-navy/10 md:grid md:grid-cols-2 md:divide-y-0">
-            {credentials.map((credential) => (
-              <div key={credential.title} className="flex items-start gap-3 py-4 md:border-b md:border-navy/10 md:pr-8 even:md:border-l even:md:pl-8">
-                <CheckCircle2 className="mt-0.5 size-5 shrink-0 text-teal-dark" aria-hidden="true" />
-                <div>
-                  <p className="text-sm font-semibold text-navy">{credential.title}</p>
+          <SectionHeading eyebrow="7 · Credentials and Training" title="Professional qualifications and specialized training" intro="A combination of regulated professional registration, postsecondary education, certifications, and ongoing professional development informs this work." />
+          <div className="mt-10 space-y-10">
+            {credentialGroups.map((group) => (
+              <div key={group.heading}>
+                <h3 className="text-xl font-bold text-navy">{group.heading}</h3>
+                <div className="mt-4 grid gap-x-10 gap-y-1 border-t border-navy/10 sm:grid-cols-2">
+                  {group.items.map((credential) => (
+                    <div key={credential} className="flex items-start gap-3 border-b border-navy/10 py-4">
+                      <CheckCircle2 className="mt-0.5 size-5 shrink-0 text-teal-dark" aria-hidden="true" />
+                      <p className="text-sm font-medium leading-relaxed text-navy">{credential}</p>
+                    </div>
+                  ))}
                 </div>
               </div>
             ))}
           </div>
+          <p className="mt-7 text-sm leading-relaxed text-navy/60">Professional training and continuing education are not equivalent to regulatory licensure. HBDI resources do not replace regulated medical, psychological, or rehabilitation care.</p>
         </div>
       </section>
 
